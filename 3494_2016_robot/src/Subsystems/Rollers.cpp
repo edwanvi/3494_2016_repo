@@ -2,9 +2,10 @@
 #include "../RobotMap.h"
 
 Rollers::Rollers() :
-		Subsystem("ExampleSubsystem")
+		Subsystem("Rollers")
 {
-
+	//create a talon object to control the rollers
+	talon_rollers = new CANTalon(Rollers);
 }
 
 void Rollers::InitDefaultCommand()
