@@ -47,18 +47,21 @@ void DriveTrain::TankDrive(float leftAxis, float rightAxis)
 
 	int leftSign = 1;
 	int rightSign = 1;
-
+// establishes sign value when below zero
+// the axis value, which is negative, is negated to be positive
+// The value is then taken to a power and then multiplied by the sign value	
 	if (leftAxis < 0) {
-			leftSign = -1;
-			leftAxis = leftAxis * -1;
-		}
+		leftSign = -1;
+		leftAxis = leftAxis * -1;
+	}
 
-		if (rightAxis < 0) {
-			rightSign = -1;
-			rightAxis = rightAxis * -1;
-		}
-
+	if (rightAxis < 0) {
+		rightSign = -1;
+		rightAxis = rightAxis * -1;
+	}
+	
 	float leftValue = leftSign * pow(leftAxis, power);
+	
 	float rightValue = rightSign * pow(rightAxis, power);
 
 	LeftTalonMaster->Set(leftValue);
