@@ -25,6 +25,4 @@ void CommandBase::init()
 	//examplesubsystem.reset(new ExampleSubsystem());
 
 	oi.reset(new OI());
-	rollers = new Rollers();
-	driveTrain = new DriveTrain();
 }
