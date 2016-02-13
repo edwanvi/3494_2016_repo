@@ -3,9 +3,8 @@
 
 #include <string>
 #include "Commands/Command.h"
-#include "Subsystems/Rollers.h"
 #include "Subsystems/DriveTrain.h"
-
+#include "Subsystems/Rollers.h"
 #include "OI.h"
 #include "WPILib.h"
 
@@ -24,7 +23,7 @@ public:
 	//static std::unique_ptr<ExampleSubsystem> examplesubsystem;
 	static OI* oi;
 	static DriveTrain* driveTrain;
-	static Rollers* rollers;
+	static Rollers* roller;
 };
 
 #endif

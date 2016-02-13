@@ -5,7 +5,7 @@
 //std::unique_ptr<ExampleSubsystem> CommandBase::examplesubsystem;
 OI* CommandBase::oi = NULL;
 DriveTrain* CommandBase::driveTrain = NULL;
-Rollers* CommandBase::rollers = NULL;
+Rollers* CommandBase::roller = NULL;
 CommandBase::CommandBase(const std::string &name) :
 		Command(name)
 {
@@ -22,7 +22,7 @@ void CommandBase::init()
 	// Create a single static instance of all of your subsystems. The following
 	// line should be repeated for each subsystem in the project.
 	//examplesubsystem.reset(new ExampleSubsystem());
-	rollers = new Rollers();
+	roller = new Rollers();
 	oi = new OI();
 	driveTrain = new DriveTrain();
 }
