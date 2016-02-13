@@ -25,6 +25,9 @@ OI::OI()
 	buttonRB_2 = new JoystickButton(controller_2, 6);
 	buttonStart_2 = new JoystickButton(controller_2, 8);
 	buttonSelect_2 = new JoystickButton(controller_2, 7);
+
+	buttonLB->WhenPressed(new RunRollers(true));
+	buttonRB->WhenPressed(new RunRollers(false));
 }
 //these methods all basically do what they say they do in their name so yeah
 float OI::GetLeftJoystick() {
