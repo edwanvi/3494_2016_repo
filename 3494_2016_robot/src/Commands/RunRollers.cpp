@@ -4,6 +4,7 @@ RunRollers::RunRollers(bool direction)
 {
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(chassis);
+	bool forward = direction;
 }
 
 // Called just before this Command runs the first time
@@ -15,7 +16,7 @@ void RunRollers::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void RunRollers::Execute()
 {
-	CommandBase::roller->Roll(true);
+	CommandBase::roller->Roll(forward);
 }
 
 // Make this return true when this Command no longer needs to run execute()
