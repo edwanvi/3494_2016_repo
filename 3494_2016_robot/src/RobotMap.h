@@ -19,11 +19,9 @@
 // number and the module. For example you with a rangefinder:
 //const int RANGE_FINDER_PORT = 1;
 //const int RANGE_FINDER_MODULE = 1;
-<<<<<<< HEAD
+
 const int ROLLERS_MOTOR = 666;
-=======
-const int ROLLERS_MOTORS = 666;
->>>>>>> branch 'master' of https://github.com/tkdberger/3494_2016_repo.git
+
 
 const int LEFT_MOTOR_MASTER = 1; // the values assigned are temporary until talon values are identified
 const int LEFT_MOTOR_FOLLOWER = 2;
