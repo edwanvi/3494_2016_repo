@@ -7,8 +7,10 @@
 
 class RunRollers: public CommandBase
 {
+private:
+	bool direction;
 public:
-	RunRollers(bool direction);
+	RunRollers(bool _direction);
 	void Initialize();
 	void Execute();
 	bool IsFinished();
