@@ -21,7 +21,7 @@ public:
 	static void init();
 	// Create a single static instance of all of your subsystems
 	//static std::unique_ptr<ExampleSubsystem> examplesubsystem;
-	static std::unique_ptr<OI> oi;
+	static OI* oi;
 	static DriveTrain* driveTrain;
 	static Rollers* roller;
 };

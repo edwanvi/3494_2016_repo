@@ -1,5 +1,6 @@
 #include "DriveTrain.h"
 #include "../RobotMap.h"
+#include "math.h"
 
 DriveTrain::DriveTrain() :
 		Subsystem("DriveTrain")
@@ -43,11 +44,13 @@ void DriveTrain::InitDefaultCommand()
 
 void DriveTrain::TankDrive(float leftAxis, float rightAxis)
 {
-	float power = 2;
+
 
 	int leftSign = 1;
 	int rightSign = 1;
-	//Make sure the values of leftAxis and rightAxis are > 0
+// establishes sign value when below zero
+// the axis value, which is negative, is negated to be positive
+// The value is then taken to a power and then multiplied by the sign value	
 	if (leftAxis < 0) {
 		leftSign = -1;
 		leftAxis = leftAxis * -1;
@@ -57,9 +60,9 @@ void DriveTrain::TankDrive(float leftAxis, float rightAxis)
 		rightSign = -1;
 		rightAxis = rightAxis * -1;
 	}
-	//leftValue = leftSign * (leftAxis^2)
+	
 	float leftValue = leftSign * pow(leftAxis, power);
-	//rightValue = rightSign * (rightAxis^2)
+	
 	float rightValue = rightSign * pow(rightAxis, power);
 	//drive the master talons. the others /will/ follow.
 	LeftTalonMaster->Set(leftValue);

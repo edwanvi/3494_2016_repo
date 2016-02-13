@@ -1,40 +1,38 @@
-#include "Drive.h"
+#include "Roll.h"
 
-Drive::Drive()
+Roll::Roll()
 {
 	// Use Requires() here to declare subsystem dependencies
-	Requires(CommandBase::driveTrain);
+	Requires(CommandBase::rollers);
 }
 
 // Called just before this Command runs the first time
-void Drive::Initialize()
+void Roll::Initialize()
 {
-	SmartDashboard::init();
+
 }
 
 // Called repeatedly when this Command is scheduled to run
-void Drive::Execute()
+void Roll::Execute()
 {
-	float leftThrottle = oi->GetLeftJoystick();
-	float rightThrottle = oi->GetRightJoystick();
-	CommandBase::driveTrain->TankDrive(leftThrottle, rightThrottle);
+
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool Drive::IsFinished()
+bool Roll::IsFinished()
 {
 	return false;
 }
 
 // Called once after isFinished returns true
-void Drive::End()
+void Roll::End()
 {
 
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void Drive::Interrupted()
+void Roll::Interrupted()
 {
 
 }

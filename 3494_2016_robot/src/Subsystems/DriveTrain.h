@@ -14,6 +14,8 @@ private:
 	CANTalon* RightTalonMaster;
 	CANTalon* RightTalonFollower;
 	CANTalon* RightTalonFollower_2;
+
+	float power = 2;
 	// It's desirable that everything possible under private except
 	// for methods that implement subsystem capabilities
 public:
