@@ -6,6 +6,8 @@ Rollers::Rollers() :
 {
 	//create a talon object to control the rollers
 	talon_rollers = new CANTalon(Rollers);
+	talon_rollers -> EnableControl();
+	talon_rollers -> SetSafetyEnabled(false);
 }
 
 void Rollers::InitDefaultCommand()
