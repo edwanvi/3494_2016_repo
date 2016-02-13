@@ -3,7 +3,7 @@
 Drive::Drive()
 {
 	// Use Requires() here to declare subsystem dependencies
-	// eg. Requires(chassis);
+	Requires(CommandBase::driveTrain);
 }
 
 // Called just before this Command runs the first time
