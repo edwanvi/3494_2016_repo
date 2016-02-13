@@ -3,6 +3,7 @@
 
 #include "../CommandBase.h"
 #include "WPILib.h"
+#include "Subsystems/Rollers.h"
 
 class RunRollers: public CommandBase
 {

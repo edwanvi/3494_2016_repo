@@ -16,6 +16,8 @@ void RunRollers::Initialize()
 void RunRollers::Execute()
 {
 	//CommandBase::rollers->Roll();
+
+	CommandBase::roller->Roll(true);
 }
 
 // Make this return true when this Command no longer needs to run execute()
