@@ -26,6 +26,7 @@ OI::OI()
 	buttonStart_2 = new JoystickButton(controller_2, 8);
 	buttonSelect_2 = new JoystickButton(controller_2, 7);
 }
+//these methods all basically do what they say they do in their name so yeah
 float OI::GetLeftJoystick() {
 	return 1 * controller->GetRawAxis(1);
 }
