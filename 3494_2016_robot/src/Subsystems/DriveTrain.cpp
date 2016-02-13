@@ -63,7 +63,7 @@ void DriveTrain::TankDrive(float leftAxis, float rightAxis)
 	float leftValue = leftSign * pow(leftAxis, power);
 	
 	float rightValue = rightSign * pow(rightAxis, power);
-
+	//drive the master talons. the others /will/ follow.
 	LeftTalonMaster->Set(leftValue);
 	RightTalonMaster->Set(rightValue);
 
