@@ -2,6 +2,7 @@
 #define RunRollers_H
 
 #include "../CommandBase.h"
+#include "Subsystems/Rollers.h"
 #include "WPILib.h"
 
 class RunRollers: public CommandBase
