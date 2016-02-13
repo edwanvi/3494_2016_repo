@@ -19,6 +19,7 @@ private:
 public:
 	DriveTrain();
 	void InitDefaultCommand();
+	void TankDrive(float Left_Axis, float Right_Axis);
 };
 
 #endif

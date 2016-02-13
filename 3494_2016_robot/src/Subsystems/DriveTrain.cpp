@@ -9,23 +9,26 @@ DriveTrain::DriveTrain() :
 	LeftTalonFollower = new CANTalon(LEFT_MOTOR_FOLLOWER);		//	1 talon is assigned for each CIM
 	LeftTalonFollower_2 = new CANTalon(LEFT_MOTOR_FOLLOWER_2);	//	3 CIM per gearbox
 	LeftTalonMaster->EnableControl();
-	LeftTalonFollower->EnableControl();
-	LeftTalonFollower_2->EnableControl();
 	LeftTalonMaster->SetSafetyEnabled(false);
-	LeftTalonMaster->Set(0);
+	LeftTalonFollower->EnableControl();
+	LeftTalonFollower->SetControlMode(CANSpeedController::kFollower);
+	LeftTalonFollower->Set(LEFT_MOTOR_MASTER);
+	LeftTalonFollower_2->EnableControl();
+	LeftTalonFollower_2->SetControlMode(CANSpeedController::kFollower);
+	LeftTalonFollower_2->Set(LEFT_MOTOR_MASTER);
 ////////////////////////////////////////////////////////////
 	RightTalonMaster = new CANTalon (RIGHT_MOTOR_MASTER);		//	Right Talon motor subgroup
 	RightTalonFollower = new CANTalon(RIGHT_MOTOR_FOLLOWER);	//	Same parameters as for the Left talons
 	RightTalonFollower_2 = new CANTalon(RIGHT_MOTOR_FOLLOWER_2);
 	RightTalonMaster->EnableControl();
-	RightTalonFollower->EnableControl();
-	RightTalonFollower_2->EnableControl();
 	RightTalonMaster->SetSafetyEnabled(false);
-	RightTalonMaster->Set(0);
+	RightTalonFollower->EnableControl();
+	RightTalonFollower->SetControlMode(CANSpeedController::kFollower);
+	RightTalonFollower->Set(RIGHT_MOTOR_MASTER);
+	RightTalonFollower_2->EnableControl();
+	RightTalonFollower_2->SetControlMode(CANSpeedController::kFollower);
+	RightTalonFollower_2->Set(RIGHT_MOTOR_MASTER);
 ////////////////////////////////////////////////////////////
-
-
-
 }
 
 void DriveTrain::InitDefaultCommand()
@@ -36,3 +39,29 @@ void DriveTrain::InitDefaultCommand()
 
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
+
+
+void DriveTrain::TankDrive(float leftAxis, float rightAxis)
+{
+	float power = 2;
+
+	int leftSign = 1;
+	int rightSign = 1;
+
+	if (leftAxis < 0) {
+			leftSign = -1;
+			leftAxis = leftAxis * -1;
+		}
+
+		if (rightAxis < 0) {
+			rightSign = -1;
+			rightAxis = rightAxis * -1;
+		}
+
+	float leftValue = leftSign * pow(leftAxis, power);
+	float rightValue = rightSign * pow(rightAxis, power);
+
+	LeftTalonMaster->Set(leftValue);
+	RightTalonMaster->Set(rightValue);
+
+}
