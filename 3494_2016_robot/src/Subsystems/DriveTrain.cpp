@@ -43,7 +43,7 @@ void DriveTrain::InitDefaultCommand()
 
 void DriveTrain::TankDrive(float leftAxis, float rightAxis)
 {
-	float power = 2;
+
 
 	int leftSign = 1;
 	int rightSign = 1;
