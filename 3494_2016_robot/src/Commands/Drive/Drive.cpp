@@ -17,6 +17,7 @@ void Drive::Execute()
 {
 	float leftThrottle = oi->GetLeftJoystick();
 	float rightThrottle = oi->GetRightJoystick();
+	CommandBase::driveTrain->TankDrive(leftThrottle, rightThrottle);
 }
 
 // Make this return true when this Command no longer needs to run execute()

@@ -17,7 +17,7 @@ OI::OI()
 	buttonStart = new JoystickButton(controller, 8);
 	buttonSelect = new JoystickButton(controller, 7);
 
-	buttonA_2 = new JoystickButton(controller_2, 2);//2  //  xbox or whats
+	buttonA_2 = new JoystickButton(controller_2, 2);//2  //  xbox
 	buttonB_2 = new JoystickButton(controller_2, 3);
 	buttonX_2 = new JoystickButton(controller_2, 1);
 	buttonY_2 = new JoystickButton(controller_2, 4);
