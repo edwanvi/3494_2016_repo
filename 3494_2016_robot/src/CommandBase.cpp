@@ -5,7 +5,7 @@
 //std::unique_ptr<ExampleSubsystem> CommandBase::examplesubsystem;
 std::unique_ptr<OI> CommandBase::oi;
 DriveTrain* CommandBase::driveTrain = NULL;
-Rollers* CommandBase::rollers = NULL;
+Rollers* CommandBase::roller = NULL;
 
 CommandBase::CommandBase(const std::string &name) :
 		Command(name)

@@ -4,7 +4,6 @@ RunRollers::RunRollers(bool direction)
 {
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(chassis);
-	bool forward = direction;
 }
 
 // Called just before this Command runs the first time
