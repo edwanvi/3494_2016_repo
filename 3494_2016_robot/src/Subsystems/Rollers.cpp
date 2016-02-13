@@ -18,6 +18,11 @@ void Rollers::InitDefaultCommand()
 
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
-void Rollers::Roll(double speed){
-	talon_rollers->Set(speed);
+void Rollers::Roll(bool forward){
+	if (forward == true){
+		talon_rollers->Set(1);
+	}
+	else {
+		talon_rollers->Set(-1);
+	}
 }

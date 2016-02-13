@@ -5,6 +5,7 @@
 //std::unique_ptr<ExampleSubsystem> CommandBase::examplesubsystem;
 std::unique_ptr<OI> CommandBase::oi;
 DriveTrain* CommandBase::driveTrain = NULL;
+Rollers* CommandBase::rollers = NULL;
 
 CommandBase::CommandBase(const std::string &name) :
 		Command(name)
@@ -24,4 +25,6 @@ void CommandBase::init()
 	//examplesubsystem.reset(new ExampleSubsystem());
 
 	oi.reset(new OI());
+	rollers = new Rollers();
+	driveTrain = new DriveTrain();
 }
