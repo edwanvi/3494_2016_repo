@@ -25,5 +25,49 @@ OI::OI()
 	buttonRB_2 = new JoystickButton(controller_2, 6);
 	buttonStart_2 = new JoystickButton(controller_2, 8);
 	buttonSelect_2 = new JoystickButton(controller_2, 7);
+}
+float OI::GetLeftJoystick() {
+	return 1 * controller->GetRawAxis(1);
+}
 
+float OI::GetRightJoystick() {
+	return -1 * controller->GetRawAxis(5);
+}
+
+float OI::GetLeftJoystick_2(){
+	return -1 * controller_2->GetRawAxis(1);
+}
+
+float OI::GetRightJoystick_2(){
+	return -1 * controller_2->GetRawAxis(5);
+}
+
+float OI::GetLeftTrigger() {
+	return controller->GetRawAxis(2);
+}
+
+float OI::GetRightTrigger() {
+	return controller->GetRawAxis(3);
+}
+int OI::GetDPad_2() {
+	return controller_2->GetPOV();
+}
+
+int OI::GetDPad() {
+	return controller->GetPOV();
+}
+float OI::GetLeftTrigger_2() {
+	return controller_2->GetRawAxis(2);
+}
+
+float OI::GetRightTrigger_2() {
+	return controller_2->GetRawAxis(3);
+}
+
+float OI::GetLeftBumper() {
+	return controller->GetRawButton(5);
+}
+
+float OI::GetRightBumper() {
+	return controller->GetRawButton(6);
 }

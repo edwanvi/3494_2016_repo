@@ -27,6 +27,20 @@ public:
 	JoystickButton* buttonStart_2;
 	JoystickButton* buttonSelect_2;
 	OI();
+	float GetLeftJoystick();
+	float GetRightJoystick();
+	float GetLeftTrigger();
+	float GetRightTrigger();
+	float GetLeftJoystick_2();
+	float GetRightJoystick_2();
+	int GetDPad();
+	int GetDPad_2();
+	float GetLeftTrigger_2();
+	float GetRightTrigger_2();
+	float GetLeftBumper();
+	float GetRightBumper();
+	float GetRightJoystickStrafe();
+
 };
 
 #endif
