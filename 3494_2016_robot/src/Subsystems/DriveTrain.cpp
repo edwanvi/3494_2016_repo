@@ -30,6 +30,10 @@ DriveTrain::DriveTrain() :
 	RightTalonFollower_2->SetControlMode(CANSpeedController::kFollower);
 	RightTalonFollower_2->Set(RIGHT_MOTOR_MASTER);
 ////////////////////////////////////////////////////////////
+	pdp = new PowerDistributionPanel();
+////////////////////////////////////////////////////////////
+	SmartDashboard::init();
+////////////////////////////////////////////////////////////
 }
 
 void DriveTrain::InitDefaultCommand()
@@ -44,13 +48,14 @@ void DriveTrain::InitDefaultCommand()
 
 void DriveTrain::TankDrive(float leftAxis, float rightAxis)
 {
+// Monitors the total current draw of the robot
+	SmartDashboard::PutNumber("Current",PowerDistOutput() );
 
-
-	int leftSign = 1;
-	int rightSign = 1;
 // establishes sign value when below zero
 // the axis value, which is negative, is negated to be positive
 // The value is then taken to a power and then multiplied by the sign value	
+	int leftSign = 1;
+	int rightSign = 1;
 	if (leftAxis < 0) {
 		leftSign = -1;
 		leftAxis = leftAxis * -1;
@@ -67,5 +72,11 @@ void DriveTrain::TankDrive(float leftAxis, float rightAxis)
 	//drive the master talons. the others /will/ follow.
 	LeftTalonMaster->Set(leftValue);
 	RightTalonMaster->Set(rightValue);
+
+}
+
+int DriveTrain::PowerDistOutput()
+{
+	return pdp->GetTotalCurrent();
 
 }
