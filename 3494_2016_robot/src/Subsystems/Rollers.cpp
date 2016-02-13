@@ -18,3 +18,6 @@ void Rollers::InitDefaultCommand()
 
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
+void Rollers::Roll(double speed){
+	talon_rollers->Set(speed);
+}

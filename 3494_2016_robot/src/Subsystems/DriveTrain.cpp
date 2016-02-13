@@ -47,18 +47,19 @@ void DriveTrain::TankDrive(float leftAxis, float rightAxis)
 
 	int leftSign = 1;
 	int rightSign = 1;
-
+	//Make sure the values of leftAxis and rightAxis are > 0
 	if (leftAxis < 0) {
-			leftSign = -1;
-			leftAxis = leftAxis * -1;
-		}
+		leftSign = -1;
+		leftAxis = leftAxis * -1;
+	}
 
-		if (rightAxis < 0) {
-			rightSign = -1;
-			rightAxis = rightAxis * -1;
-		}
-
+	if (rightAxis < 0) {
+		rightSign = -1;
+		rightAxis = rightAxis * -1;
+	}
+	//leftValue = leftSign * (leftAxis^2)
 	float leftValue = leftSign * pow(leftAxis, power);
+	//rightValue = rightSign * (rightAxis^2)
 	float rightValue = rightSign * pow(rightAxis, power);
 
 	LeftTalonMaster->Set(leftValue);

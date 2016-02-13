@@ -14,6 +14,7 @@ private:
 public:
 	Rollers();
 	void InitDefaultCommand();
+	void Roll(double speed);
 };
 
 #endif
