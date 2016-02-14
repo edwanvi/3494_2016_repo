@@ -15,6 +15,8 @@ private:
 	CANTalon* RightTalonFollower;
 	CANTalon* RightTalonFollower_2;
 
+	PowerDistributionPanel* pdp;
+
 	float power = 2;
 	// It's desirable that everything possible under private except
 	// for methods that implement subsystem capabilities
@@ -22,6 +24,7 @@ public:
 	DriveTrain();
 	void InitDefaultCommand();
 	void TankDrive(float Left_Axis, float Right_Axis);
+	int PowerDistOutput();
 };
 
 #endif
