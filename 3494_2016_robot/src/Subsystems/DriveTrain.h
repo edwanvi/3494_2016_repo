@@ -25,6 +25,7 @@ public:
 	void InitDefaultCommand();
 	void TankDrive(float Left_Axis, float Right_Axis);
 	int PowerDistOutput();
+	int IndPowerOutput(int PDP_Channel);
 };
 
 #endif

@@ -23,13 +23,13 @@
 const int ROLLERS_MOTOR = 666;
 
 
-const int LEFT_MOTOR_MASTER = 1; // the values assigned are temporary until talon values are identified
-const int LEFT_MOTOR_FOLLOWER = 2;
-const int LEFT_MOTOR_FOLLOWER_2 = 3;
+const int LEFT_MOTOR_MASTER = 4; // the values assigned are temporary until talon values are identified
+const int LEFT_MOTOR_FOLLOWER = 5;
+const int LEFT_MOTOR_FOLLOWER_2 = 6;
 ////////////////////////////////////////////////////////////
-const int RIGHT_MOTOR_MASTER = 4; // temp values for right motors as viewed from the front of robot
-const int RIGHT_MOTOR_FOLLOWER = 5;
-const int RIGHT_MOTOR_FOLLOWER_2 = 6;
+const int RIGHT_MOTOR_MASTER = 1; // temp values for right motors as viewed from the front of robot
+const int RIGHT_MOTOR_FOLLOWER = 2;
+const int RIGHT_MOTOR_FOLLOWER_2 = 3;
 ////////////////////////////////////////////////////////////
 
 
