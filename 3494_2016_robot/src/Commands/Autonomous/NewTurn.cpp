@@ -15,7 +15,7 @@ NewTurn::NewTurn(bool _left, double time, float _speed){
 // Called just before this Command runs the first time
 void NewTurn::Initialize()
 {
-	CommandBase::driveTrain->ResetEncoders();
+	//CommandBase::driveTrain->ResetEncoders();
 	if (speed < 0) {
 		speed = speed * -1;
 	}

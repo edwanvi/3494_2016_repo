@@ -1,6 +1,7 @@
 #include "DriveTrain.h"
 #include "../RobotMap.h"
 #include "math.h"
+#include "Commands/Drive/Drive.h"
 
 DriveTrain::DriveTrain() :
 		Subsystem("DriveTrain")
@@ -39,7 +40,7 @@ DriveTrain::DriveTrain() :
 void DriveTrain::InitDefaultCommand()
 {
 	// Set the default command for a subsystem here.
-	//SetDefaultCommand(new MySpecialCommand());
+	SetDefaultCommand(new Drive());
 }
 
 // Put methods for controlling this subsystem
