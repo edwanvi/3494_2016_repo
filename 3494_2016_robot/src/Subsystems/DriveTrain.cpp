@@ -1,6 +1,7 @@
 #include "DriveTrain.h"
 #include "../RobotMap.h"
 #include "math.h"
+#include "Commands/Drive/Drive.h"
 
 DriveTrain::DriveTrain() :
 		Subsystem("DriveTrain")
@@ -38,8 +39,9 @@ DriveTrain::DriveTrain() :
 
 void DriveTrain::InitDefaultCommand()
 {
-	// Set the default command for a subsystem here.
-	//SetDefaultCommand(new MySpecialCommand());
+
+	SetDefaultCommand(new Drive());
+
 }
 
 // Put methods for controlling this subsystem
@@ -50,7 +52,7 @@ void DriveTrain::TankDrive(float leftAxis, float rightAxis)
 {
 // Monitors the total current draw of the robot
 	SmartDashboard::PutNumber("Current",PowerDistOutput() );
-
+	SmartDashboard::PutNumber("Current_Chan_1", IndPowerOutput(0));
 // establishes sign value when below zero
 // the axis value, which is negative, is negated to be positive
 // The value is then taken to a power and then multiplied by the sign value	
@@ -79,4 +81,11 @@ int DriveTrain::PowerDistOutput()
 {
 	return pdp->GetTotalCurrent();
 
+}
+
+int DriveTrain::IndPowerOutput(int PDP_Channel)
+{
+
+
+	return pdp->GetCurrent(PDP_Channel);
 }
