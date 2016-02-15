@@ -39,8 +39,9 @@ DriveTrain::DriveTrain() :
 
 void DriveTrain::InitDefaultCommand()
 {
-	// Set the default command for a subsystem here.
+
 	SetDefaultCommand(new Drive());
+
 }
 
 // Put methods for controlling this subsystem
