@@ -35,6 +35,9 @@ DriveTrain::DriveTrain() :
 ////////////////////////////////////////////////////////////
 	SmartDashboard::init();
 ////////////////////////////////////////////////////////////
+	solenoid_Shifter = new DoubleSolenoid(SOL_SHIFTER_1, SOL_SHIFTER_2);
+	currentGear = false;
+////////////////////////////////////////////////////////////
 }
 
 void DriveTrain::InitDefaultCommand()
@@ -86,6 +89,30 @@ int DriveTrain::PowerDistOutput()
 int DriveTrain::IndPowerOutput(int PDP_Channel)
 {
 
-
+//Gathers the individual channel
 	return pdp->GetCurrent(PDP_Channel);
 }
+
+void DriveTrain::ChangeGear(bool _gear) {
+	if (currentGear != _gear)
+	{
+		if (_gear)
+		{
+			//shifts up
+			solenoid_Shifter->Set(solenoid_Shifter->kReverse);
+
+		}
+		else if (!_gear)
+		{
+			// shifts down
+			solenoid_Shifter->Set(solenoid_Shifter->kForward);
+		}
+		currentGear = _gear;
+	}
+}
+
+
+
+
+
+

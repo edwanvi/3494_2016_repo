@@ -31,6 +31,8 @@ const int RIGHT_MOTOR_MASTER = 1; // temp values for right motors as viewed from
 const int RIGHT_MOTOR_FOLLOWER = 2;
 const int RIGHT_MOTOR_FOLLOWER_2 = 3;
 ////////////////////////////////////////////////////////////
-
+const int SOL_SHIFTER_1 = 1;
+const int SOL_SHIFTER_2 = 2;
+const int COMPRESSOR = 0;
 
 #endif

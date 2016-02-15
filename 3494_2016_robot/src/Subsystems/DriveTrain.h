@@ -17,7 +17,9 @@ private:
 
 	PowerDistributionPanel* pdp;
 
+	DoubleSolenoid* solenoid_Shifter;
 	float power = 2;
+
 	// It's desirable that everything possible under private except
 	// for methods that implement subsystem capabilities
 public:
@@ -26,6 +28,8 @@ public:
 	void TankDrive(float Left_Axis, float Right_Axis);
 	int PowerDistOutput();
 	int IndPowerOutput(int PDP_Channel);
+	void ChangeGear(bool _gear);
+	bool currentGear;
 };
 
 #endif
