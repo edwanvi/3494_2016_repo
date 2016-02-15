@@ -19,6 +19,15 @@ DriveTrain::DriveTrain() :
 	LeftTalonFollower_2->SetControlMode(CANSpeedController::kFollower);
 	LeftTalonFollower_2->Set(LEFT_MOTOR_MASTER);
 ////////////////////////////////////////////////////////////
+/*
+	LeftTalonMaster->SetVoltageRampRate(RAMP);
+	LeftTalonFollower->SetVoltageRampRate(RAMP);
+	LeftTalonFollower_2->SetVoltageRampRate(RAMP);
+	RightTalonMaster->SetVoltageRampRate(RAMP);
+	RightTalonFollower->SetVoltageRampRate(RAMP);
+	RightTalonFollower_2->SetVoltageRampRate(RAMP);
+*/
+////////////////////////////////////////////////////////////
 	RightTalonMaster = new CANTalon (RIGHT_MOTOR_MASTER);		//	Right Talon motor subgroup
 	RightTalonFollower = new CANTalon(RIGHT_MOTOR_FOLLOWER);	//	Same parameters as for the Left talons
 	RightTalonFollower_2 = new CANTalon(RIGHT_MOTOR_FOLLOWER_2);
