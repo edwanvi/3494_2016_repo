@@ -21,6 +21,7 @@ void Drive::Execute()
 	CommandBase::driveTrain->TankDrive(leftThrottle, rightThrottle);
 
 	//dpad steering
+	/*
 	if (dpad == 0){
 		CommandBase::driveTrain->TankDrive(-0.5, 0.5);
 	}
@@ -33,6 +34,7 @@ void Drive::Execute()
 	else if (dpad == 270){
 		CommandBase::driveTrain->TankDrive(0.5, 0.5);
 	}
+	*/
 }
 
 // Make this return true when this Command no longer needs to run execute()

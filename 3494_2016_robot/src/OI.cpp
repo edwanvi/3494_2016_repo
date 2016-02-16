@@ -1,5 +1,6 @@
 #include "OI.h"
 #include "Commands/RunRollers.h"
+#include "Commands/Drive/Shift_Gear.h"
 
 OI::OI()
 {
@@ -29,6 +30,11 @@ OI::OI()
 
 	buttonLB->WhenPressed(new RunRollers(true));
 	buttonRB->WhenPressed(new RunRollers(false));
+	//gear down
+		buttonX->WhenPressed(new Shift_Gear(true));
+
+	//gear up
+		buttonB->WhenPressed(new Shift_Gear(false));
 }
 //these methods all basically do what they say they do in their name so yeah
 float OI::GetLeftJoystick() {
