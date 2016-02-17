@@ -18,7 +18,7 @@ private:
 	PowerDistributionPanel* pdp;
 
 	DoubleSolenoid* solenoid_Shifter;
-	float power = 2;
+	float power = 1;
 
 	float Rpulse;
 	float Lpulse;
@@ -34,6 +34,7 @@ public:
 	void ChangeGear(bool _gear);
 	double GetPosition();
 	bool currentGear;
+	int Encoder_Position();
 };
 
 #endif

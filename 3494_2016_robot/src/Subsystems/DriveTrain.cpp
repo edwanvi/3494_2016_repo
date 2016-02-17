@@ -72,6 +72,7 @@ void DriveTrain::TankDrive(float leftAxis, float rightAxis)
 // Monitors the total current draw of the robot
 	SmartDashboard::PutNumber("Current",PowerDistOutput() );
 	SmartDashboard::PutNumber("Current_Chan_1", IndPowerOutput(0));
+	SmartDashboard::PutNumber("Encoder_Position", Encoder_Position());
 // establishes sign value when below zero
 // the axis value, which is negative, is negated to be positive
 // The value is then taken to a power and then multiplied by the sign value	
@@ -128,4 +129,12 @@ void DriveTrain::ChangeGear(bool _gear) {
 }
 double DriveTrain::GetPosition(){
 	return (LeftTalonFollower_2->GetEncPosition() * Rpulse);
+}
+
+int DriveTrain::Encoder_Position()
+{
+
+	return (Rpulse * LeftTalonMaster->GetEncPosition());
+
+
 }
