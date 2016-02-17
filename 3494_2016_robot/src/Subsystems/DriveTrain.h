@@ -20,9 +20,6 @@ private:
 	DoubleSolenoid* solenoid_Shifter;
 	float power = 2;
 
-	float Rpulse;
-	float Lpulse;
-
 	// It's desirable that everything possible under private except
 	// for methods that implement subsystem capabilities
 public:
@@ -32,7 +29,6 @@ public:
 	int PowerDistOutput();
 	int IndPowerOutput(int PDP_Channel);
 	void ChangeGear(bool _gear);
-	double GetPosition();
 	bool currentGear;
 };
 

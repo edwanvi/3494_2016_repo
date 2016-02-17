@@ -18,13 +18,6 @@ DriveTrain::DriveTrain() :
 	LeftTalonFollower_2->EnableControl();
 	LeftTalonFollower_2->SetControlMode(CANSpeedController::kFollower);
 	LeftTalonFollower_2->Set(LEFT_MOTOR_MASTER);
-	//encoder things
-	static double WHEEL_DIAMETER =  3.939;
-	static double GEAR_RATIO = 2.65;
-	//may need to set to 360
-	static double PULSE_PER_REVOLUTION = 256;
-	float Rpulse = ((3.14 * (WHEEL_DIAMETER/GEAR_RATIO)) / PULSE_PER_REVOLUTION);
-	float Lpulse = ((3.14 * (WHEEL_DIAMETER/GEAR_RATIO)) / PULSE_PER_REVOLUTION);
 ////////////////////////////////////////////////////////////
 /*
 	LeftTalonMaster->SetVoltageRampRate(RAMP);
@@ -126,9 +119,7 @@ void DriveTrain::ChangeGear(bool _gear) {
 		currentGear = _gear;
 	}
 }
-double DriveTrain::GetPosition(){
-	return (LeftTalonFollower_2->GetEncPosition() * Rpulse);
-}
+
 
 
 
