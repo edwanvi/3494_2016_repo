@@ -15,7 +15,7 @@ void Drive::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void Drive::Execute()
 {
-	int dpad = oi->GetDPad();
+	//int dpad = oi->GetDPad();
 	float leftThrottle =oi->GetLeftJoystick();
 	float rightThrottle =oi->GetRightJoystick();
 	CommandBase::driveTrain->TankDrive(leftThrottle, rightThrottle);
