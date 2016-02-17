@@ -129,8 +129,3 @@ void DriveTrain::ChangeGear(bool _gear) {
 double DriveTrain::GetPosition(){
 	return (LeftTalonFollower_2->GetEncPosition() * Rpulse);
 }
-
-
-
-
-
