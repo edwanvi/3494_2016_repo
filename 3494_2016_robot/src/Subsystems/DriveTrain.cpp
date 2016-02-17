@@ -58,9 +58,7 @@ DriveTrain::DriveTrain() :
 
 void DriveTrain::InitDefaultCommand()
 {
-
 	SetDefaultCommand(new Drive());
-
 }
 
 // Put methods for controlling this subsystem
@@ -94,13 +92,11 @@ void DriveTrain::TankDrive(float leftAxis, float rightAxis)
 	//drive the master talons. the others /will/ follow.
 	LeftTalonMaster->Set(leftValue);
 	RightTalonMaster->Set(rightValue);
-
 }
 
 int DriveTrain::PowerDistOutput()
 {
 	return pdp->GetTotalCurrent();
-
 }
 
 int DriveTrain::IndPowerOutput(int PDP_Channel)
@@ -117,7 +113,6 @@ void DriveTrain::ChangeGear(bool _gear) {
 		{
 			//shifts up
 			solenoid_Shifter->Set(solenoid_Shifter->kReverse);
-
 		}
 		else if (!_gear)
 		{
