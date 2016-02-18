@@ -128,5 +128,5 @@ double DriveTrain::GetPosition(){
 
 int DriveTrain::Encoder_Position()
 {
-	return (Rpulse * LeftTalonMaster->GetEncPosition());
+	return (Rpulse * LeftTalonFollower_2->GetEncPosition());
 }
