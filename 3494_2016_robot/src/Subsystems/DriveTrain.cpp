@@ -19,6 +19,7 @@ DriveTrain::DriveTrain() :
 	LeftTalonFollower_2->SetControlMode(CANSpeedController::kFollower);
 	LeftTalonFollower_2->Set(LEFT_MOTOR_MASTER);
 	LeftTalonFollower_2->SetFeedbackDevice(CANTalon::QuadEncoder);
+	LeftTalonFollower_2->SetPosition(0);
 	//encoder things
 	static double WHEEL_DIAMETER =  3.939;
 	static double GEAR_RATIO = 2.65;
@@ -45,6 +46,7 @@ DriveTrain::DriveTrain() :
 	RightTalonFollower->SetControlMode(CANSpeedController::kFollower);
 	RightTalonFollower->Set(RIGHT_MOTOR_MASTER);
 	RightTalonFollower->SetFeedbackDevice(CANTalon::QuadEncoder);
+	RightTalonFollower->SetPosition(0);
 	RightTalonFollower_2->EnableControl();
 	RightTalonFollower_2->SetControlMode(CANSpeedController::kFollower);
 	RightTalonFollower_2->Set(RIGHT_MOTOR_MASTER);
@@ -71,10 +73,7 @@ void DriveTrain::TankDrive(float leftAxis, float rightAxis)
 {
 // Monitors the total current draw of the robot
 	SmartDashboard::PutNumber("Current",PowerDistOutput() );
-
-	SmartDashboard::PutNumber("Current_Chan left",PowerSide(1) );
-	SmartDashboard::PutNumber("Current_Chan Right", PowerSide(2));
-	SmartDashboard::PutNumber("Encoder_Position", Encoder_Position());
+	SmartDashboard::PutNumber("Current_Chan_1", IndPowerOutput(0));
 // establishes sign value when below zero
 // the axis value, which is negative, is negated to be positive
 // The value is then taken to a power and then multiplied by the sign value	
@@ -103,29 +102,13 @@ int DriveTrain::PowerDistOutput()
 	return pdp->GetTotalCurrent();
 }
 
-/*int DriveTrain::IndPowerOutput(int PDP_Channel)
+int DriveTrain::IndPowerOutput(int PDP_Channel)
 {
 
 //Gathers the individual channel
 	return pdp->GetCurrent(PDP_Channel);
 }
-*/
-float DriveTrain::PowerSide(int value)
-{
-	int value_ = value;
-	float	left_side = pdp->GetCurrent(0) + pdp->GetCurrent(1) + pdp->GetCurrent(2);
 
-	float	right_side = pdp->GetCurrent(13) + pdp->GetCurrent(14) + pdp->GetCurrent(15);
-		// 13 14 15// 0 1 2
-	if (value_ == 1)
-			{
-		return (left_side);
-			}
-	if (value_ == 0)
-			{
-		return (right_side);
-			}
-}
 void DriveTrain::ChangeGear(bool _gear) {
 	if (currentGear != _gear)
 	{

@@ -30,8 +30,7 @@ public:
 	void InitDefaultCommand();
 	void TankDrive(float Left_Axis, float Right_Axis);
 	int PowerDistOutput();
-	//int IndPowerOutput(int PDP_Channel);
-	float PowerSide(int value);
+	int IndPowerOutput(int PDP_Channel);
 	void ChangeGear(bool _gear);
 	double GetPosition();
 	bool currentGear;
