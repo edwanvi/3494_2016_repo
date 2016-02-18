@@ -69,7 +69,8 @@ void DriveTrain::TankDrive(float leftAxis, float rightAxis)
 {
 // Monitors the total current draw of the robot
 	SmartDashboard::PutNumber("Current",PowerDistOutput() );
-	SmartDashboard::PutNumber("Current_Chan_1", IndPowerOutput(0));
+	SmartDashboard::PutNumber("Current_Chan left",PowerSide(1) );
+	SmartDashboard::PutNumber("Current_Chan Right", PowerSide(2));
 	SmartDashboard::PutNumber("Encoder_Position", Encoder_Position());
 // establishes sign value when below zero
 // the axis value, which is negative, is negated to be positive
@@ -99,13 +100,29 @@ int DriveTrain::PowerDistOutput()
 	return pdp->GetTotalCurrent();
 }
 
-int DriveTrain::IndPowerOutput(int PDP_Channel)
+/*int DriveTrain::IndPowerOutput(int PDP_Channel)
 {
 
 //Gathers the individual channel
 	return pdp->GetCurrent(PDP_Channel);
 }
+*/
+float DriveTrain::PowerSide(int value)
+{
+	int value_ = value;
+	float	left_side = pdp->GetCurrent(0) + pdp->GetCurrent(1) + pdp->GetCurrent(2);
 
+	float	right_side = pdp->GetCurrent(13) + pdp->GetCurrent(14) + pdp->GetCurrent(15);
+		// 13 14 15// 0 1 2
+	if (value_ == 1)
+			{
+		return (left_side);
+			}
+	if (value_ == 0)
+			{
+		return (right_side);
+			}
+}
 void DriveTrain::ChangeGear(bool _gear) {
 	if (currentGear != _gear)
 	{
