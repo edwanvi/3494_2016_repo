@@ -18,6 +18,7 @@ DriveTrain::DriveTrain() :
 	LeftTalonFollower_2->EnableControl();
 	LeftTalonFollower_2->SetControlMode(CANSpeedController::kFollower);
 	LeftTalonFollower_2->Set(LEFT_MOTOR_MASTER);
+	LeftTalonFollower_2->SetFeedbackDevice(CANTalon::QuadEncoder);
 	//encoder things
 	static double WHEEL_DIAMETER =  3.939;
 	static double GEAR_RATIO = 2.65;
@@ -43,6 +44,7 @@ DriveTrain::DriveTrain() :
 	RightTalonFollower->EnableControl();
 	RightTalonFollower->SetControlMode(CANSpeedController::kFollower);
 	RightTalonFollower->Set(RIGHT_MOTOR_MASTER);
+	RightTalonFollower->SetFeedbackDevice(CANTalon::QuadEncoder);
 	RightTalonFollower_2->EnableControl();
 	RightTalonFollower_2->SetControlMode(CANSpeedController::kFollower);
 	RightTalonFollower_2->Set(RIGHT_MOTOR_MASTER);
@@ -69,6 +71,7 @@ void DriveTrain::TankDrive(float leftAxis, float rightAxis)
 {
 // Monitors the total current draw of the robot
 	SmartDashboard::PutNumber("Current",PowerDistOutput() );
+
 	SmartDashboard::PutNumber("Current_Chan left",PowerSide(1) );
 	SmartDashboard::PutNumber("Current_Chan Right", PowerSide(2));
 	SmartDashboard::PutNumber("Encoder_Position", Encoder_Position());
@@ -145,5 +148,5 @@ double DriveTrain::GetPosition(){
 
 int DriveTrain::Encoder_Position()
 {
-	return (Rpulse * LeftTalonFollower_2->GetEncPosition());
+	return (Rpulse * RightTalonFollower_2->GetEncPosition());
 }

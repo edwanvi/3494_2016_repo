@@ -35,6 +35,7 @@ void Drive::Execute()
 		CommandBase::driveTrain->TankDrive(0.5, 0.5);
 	}
 	*/
+	SmartDashboard::PutNumber("Encoder_Position", driveTrain->Encoder_Position());
 }
 
 // Make this return true when this Command no longer needs to run execute()
