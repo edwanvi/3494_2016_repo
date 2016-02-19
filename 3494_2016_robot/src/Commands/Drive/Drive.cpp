@@ -20,7 +20,7 @@ void Drive::Execute()
 	float rightThrottle =oi->GetRightJoystick();
 	CommandBase::driveTrain->TankDrive(leftThrottle, rightThrottle);
 
-	//dpad steering
+	//dpad steering.
 
 	if (dpad == 0){
 		CommandBase::driveTrain->TankDrive(-0.5, 0.5);
@@ -34,7 +34,6 @@ void Drive::Execute()
 	else if (dpad == 270){
 		CommandBase::driveTrain->TankDrive(0.5, 0.5);
 	}
-
 	SmartDashboard::PutNumber("Encoder_Position", driveTrain->Encoder_Position());
 }
 
