@@ -20,7 +20,7 @@ void Drive::Execute()
 	float rightThrottle =oi->GetRightJoystick();
 	CommandBase::driveTrain->TankDrive(leftThrottle, rightThrottle);
 
-	//dpad steering.
+	//dpad steering
 
 	if (dpad == 0){
 		CommandBase::driveTrain->TankDrive(-0.5, 0.5);
