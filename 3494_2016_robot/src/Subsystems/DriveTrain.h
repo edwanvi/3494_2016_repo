@@ -35,7 +35,7 @@ public:
 	void ChangeGear(bool _gear);
 	double GetPosition();
 	bool currentGear;
-	int Encoder_Position();
+	float Encoder_Position();
 };
 
 #endif
