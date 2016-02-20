@@ -24,8 +24,8 @@ DriveTrain::DriveTrain() :
 	static double GEAR_RATIO = 2.65;
 	//may need to set to 360
 	static double PULSE_PER_REVOLUTION = 256;
-	float Rpulse = ((3.14 * (WHEEL_DIAMETER/GEAR_RATIO)) / PULSE_PER_REVOLUTION);
-	float Lpulse = ((3.14 * (WHEEL_DIAMETER/GEAR_RATIO)) / PULSE_PER_REVOLUTION);
+	Rpulse = ((3.14 * (WHEEL_DIAMETER/GEAR_RATIO)) / PULSE_PER_REVOLUTION);
+	Lpulse = ((3.14 * (WHEEL_DIAMETER/GEAR_RATIO)) / PULSE_PER_REVOLUTION);
 ////////////////////////////////////////////////////////////
 /*
 	LeftTalonMaster->SetVoltageRampRate(RAMP);
@@ -125,6 +125,10 @@ float DriveTrain::PowerSide(int value)
 			{
 		return (right_side);
 			}
+	else
+	{
+		return (0);
+	}
 }
 void DriveTrain::ChangeGear(bool _gear) {
 	if (currentGear != _gear)
