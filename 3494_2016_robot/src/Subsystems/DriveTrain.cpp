@@ -24,8 +24,8 @@ DriveTrain::DriveTrain() :
 	static double GEAR_RATIO = 2.65;
 	//may need to set to 360
 	static double PULSE_PER_REVOLUTION = 256;
-	Rpulse = ((3.14 * (WHEEL_DIAMETER/GEAR_RATIO)) / PULSE_PER_REVOLUTION);
-	Lpulse = ((3.14 * (WHEEL_DIAMETER/GEAR_RATIO)) / PULSE_PER_REVOLUTION);
+	float Rpulse = ((3.14 * (WHEEL_DIAMETER/GEAR_RATIO)) / PULSE_PER_REVOLUTION);
+	float Lpulse = ((3.14 * (WHEEL_DIAMETER/GEAR_RATIO)) / PULSE_PER_REVOLUTION);
 ////////////////////////////////////////////////////////////
 /*
 	LeftTalonMaster->SetVoltageRampRate(RAMP);
@@ -113,7 +113,6 @@ int DriveTrain::PowerDistOutput()
 float DriveTrain::PowerSide(int value)
 {
 	int value_ = value;
-	float	no_side = 0;
 	float	left_side = pdp->GetCurrent(0) + pdp->GetCurrent(1) + pdp->GetCurrent(2);
 
 	float	right_side = pdp->GetCurrent(13) + pdp->GetCurrent(14) + pdp->GetCurrent(15);
@@ -126,10 +125,6 @@ float DriveTrain::PowerSide(int value)
 			{
 		return (right_side);
 			}
-	else
-	{
-		return (no_side);
-	}
 }
 void DriveTrain::ChangeGear(bool _gear) {
 	if (currentGear != _gear)
@@ -147,8 +142,11 @@ void DriveTrain::ChangeGear(bool _gear) {
 		currentGear = _gear;
 	}
 }
+double DriveTrain::GetPosition(){
+	return (LeftTalonFollower_2->GetEncPosition() * Rpulse);
+}
 
-float DriveTrain::Encoder_Position()
+int DriveTrain::Encoder_Position()
 {
 	return (Rpulse * RightTalonFollower_2->GetEncPosition());
 }
