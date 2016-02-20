@@ -6,11 +6,13 @@ Autonomous_Sequences::Autonomous_Sequences(int autoMode)
 {
 
 	SmartDashboard::init();
-	one = false;
-	two = false;
+	one = false; // these are the autonomous states
+	two = false; // this is an arbitrary number
 	three = false;
 	four = false;
-	if (autoMode == 1 )
+	five = false;
+	if (autoMode == 1 ) // checks smart dashboard what the
+						//user has selected the default is 1
 	{
 		auto1();
 		one = true;
@@ -37,11 +39,11 @@ Autonomous_Sequences::Autonomous_Sequences(int autoMode)
 	}
 }
 
-void Autonomous_Sequences::auto1()
+void Autonomous_Sequences::auto1() // autonomous sequence
 {
 	//AddParallel(new Solenoid_Roller_Set(true)); is an example of a parallel sequence
 	//AddSequential(new Autonomous_Roller(1, 1)); is an example
-	SmartDashboard::PutBoolean("Auto1 State", one);
+	SmartDashboard::PutBoolean("Auto1 State", one); // displays during autnomous if the display is on
 }
 
 void Autonomous_Sequences::auto2()
@@ -69,28 +71,28 @@ void Autonomous_Sequences::auto5()
 
 	SmartDashboard::PutBoolean("Auto5 State", five);
 }
-void Autonomous_Sequences::Initialize()
+void Autonomous_Sequences::Initialize() // pure virtual function needing defined doesn't have any other use
 {
 
 
 }
 
-void Autonomous_Sequences::Execute()
+void Autonomous_Sequences::Execute() // pure virtual function needing defined
 {
 
 }
 
-bool Autonomous_Sequences::IsFinished()
+bool Autonomous_Sequences::IsFinished() // pure virtual function needing defined
 {
 
 }
 
-void Autonomous_Sequences::End()
+void Autonomous_Sequences::End() // pure virtual function needing defined
 {
 
 }
 
-void Autonomous_Sequences::Interrupted()
+void Autonomous_Sequences::Interrupted() // pure virtual function needing defined
 {
 
 

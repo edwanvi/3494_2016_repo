@@ -5,7 +5,7 @@ Rollers::Rollers() :
 		Subsystem("Rollers")
 {
 	//create a talon object to control the rollers
-	talon_rollers = new CANTalon(666);
+	talon_rollers = new CANTalon(ROLLERS_MOTOR);
 	talon_rollers -> EnableControl();
 	talon_rollers -> SetSafetyEnabled(false);
 }
@@ -20,9 +20,9 @@ void Rollers::InitDefaultCommand()
 // here. Call these from Commands.
 void Rollers::Roll(bool forward){
 	if (forward == true){
-		talon_rollers->Set(1);
+		talon_rollers->Set(.75);
 	}
 	else {
-		talon_rollers->Set(-1);
+		talon_rollers->Set(-.75);
 	}
 }

@@ -18,7 +18,7 @@ private:
 		SmartDashboard::init();
 		CommandBase::init();
 		chooser = new SendableChooser();
-		chooser->AddDefault("Auto 1", new Autonomous_Sequences(1));
+		chooser->AddDefault("Auto 1", new Autonomous_Sequences(1)); // adds the radio buttons for choosing in the smart dashboard
 		chooser->AddObject("Auto 2", new Autonomous_Sequences(2));
 		chooser->AddObject("Auto 3", new Autonomous_Sequences(3));
 		chooser->AddObject("Auto 4", new Autonomous_Sequences(4));
