@@ -28,3 +28,8 @@ void CommandBase::init()
 	oi = new OI();
 	driveTrain = new DriveTrain();
 }
+
+void autonomous(bool mode)
+{
+	//Autonomous = mode;
+}

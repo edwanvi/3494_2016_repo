@@ -24,6 +24,8 @@ public:
 	static OI* oi;
 	static DriveTrain* driveTrain;
 	static Rollers* roller;
+	static bool AUTONOMOUS;
+	static void autonomous(bool mode);
 };
 
 #endif
