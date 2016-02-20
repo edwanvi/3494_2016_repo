@@ -2,7 +2,7 @@
 
 Drive::Drive()
 {
-	//Use Requires() here to declare subsystem dependencies
+	// Use Requires() here to declare subsystem dependencies
 	Requires(CommandBase::driveTrain);
 }
 
