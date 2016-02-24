@@ -7,6 +7,7 @@
 #include "Subsystems/Rollers.h"
 #include "OI.h"
 #include "WPILib.h"
+#include "Subsystems/Robot_Lift.h"
 
 /**
  * The base for all commands. All atomic commands should subclass CommandBase.
@@ -24,6 +25,7 @@ public:
 	static OI* oi;
 	static DriveTrain* driveTrain;
 	static Rollers* roller;
+	static Robot_Lift* lift;
 	static bool AUTONOMOUS;
 	static void autonomous(bool mode);
 };

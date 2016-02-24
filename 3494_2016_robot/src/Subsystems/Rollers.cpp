@@ -10,8 +10,8 @@ Rollers::Rollers() :
 	talon_rollers -> SetSafetyEnabled(false);
 
 	talon_rollers_2 = new CANTalon(ROLLERS_MOTOR_2);
-	talon_rollers_2 -> EnableControl();
-	talon_rollers_2 -> SetSafetyEnabled(false);
+	talon_rollers_2->EnableControl();
+	talon_rollers_2->SetSafetyEnabled(false);
 }
 
 void Rollers::InitDefaultCommand()

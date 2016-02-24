@@ -18,6 +18,7 @@ OI::OI()
 	buttonRB = new JoystickButton(controller, 6);
 	buttonStart = new JoystickButton(controller, 8);
 	buttonSelect = new JoystickButton(controller, 7);
+	//buttonDpadUp = new JoystickButton(controller, )
 
 	buttonA_2 = new JoystickButton(controller_2, 2);//2  //  xbox
 	buttonB_2 = new JoystickButton(controller_2, 3);
@@ -32,6 +33,8 @@ OI::OI()
 	buttonRB->WhenPressed(new RunRollers(false));
 	//gear down
 	buttonX->WhenPressed(new Shift_Gear(true));
+
+
 
 	//gear up
 	buttonB->WhenPressed(new Shift_Gear(false));
