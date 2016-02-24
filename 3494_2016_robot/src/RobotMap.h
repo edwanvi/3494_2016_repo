@@ -38,8 +38,8 @@ const int COMPRESSOR = 0;
 const float RAMP = 24;
 ////////////////////////////////////////////////////////////
 const int Talon_Lift_Setter = 70;
-const int Talon_Lift = 80;
-const int Talon_LIft_2 = 90;
+const int TALON_LIFT = 80;
+const int TALON_LIFT_2 = 90;
 ////////////////////////////////////////////////////////////
 const float DPAD = .5;
 

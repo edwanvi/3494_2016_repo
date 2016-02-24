@@ -14,17 +14,17 @@ Robot_Lift::Robot_Lift() :
 	TalonLift_Setter->SetExpiration(0.100);
 	TalonLift_Setter->Set(0); //
 ////////////////////////////////////////////////////////////
-	/*Talon_Lift = new Talon(Talon_Lift);
+	Talon_Lift = new Talon(TALON_LIFT);
 
 	Talon_Lift->SetSafetyEnabled(false);
 	Talon_Lift->SetExpiration(0.100);
 	Talon_Lift->Set(0);
 ////////////////////////////////////////////////////////////
-	Talon_Lift_2 = new Talon(Talon_Lift_2);
+	Talon_Lift_2 = new Talon(TALON_LIFT_2);
 
 	Talon_Lift_2->SetSafetyEnabled(false);
 	Talon_Lift_2->SetExpiration(0.100);
-	Talon_Lift_2->Set(0); */
+	Talon_Lift_2->Set(0);
 ////////////////////////////////////////////////////////////
 
 }
