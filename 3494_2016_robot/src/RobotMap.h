@@ -44,7 +44,10 @@ const int Talon_Lift_2 = 80;
 const int Talon_Lift_Setter = 70;
 const int TALON_LIFT = 80;
 const int TALON_LIFT_2 = 90;
+<<<<<<< HEAD
 >>>>>>> branch 'master' of https://github.com/tkdberger/3494_2016_repo.git
+=======
+>>>>>>> refs/remotes/origin/master
 ////////////////////////////////////////////////////////////
 
 
