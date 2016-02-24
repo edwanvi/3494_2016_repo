@@ -5,7 +5,7 @@ Lifting::Lifting(bool _mode)
 	// Use Requires() here to declare subsystem dependencies
 	Requires(lift);
 
-	bool mode = _mode;
+	//bool mode = _mode;
 }
 
 // Called just before this Command runs the first time

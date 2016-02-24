@@ -1,5 +1,5 @@
 #include "Drive.h"
-
+#include "RobotMap.h"
 Drive::Drive()
 {
 	// Use Requires() here to declare subsystem dependencies
@@ -23,16 +23,16 @@ void Drive::Execute()
 	//dpad steering.
 
 	if (dpad == 0){
-		CommandBase::driveTrain->TankDrive(-0.25, 0.25);
+		CommandBase::driveTrain->TankDrive(-DPAD, DPAD);
 	}
 	else if (dpad == 180){
-		CommandBase::driveTrain->TankDrive(0.25, -0.25);
+		CommandBase::driveTrain->TankDrive(DPAD, -DPAD);
 	}
 	else if (dpad == 90){
-		CommandBase::driveTrain->TankDrive(-0.25, -0.25);
+		CommandBase::driveTrain->TankDrive(-DPAD, -DPAD);
 	}
 	else if (dpad == 270){
-		CommandBase::driveTrain->TankDrive(0.25, 0.25);
+		CommandBase::driveTrain->TankDrive(DPAD, DPAD);
 	}
 	SmartDashboard::PutNumber("Encoder_Position", driveTrain->Encoder_Position());
 
