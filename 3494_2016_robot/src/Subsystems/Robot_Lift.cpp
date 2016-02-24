@@ -14,7 +14,7 @@ Robot_Lift::Robot_Lift() :
 	TalonLift_Setter->SetExpiration(0.100);
 	TalonLift_Setter->Set(0); //
 ////////////////////////////////////////////////////////////
-	Talon_Lift = new Talon(Talon_Lift);
+	/*Talon_Lift = new Talon(Talon_Lift);
 
 	Talon_Lift->SetSafetyEnabled(false);
 	Talon_Lift->SetExpiration(0.100);
@@ -24,7 +24,7 @@ Robot_Lift::Robot_Lift() :
 
 	Talon_Lift_2->SetSafetyEnabled(false);
 	Talon_Lift_2->SetExpiration(0.100);
-	Talon_Lift_2->Set(0);
+	Talon_Lift_2->Set(0); */
 ////////////////////////////////////////////////////////////
 
 }

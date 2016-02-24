@@ -12,7 +12,7 @@ DriveTrain::DriveTrain() :
 	LeftTalonFollower_2 = new CANTalon(LEFT_MOTOR_FOLLOWER_2);	//	3 CIM per gearbox
 	LeftTalonMaster->EnableControl();
 	LeftTalonMaster->SetSafetyEnabled(false);
-	LeftTalonMaster->SetVoltageRampRate(6);
+	LeftTalonMaster->SetVoltageRampRate(RAMP);
 	LeftTalonFollower->EnableControl();
 	LeftTalonFollower->SetControlMode(CANSpeedController::kFollower);
 	LeftTalonFollower->Set(LEFT_MOTOR_MASTER);
@@ -50,7 +50,7 @@ DriveTrain::DriveTrain() :
 	RightTalonFollower_2->EnableControl();
 	RightTalonFollower_2->SetControlMode(CANSpeedController::kFollower);
 	RightTalonFollower_2->Set(RIGHT_MOTOR_MASTER);
-	RightTalonMaster->SetVoltageRampRate(6);
+	RightTalonMaster->SetVoltageRampRate(RAMP);
 ////////////////////////////////////////////////////////////
 	pdp = new PowerDistributionPanel();
 ////////////////////////////////////////////////////////////

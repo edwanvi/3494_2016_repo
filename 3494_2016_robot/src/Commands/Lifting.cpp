@@ -18,6 +18,7 @@ void Lifting::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void Lifting::Execute()
 {
+	/*
 	int dpad = oi->GetDPad();
 
 	if (dpad == 0){
@@ -33,7 +34,7 @@ void Lifting::Execute()
 			CommandBase::driveTrain->TankDrive(0.5, 0.5);
 		}
 
-
+*/
 }
 
 // Make this return true when this Command no longer needs to run execute()

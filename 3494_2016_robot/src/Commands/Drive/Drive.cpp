@@ -22,20 +22,20 @@ void Drive::Execute()
 
 	//dpad steering.
 
-/*	if (dpad == 0){
-		CommandBase::driveTrain->TankDrive(-0.5, 0.5);
+	if (dpad == 0){
+		CommandBase::driveTrain->TankDrive(-0.25, 0.25);
 	}
 	else if (dpad == 180){
-		CommandBase::driveTrain->TankDrive(0.5, -0.5);
+		CommandBase::driveTrain->TankDrive(0.25, -0.25);
 	}
 	else if (dpad == 90){
-		CommandBase::driveTrain->TankDrive(-0.5, -0.5);
+		CommandBase::driveTrain->TankDrive(-0.25, -0.25);
 	}
 	else if (dpad == 270){
-		CommandBase::driveTrain->TankDrive(0.5, 0.5);
+		CommandBase::driveTrain->TankDrive(0.25, 0.25);
 	}
 	SmartDashboard::PutNumber("Encoder_Position", driveTrain->Encoder_Position());
-*/
+
 }
 
 // Make this return true when this Command no longer needs to run execute()

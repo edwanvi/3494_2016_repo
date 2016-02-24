@@ -35,7 +35,7 @@ const int SOL_SHIFTER_1 = 0;
 const int SOL_SHIFTER_2 = 1;
 const int COMPRESSOR = 0;
 ////////////////////////////////////////////////////////////
-const float RAMP = 6.0;
+const float RAMP = 24;
 ////////////////////////////////////////////////////////////
 const int Talon_Lift_Setter = 70;
 const int Talon_Lift = 80;
