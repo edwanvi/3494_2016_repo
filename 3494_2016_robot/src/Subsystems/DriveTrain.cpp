@@ -12,7 +12,7 @@ DriveTrain::DriveTrain() :
 	LeftTalonFollower_2 = new CANTalon(LEFT_MOTOR_FOLLOWER_2);	//	3 CIM per gearbox
 	LeftTalonMaster->EnableControl();
 	LeftTalonMaster->SetSafetyEnabled(false);
-	LeftTalonMaster->SetVoltageRampRate(RAMP);
+	LeftTalonMaster->SetVoltageRampRate(6);
 	LeftTalonFollower->EnableControl();
 	LeftTalonFollower->SetControlMode(CANSpeedController::kFollower);
 	LeftTalonFollower->Set(LEFT_MOTOR_MASTER);
@@ -50,7 +50,7 @@ DriveTrain::DriveTrain() :
 	RightTalonFollower_2->EnableControl();
 	RightTalonFollower_2->SetControlMode(CANSpeedController::kFollower);
 	RightTalonFollower_2->Set(RIGHT_MOTOR_MASTER);
-	RightTalonMaster->SetVoltageRampRate(RAMP);
+	RightTalonMaster->SetVoltageRampRate(6);
 ////////////////////////////////////////////////////////////
 	pdp = new PowerDistributionPanel();
 ////////////////////////////////////////////////////////////
@@ -116,18 +116,22 @@ int DriveTrain::PowerDistOutput()
 float DriveTrain::PowerSide(int value)
 {
 	int value_ = value;
-	float	left_side = pdp->GetCurrent(1) + pdp->GetCurrent(2) + pdp->GetCurrent(3);
+	float	left_side = pdp->GetCurrent(0) + pdp->GetCurrent(1) + pdp->GetCurrent(2);
 
-	float	right_side = pdp->GetCurrent(12) + pdp->GetCurrent(13) + pdp->GetCurrent(14);
+	float	right_side = pdp->GetCurrent(13) + pdp->GetCurrent(14) + pdp->GetCurrent(15);
 		// 13 14 15// 0 1 2
 	if (value_ == 1)
 			{
 		return (left_side);
 			}
-	if (value_ == 2)
+	if (value_ == 0)
 			{
 		return (right_side);
 			}
+	else
+	{
+		return (0);
+	}
 }
 void DriveTrain::ChangeGear(bool _gear) {
 	if (currentGear != _gear)
