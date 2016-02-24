@@ -37,8 +37,14 @@ const int COMPRESSOR = 0;
 ////////////////////////////////////////////////////////////
 const float RAMP = 6.0;
 ////////////////////////////////////////////////////////////
+<<<<<<< HEAD
 const int Talon_Lift = 70;
 const int Talon_Lift_2 = 80;
+=======
+const int Talon_Lift_Setter = 70;
+const int TALON_LIFT = 80;
+const int TALON_LIFT_2 = 90;
+>>>>>>> branch 'master' of https://github.com/tkdberger/3494_2016_repo.git
 ////////////////////////////////////////////////////////////
 
 
