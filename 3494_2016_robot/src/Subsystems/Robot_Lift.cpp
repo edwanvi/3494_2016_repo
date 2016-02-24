@@ -7,20 +7,24 @@ Robot_Lift::Robot_Lift() :
 {
 ////////////////////////////////////////////////////////////
 
-	TalonLift = new CANTalon(Talon_Lift);
-	TalonLift->EnableControl();
+	TalonLift_Setter = new CANTalon(Talon_Lift_Setter);
+	TalonLift_Setter->EnableControl();
 
-	TalonLift->SetSafetyEnabled(false);
-	TalonLift->SetExpiration(0.100);
-	TalonLift->Set(0); //
+	TalonLift_Setter->SetSafetyEnabled(false);
+	TalonLift_Setter->SetExpiration(0.100);
+	TalonLift_Setter->Set(0); //
 ////////////////////////////////////////////////////////////
+	Talon_Lift = new Talon(Talon_Lift);
 
-	TalonLift_2 = new CANTalon(Talon_Lift_2);
-	TalonLift_2->EnableControl();
+	Talon_Lift->SetSafetyEnabled(false);
+	Talon_Lift->SetExpiration(0.100);
+	Talon_Lift->Set(0);
+////////////////////////////////////////////////////////////
+	Talon_Lift_2 = new Talon(Talon_Lift_2);
 
-	TalonLift_2->SetSafetyEnabled(false);
-	TalonLift_2->SetExpiration(0.100);
-	TalonLift_2->Set(0);
+	Talon_Lift_2->SetSafetyEnabled(false);
+	Talon_Lift_2->SetExpiration(0.100);
+	Talon_Lift_2->Set(0);
 ////////////////////////////////////////////////////////////
 
 }
@@ -28,16 +32,15 @@ Robot_Lift::Robot_Lift() :
 void Robot_Lift::InitDefaultCommand()
 {
 
-	SetDefaultCommand(new Lifting());
+	//SetDefaultCommand(new Lifting());
 
 }
 
-void Robot_Lift::Lift(float magnitude)
+void Robot_Lift::Lift(int mode)
 {
-	//if () add conditional when we have the limit switch system ready
 
-	TalonLift->Set(magnitude);
-	TalonLift_2->Set(-magnitude);
+
+
 }
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
