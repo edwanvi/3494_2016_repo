@@ -3,12 +3,11 @@
 
 #include "../CommandBase.h"
 #include "WPILib.h"
-#include "Subsystems/Robot_Lift.h"
 
 class Lifting: public CommandBase
 {
 public:
-	Lifting(bool _mode);
+	Lifting();
 	void Initialize();
 	void Execute();
 	bool IsFinished();

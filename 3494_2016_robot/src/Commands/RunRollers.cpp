@@ -1,10 +1,9 @@
 #include "RunRollers.h"
 
-RunRollers::RunRollers(bool _direction)
+RunRollers::RunRollers()
 {
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(chassis);
-	direction = _direction;
 }
 
 // Called just before this Command runs the first time
@@ -16,7 +15,13 @@ void RunRollers::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void RunRollers::Execute()
 {
-	CommandBase::roller->Roll(direction);
+	if (oi->buttonLB){
+		CommandBase::roller->Roll(true);
+	}
+	else if (oi->buttonRB){
+		CommandBase::roller->Roll(false);
+	}
+	//CommandBase::roller->Roll(direction);
 }
 
 // Make this return true when this Command no longer needs to run execute()
