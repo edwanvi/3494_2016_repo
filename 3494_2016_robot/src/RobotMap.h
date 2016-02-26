@@ -20,16 +20,16 @@
 //const int RANGE_FINDER_PORT = 1;
 //const int RANGE_FINDER_MODULE = 1;
 
-const int ROLLERS_MOTOR = 666;
+const int ROLLERS_MOTOR = 5;
+const int ROLLERS_MOTOR_2 = 9;
 
-
-const int LEFT_MOTOR_MASTER = 4; // the values assigned are temporary until talon values are identified
-const int LEFT_MOTOR_FOLLOWER = 5;
-const int LEFT_MOTOR_FOLLOWER_2 = 6;
+const int LEFT_MOTOR_MASTER = 1; // the values assigned are temporary until talon values are identified
+const int LEFT_MOTOR_FOLLOWER = 2;
+const int LEFT_MOTOR_FOLLOWER_2 = 3;
 ////////////////////////////////////////////////////////////
-const int RIGHT_MOTOR_MASTER = 1; // temp values for right motors as viewed from the front of robot
-const int RIGHT_MOTOR_FOLLOWER = 2;
-const int RIGHT_MOTOR_FOLLOWER_2 = 3;
+const int RIGHT_MOTOR_MASTER = 12; // temp values for right motors as viewed from the front of robot
+const int RIGHT_MOTOR_FOLLOWER = 13;
+const int RIGHT_MOTOR_FOLLOWER_2 = 14;
 ////////////////////////////////////////////////////////////
 const int SOL_SHIFTER_1 = 0;
 const int SOL_SHIFTER_2 = 1;
@@ -37,9 +37,14 @@ const int COMPRESSOR = 0;
 ////////////////////////////////////////////////////////////
 const float RAMP = 6.0;
 ////////////////////////////////////////////////////////////
-const int Talon_Lift = 7;
-const int Talon_Lift_2 = 8;
+
+const int Talon_Lift_Setter = 70;
+
+const int TALON_LIFT = 80;
+const int TALON_LIFT_2 = 90;
+
 ////////////////////////////////////////////////////////////
 
+const float DPAD = .5;
 
 #endif

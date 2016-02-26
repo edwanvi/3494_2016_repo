@@ -11,6 +11,7 @@ private:
 	// It's desirable that everything possible under private except
 	// for methods that implement subsystem capabilities
 	CANTalon* talon_rollers;
+	CANTalon* talon_rollers_2;
 public:
 	Rollers();
 	void InitDefaultCommand();

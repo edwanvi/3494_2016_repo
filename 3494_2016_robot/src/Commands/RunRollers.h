@@ -9,9 +9,9 @@
 class RunRollers: public CommandBase
 {
 private:
-	bool direction;
+
 public:
-	RunRollers(bool _direction);
+	RunRollers();
 	void Initialize();
 	void Execute();
 	bool IsFinished();

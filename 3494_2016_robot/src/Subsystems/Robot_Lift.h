@@ -7,14 +7,13 @@
 class Robot_Lift: public Subsystem
 {
 private:
+	CANTalon* TalonLift_Setter;
 	CANTalon* TalonLift;	// initializing lift objects
 	CANTalon* TalonLift_2;
-
-
 public:
 	Robot_Lift();
 	void InitDefaultCommand();
-	void Lift(float magnitude);
+	void Lift(int mode);
 };
 
 #endif
