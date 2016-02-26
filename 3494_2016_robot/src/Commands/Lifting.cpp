@@ -1,9 +1,10 @@
 #include "Lifting.h"
-
-Lifting::Lifting()
+#include "OI.h"
+Lifting::Lifting(bool _mode)
 {
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(chassis);
+	Requires(lift);
 }
 
 // Called just before this Command runs the first time
