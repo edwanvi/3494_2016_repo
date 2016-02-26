@@ -12,35 +12,31 @@ Robot_Lift::Robot_Lift() :
 
 	TalonLift_Setter->SetSafetyEnabled(false);
 	TalonLift_Setter->SetExpiration(0.100);
-	TalonLift_Setter->Set(0); //
-////////////////////////////////////////////////////////////
-	Talon_Lift = new Talon(TALON_LIFT);
+	TalonLift_Setter->Set(0);
 
-	Talon_Lift->SetSafetyEnabled(false);
-	Talon_Lift->SetExpiration(0.100);
-	Talon_Lift->Set(0);
 ////////////////////////////////////////////////////////////
-	Talon_Lift_2 = new Talon(TALON_LIFT_2);
 
-	Talon_Lift_2->SetSafetyEnabled(false);
-	Talon_Lift_2->SetExpiration(0.100);
-	Talon_Lift_2->Set(0);
+	TalonLift = new Talon(TALON_LIFT);
+	TalonLift->EnableControl();
+	TalonLift->SetSafetyEnabled(false);
+	TalonLift->SetExpiration(0.100);
+	TalonLift->Set(0);
+
 ////////////////////////////////////////////////////////////
 
 }
 
 void Robot_Lift::InitDefaultCommand()
 {
-
 	//SetDefaultCommand(new Lifting());
-
 }
 
 void Robot_Lift::Lift(int mode)
 {
+	//if () add conditional when we have the limit switch system ready
 
-
-
+	TalonLift->Set(mode);
+	TalonLift_2->Set(-mode);
 }
 // Put methods for controlling this subsystem
 // here. Call these from Commands.

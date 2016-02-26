@@ -5,9 +5,9 @@
 #include "Commands/Command.h"
 #include "Subsystems/DriveTrain.h"
 #include "Subsystems/Rollers.h"
+#include "Subsystems/Robot_Lift.h"
 #include "OI.h"
 #include "WPILib.h"
-#include "Subsystems/Robot_Lift.h"
 
 /**
  * The base for all commands. All atomic commands should subclass CommandBase.

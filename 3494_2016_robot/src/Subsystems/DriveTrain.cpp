@@ -116,18 +116,22 @@ int DriveTrain::PowerDistOutput()
 float DriveTrain::PowerSide(int value)
 {
 	int value_ = value;
-	float	left_side = pdp->GetCurrent(1) + pdp->GetCurrent(2) + pdp->GetCurrent(3);
+	float left_side = pdp->GetCurrent(1) + pdp->GetCurrent(2) + pdp->GetCurrent(3);
 
-	float	right_side = pdp->GetCurrent(12) + pdp->GetCurrent(13) + pdp->GetCurrent(14);
+	float right_side = pdp->GetCurrent(12) + pdp->GetCurrent(13) + pdp->GetCurrent(14);
 		// 13 14 15// 0 1 2
 	if (value_ == 1)
-			{
+	{
 		return (left_side);
-			}
+	}
 	if (value_ == 2)
-			{
+	{
 		return (right_side);
-			}
+	}
+	else
+	{
+		return (0);
+	}
 }
 void DriveTrain::ChangeGear(bool _gear) {
 	if (currentGear != _gear)

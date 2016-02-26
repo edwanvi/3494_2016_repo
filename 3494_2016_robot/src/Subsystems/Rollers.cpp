@@ -1,4 +1,5 @@
 #include "Subsystems/Rollers.h"
+#include "../src/Commands/RunRollers.h"
 #include "../RobotMap.h"
 
 Rollers::Rollers() :
@@ -10,14 +11,15 @@ Rollers::Rollers() :
 	talon_rollers -> SetSafetyEnabled(false);
 
 	talon_rollers_2 = new CANTalon(ROLLERS_MOTOR_2);
-	talon_rollers_2->EnableControl();
-	talon_rollers_2->SetSafetyEnabled(false);
+	talon_rollers_2 -> EnableControl();
+	talon_rollers_2 -> SetSafetyEnabled(false);
 }
 
 void Rollers::InitDefaultCommand()
 {
 	// Set the default command for a subsystem here.
 	//SetDefaultCommand(new MySpecialCommand());
+	SetDefaultCommand(new RunRollers());
 }
 
 // Put methods for controlling this subsystem

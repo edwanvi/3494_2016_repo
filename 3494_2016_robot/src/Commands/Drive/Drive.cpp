@@ -1,5 +1,6 @@
 #include "Drive.h"
 #include "RobotMap.h"
+
 Drive::Drive()
 {
 	// Use Requires() here to declare subsystem dependencies
@@ -35,7 +36,6 @@ void Drive::Execute()
 		CommandBase::driveTrain->TankDrive(DPAD, DPAD);
 	}
 	SmartDashboard::PutNumber("Encoder_Position", driveTrain->Encoder_Position());
-
 }
 
 // Make this return true when this Command no longer needs to run execute()
