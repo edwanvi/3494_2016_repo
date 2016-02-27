@@ -4,7 +4,6 @@ SystemsCheck::SystemsCheck(bool _right)
 {
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(chassis);
-	SmartDashboard::init();
 	Requires(CommandBase::driveTrain);
 	right = _right;
 	rightCurrent = 0;
@@ -14,7 +13,7 @@ SystemsCheck::SystemsCheck(bool _right)
 // Called just before this Command runs the first time
 void SystemsCheck::Initialize()
 {
-
+	SmartDashboard::init();
 }
 
 // Called repeatedly when this Command is scheduled to run
