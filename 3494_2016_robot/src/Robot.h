@@ -17,6 +17,7 @@ public:
 	Command *autonomousCommand;
 	LiveWindow *lw;
 	DriveTrain* drivetrain;
+	AHRS *ahrs;
 
 	void RobotInit();
 	void AutonomousInit();

@@ -1,8 +1,10 @@
 #include "WPILib.h"
+#include "AHRS.h"
 #include "Commands/Command.h"
 #include "Commands/Autonomous/Autonomous_Sequences.h"
 #include "CommandBase.h"
 #include "OI.h"
+
 
 class Robot: public IterativeRobot
 {
@@ -14,7 +16,7 @@ private:
 	Command * autonomousSequence;
 	Command * Auto_Score;
 
-
+	AHRS *ahrs; /* Alternatives:  SPI::kMXP, I2C::kMXP or SerialPort::kUSB */
 
 	void RobotInit()
 	{
@@ -98,4 +100,3 @@ private:
 };
 
 START_ROBOT_CLASS(Robot)
-
