@@ -7,8 +7,8 @@ SystemsCheck::SystemsCheck(bool _right)
 	SmartDashboard::init();
 	Requires(CommandBase::driveTrain);
 	right = _right;
-	double rightCurrent;
-	double leftCurrent;
+	rightCurrent = 0;
+	leftCurrent = 0;
 }
 
 // Called just before this Command runs the first time
