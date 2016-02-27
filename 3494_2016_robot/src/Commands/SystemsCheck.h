@@ -6,8 +6,12 @@
 
 class SystemsCheck: public CommandBase
 {
+private:
+	bool right;
+	double leftCurrent;
+	double rightCurrent;
 public:
-	SystemsCheck();
+	SystemsCheck(bool _right);
 	void Initialize();
 	void Execute();
 	bool IsFinished();

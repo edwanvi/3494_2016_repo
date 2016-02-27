@@ -120,11 +120,11 @@ float DriveTrain::PowerSide(int value)
 
 	float right_side = pdp->GetCurrent(12) + pdp->GetCurrent(13) + pdp->GetCurrent(14);
 		// 13 14 15// 0 1 2
-	if (value_ == 1)
+	if (value_ == 0)
 	{
 		return (left_side);
 	}
-	if (value_ == 2)
+	if (value_ == 1)
 	{
 		return (right_side);
 	}
