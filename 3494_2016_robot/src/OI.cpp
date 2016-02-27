@@ -32,9 +32,12 @@ OI::OI()
 	//buttonRB->WhenPressed(new RunRollers(false));
 	//gear down
 	buttonX->WhenPressed(new Shift_Gear(true));
-
 	//gear up
 	buttonB->WhenPressed(new Shift_Gear(false));
+
+	//Run the system checks. Best done when driving
+	buttonStart_2->WhenPressed(new SystemsCheck(true));
+	buttonSelect_2->WhenPressed(new SystemsCheck(false));
 }
 //these methods all basically do what they say they do in their name so yeah
 float OI::GetLeftJoystick() {
