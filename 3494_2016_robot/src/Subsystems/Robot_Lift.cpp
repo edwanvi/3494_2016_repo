@@ -23,6 +23,11 @@ Robot_Lift::Robot_Lift() :
 	TalonLift->Set(0);
 
 ////////////////////////////////////////////////////////////
+	TalonLift_2 = new Talon(TALON_LIFT_2);
+	TalonLift_2->EnableControl();
+	TalonLift_2->SetSafetyEnabled(false);
+	TalonLift_2->SetExpiration(0.100);
+	TalonLift_2->Set(0);
 
 }
 
