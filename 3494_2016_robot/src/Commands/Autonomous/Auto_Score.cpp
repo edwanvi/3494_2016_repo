@@ -2,9 +2,43 @@
 
 Auto_Score::Auto_Score(int position)
 {
+	Position = position;
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(chassis);
 }
+
+void Auto_Score::trigger()
+{
+	if (Position == 1)
+	{
+		middle();
+	}
+	else if (Position == 2)
+	{
+		right();
+	}
+	else if (Position == 3)
+	{
+		left();
+	}
+
+}
+
+void Auto_Score::middle()
+{
+
+}
+
+void Auto_Score::right()
+{
+
+}
+
+void Auto_Score::left()
+{
+
+}
+
 
 // Called just before this Command runs the first time
 void Auto_Score::Initialize()
