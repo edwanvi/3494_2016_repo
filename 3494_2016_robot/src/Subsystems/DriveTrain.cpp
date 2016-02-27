@@ -75,8 +75,8 @@ void DriveTrain::TankDrive(float leftAxis, float rightAxis)
 // Monitors the total current draw of the robot
 	SmartDashboard::PutNumber("Current",PowerDistOutput() );
 
-	SmartDashboard::PutNumber("Current_Chan left",PowerSide(1) );
-	SmartDashboard::PutNumber("Current_Chan Right", PowerSide(2));
+	SmartDashboard::PutNumber("Current_Chan left",PowerSide(0) );
+	SmartDashboard::PutNumber("Current_Chan Right", PowerSide(1));
 	SmartDashboard::PutNumber("Encoder_Position", Encoder_Position());
 // establishes sign value when below zero
 // the axis value, which is negative, is negated to be positive
