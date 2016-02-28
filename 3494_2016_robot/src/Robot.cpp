@@ -2,6 +2,7 @@
 #include "AHRS.h"
 #include "Commands/Command.h"
 #include "Commands/Autonomous/Autonomous_Sequences.h"
+#include "Commands/Autonomous/Auto_Score.h"
 #include "CommandBase.h"
 #include "OI.h"
 

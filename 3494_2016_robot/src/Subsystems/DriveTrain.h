@@ -36,6 +36,7 @@ public:
 	double GetPosition();
 	bool currentGear;
 	int Encoder_Position();
+	void ResetEncoders();
 };
 
 #endif

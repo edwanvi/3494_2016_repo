@@ -116,7 +116,7 @@ int DriveTrain::PowerDistOutput()
 float DriveTrain::PowerSide(int value)
 {
 	int value_ = value;
-	float left_side = pdp->GetCurrent(1) + pdp->GetCurrent(2) + pdp->GetCurrent(3);
+	float left_side = pdp->GetCurrent(LEFT_MOTOR_MASTER) + pdp->GetCurrent(LEFT_MOTOR_FOLLOWER) + pdp->GetCurrent(LEFT_MOTOR_FOLLOWER_2);
 
 	float right_side = pdp->GetCurrent(12) + pdp->GetCurrent(13) + pdp->GetCurrent(14);
 		// 13 14 15// 0 1 2
@@ -156,4 +156,8 @@ double DriveTrain::GetPosition(){
 int DriveTrain::Encoder_Position()
 {
 	return (Rpulse * RightTalonFollower_2->GetEncPosition());
+}
+void DriveTrain::ResetEncoders(){
+	LeftTalonFollower_2->SetPosition(0);
+	RightTalonFollower_2->SetPosition(0);
 }
