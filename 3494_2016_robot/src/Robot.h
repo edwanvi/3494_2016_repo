@@ -15,6 +15,7 @@
 class Robot: public IterativeRobot {
 public:
 	Command *autonomousCommand;
+	Command *Auto_Score;
 	LiveWindow *lw;
 	DriveTrain* drivetrain;
 	AHRS *ahrs;

@@ -42,6 +42,7 @@ private:
 
 		//obstacle->AddObject("My Auto", new MyAutoCommand());
 		SmartDashboard::PutData("Auto Modes", obstacle);
+		SmartDashboard::PutData("Position", position);
 	}
 
 	/**
