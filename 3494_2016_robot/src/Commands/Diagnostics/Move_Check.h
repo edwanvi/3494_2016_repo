@@ -12,6 +12,9 @@ private:
 	std::clock_t start;
 	float duration;
 	bool time_loop;
+	double leftCurrent;
+	double rightCurrent;
+
 public:
 	Move_Check(float _time, bool _direction);
 

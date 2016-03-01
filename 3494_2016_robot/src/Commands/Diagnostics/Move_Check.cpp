@@ -6,6 +6,8 @@ Move_Check::Move_Check(float _time, bool _direction)
 {
 	time_loop = true;
 	duration = 0;
+	rightCurrent = 0;
+	leftCurrent = 0;
 	start = std::clock();
 	Requires(CommandBase::driveTrain);
 	letime = _time;
@@ -22,11 +24,18 @@ void Move_Check::Initialize()
 void Move_Check::Execute()
 {
 	while(time_loop == true){
-		if (direction) {
-			CommandBase::driveTrain->TankDrive(-.75, .75);
-		} else {
-			CommandBase::driveTrain->TankDrive(.75,-.75);
+		if (direction){
+			driveTrain->TankDrive(0.75, -0.75);
+			rightCurrent = driveTrain->PowerSide(1);
+			leftCurrent = driveTrain->PowerSide(0);
 		}
+		else {
+			driveTrain->TankDrive(-0.75, 0.75);
+			rightCurrent = driveTrain->PowerSide(1);
+			leftCurrent = driveTrain->PowerSide(0);
+		}
+		SmartDashboard::PutNumber("Left Current", leftCurrent);
+		SmartDashboard::PutNumber("Right Current", rightCurrent);
 		duration = (std::clock - start)/ CLOCKS_PER_SEC;
 		if (duration >= time){
 		CommandBase::driveTrain->TankDrive(0,0);

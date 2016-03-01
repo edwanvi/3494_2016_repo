@@ -19,14 +19,6 @@ void SystemsCheck::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void SystemsCheck::Execute()
 {
-	if (right){
-		rightCurrent = driveTrain->PowerSide(1);
-	}
-	else {
-		leftCurrent = driveTrain->PowerSide(0);
-	}
-	SmartDashboard::PutNumber("Left Current", leftCurrent);
-	SmartDashboard::PutNumber("Right Current", rightCurrent);
 }
 
 // Make this return true when this Command no longer needs to run execute()
