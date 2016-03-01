@@ -1,7 +1,7 @@
 #include "OI.h"
 #include "Commands/RunRollers.h"
 #include "Commands/Drive/Shift_Gear.h"
-#include "Commands/SystemsCheck.h"
+#include "Commands/Diagnostics/SystemsCheck.h"
 
 OI::OI()
 {
