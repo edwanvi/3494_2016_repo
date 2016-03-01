@@ -1,7 +1,7 @@
 #ifndef SystemsCheck_H
 #define SystemsCheck_H
 
-#include "../CommandBase.h"
+#include "../../CommandBase.h"
 #include "WPILib.h"
 
 class SystemsCheck: public CommandBase
