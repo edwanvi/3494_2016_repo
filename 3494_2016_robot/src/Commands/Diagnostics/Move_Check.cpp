@@ -4,6 +4,7 @@
 
 Move_Check::Move_Check(float _time, bool _direction)
 {
+	time_loop = true;
 	duration = 0;
 	start = std::clock();
 	Requires(CommandBase::driveTrain);
@@ -20,7 +21,8 @@ void Move_Check::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void Move_Check::Execute()
 {
-	while()
+	while(time_loop == true)
+	{
 	if (direction) {
 		CommandBase::driveTrain->TankDrive(-.75, .75);
 	} else {
@@ -31,9 +33,9 @@ void Move_Check::Execute()
 	if (duration >= time)
 	{
 		CommandBase::driveTrain->TankDrive(0,0);
-
+		time_loop = false;
 	}
-
+	}
 
 }
 
