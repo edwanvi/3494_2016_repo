@@ -2,6 +2,7 @@
 #include "../RobotMap.h"
 #include "math.h"
 #include "Commands/Drive/Drive.h"
+#include "ctime"
 
 DriveTrain::DriveTrain() :
 		Subsystem("DriveTrain")
@@ -59,6 +60,11 @@ DriveTrain::DriveTrain() :
 	solenoid_Shifter = new DoubleSolenoid(SOL_SHIFTER_1, SOL_SHIFTER_2);
 	currentGear = false;
 ////////////////////////////////////////////////////////////
+//for the system check
+	bCheck = false;
+	rightCurrent = 75.0f;
+	leftCurrent = 0.0f;
+
 }
 
 void DriveTrain::InitDefaultCommand()
@@ -113,6 +119,8 @@ int DriveTrain::PowerDistOutput()
 	return pdp->GetCurrent(PDP_Channel);
 }
 */
+
+//checks
 float DriveTrain::PowerSide(int value)
 {
 	int value_ = value;
@@ -160,4 +168,37 @@ int DriveTrain::Encoder_Position()
 void DriveTrain::ResetEncoders(){
 	LeftTalonFollower_2->SetPosition(0);
 	RightTalonFollower_2->SetPosition(0);
+}
+
+bool DriveTrain::TestDriveTrain(float duration)
+{
+	for( int a = 0; a < 99; a++ )
+	  {
+		TankDrive(-0.75,0.75);
+		rightCurrent = PowerSide(1);
+		leftCurrent = PowerSide(0);
+
+
+
+		//total motors
+		SmartDashboard::PutNumber("Left Current", leftCurrent);
+		SmartDashboard::PutNumber("Right Current", rightCurrent);
+		//induviddual motors
+		SmartDashboard::PutNumber("Left Current 1", pdp->GetCurrent(LEFT_MOTOR_MASTER));
+		SmartDashboard::PutNumber("Left Current 2", pdp->GetCurrent(LEFT_MOTOR_FOLLOWER));
+		SmartDashboard::PutNumber("Left Current 3", pdp->GetCurrent(LEFT_MOTOR_FOLLOWER_2));
+
+		SmartDashboard::PutNumber("Right Current 1", pdp->GetCurrent(12));
+		SmartDashboard::PutNumber("Right Current 2", pdp->GetCurrent(13));
+		SmartDashboard::PutNumber("Right Current 3", pdp->GetCurrent(14));
+
+
+
+	}
+
+	if (abs(leftCurrent - rightCurrent) <= 5.0f)
+			{
+			bCheck = true;
+			}
+return bCheck;
 }

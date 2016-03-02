@@ -37,6 +37,11 @@ public:
 	bool currentGear;
 	int Encoder_Position();
 	void ResetEncoders();
+	bool TestDriveTrain(float duration);
+private:
+	bool bCheck;
+	float rightCurrent;
+	float leftCurrent;
 };
 
 #endif
