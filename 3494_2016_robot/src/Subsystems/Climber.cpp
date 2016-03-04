@@ -4,12 +4,10 @@
 Climber::Climber() :
 		Subsystem("ExampleSubsystem")
 {
-	WinchTalon_1 = new CANTalon(TALON_WINCH_1);
-	WinchTalon_1->EnableControl();
+	WinchTalon_1 = new Talon(TALON_WINCH_1);
 	WinchTalon_1->SetSafetyEnabled(false);
 
-	WinchTalon_2 = new CANTalon(TALON_WINCH_2);
-	WinchTalon_2->EnableControl();
+	WinchTalon_2 = new Talon(TALON_WINCH_2);
 	WinchTalon_2->SetSafetyEnabled(false);
 }
 
