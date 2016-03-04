@@ -22,11 +22,11 @@ void Climber::InitDefaultCommand()
 void Climber::Winch(bool _clockwise){
 	bool clockwise = _clockwise;
 	if (clockwise){
-		WinchTalon_1->Set(DPAD);
-		WinchTalon_2->Set(-DPAD);
+		WinchTalon_1->Set(255);
+		WinchTalon_2->Set(-255);
 	}
 	else {
-		WinchTalon_1->Set(-DPAD);
-		WinchTalon_2->Set(DPAD);
+		WinchTalon_1->Set(-255);
+		WinchTalon_2->Set(255);
 	}
 }

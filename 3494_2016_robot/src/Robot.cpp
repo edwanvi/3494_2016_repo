@@ -1,5 +1,5 @@
 #include "WPILib.h"
-//#include "AHRS.h"
+#include "AHRS.h"
 #include "Commands/Command.h"
 #include "Commands/Autonomous/Autonomous_Sequences.h"
 #include "Commands/Autonomous/Auto_Score.h"
@@ -16,7 +16,7 @@ private:
 	Command * autonomousSequence;
 	DriveTrain* drivetrain;
 
-	//AHRS *ahrs; /* Alternatives:  SPI::kMXP, I2C::kMXP or SerialPort::kUSB */
+	AHRS *ahrs; /* Alternatives:  SPI::kMXP, I2C::kMXP or SerialPort::kUSB */
 	bool bDrivetrain;
 	void RobotInit()
 	{
