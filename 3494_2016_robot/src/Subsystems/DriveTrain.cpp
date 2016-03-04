@@ -126,7 +126,7 @@ float DriveTrain::PowerSide(int value)
 	int value_ = value;
 	float left_side = pdp->GetCurrent(LEFT_MOTOR_MASTER) + pdp->GetCurrent(LEFT_MOTOR_FOLLOWER) + pdp->GetCurrent(LEFT_MOTOR_FOLLOWER_2);
 
-	float right_side = pdp->GetCurrent(12) + pdp->GetCurrent(13) + pdp->GetCurrent(14);
+	float right_side = pdp->GetCurrent(RIGHT_MOTOR_MASTER) + pdp->GetCurrent(RIGHT_MOTOR_FOLLOWER) + pdp->GetCurrent(RIGHT_MOTOR_FOLLOWER_2);
 		// 13 14 15// 0 1 2
 	if (value_ == 0)
 	{
@@ -188,9 +188,9 @@ bool DriveTrain::TestDriveTrain(float duration)
 		SmartDashboard::PutNumber("Left Current 2", pdp->GetCurrent(LEFT_MOTOR_FOLLOWER));
 		SmartDashboard::PutNumber("Left Current 3", pdp->GetCurrent(LEFT_MOTOR_FOLLOWER_2));
 
-		SmartDashboard::PutNumber("Right Current 1", pdp->GetCurrent(12));
-		SmartDashboard::PutNumber("Right Current 2", pdp->GetCurrent(13));
-		SmartDashboard::PutNumber("Right Current 3", pdp->GetCurrent(14));
+		SmartDashboard::PutNumber("Right Current 1", pdp->GetCurrent(RIGHT_MOTOR_MASTER));
+		SmartDashboard::PutNumber("Right Current 2", pdp->GetCurrent(RIGHT_MOTOR_FOLLOWER));
+		SmartDashboard::PutNumber("Right Current 3", pdp->GetCurrent(RIGHT_MOTOR_FOLLOWER_2));
 
 
 

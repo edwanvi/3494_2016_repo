@@ -90,10 +90,9 @@ private:
 
 	void TestPeriodic()
 	{
-		LiveWindow::GetInstance()->Run();
-		bDrivetrain = drivetrain->TestDriveTrain(2.0f);
-		SmartDashboard::PutBoolean("DriveTrain_GO",bDrivetrain);
-
+		//LiveWindow::GetInstance()->Run();
+		//bDrivetrain = drivetrain->TestDriveTrain(2.0f);
+		//SmartDashboard::PutBoolean("DriveTrain_GO",bDrivetrain);
 	}
 };
 

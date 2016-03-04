@@ -19,7 +19,7 @@ void Rollers::InitDefaultCommand()
 {
 	// Set the default command for a subsystem here.
 	//SetDefaultCommand(new MySpecialCommand());
-	SetDefaultCommand(new RunRollers());
+	//SetDefaultCommand(new RunRollers());
 }
 
 // Put methods for controlling this subsystem
