@@ -3,6 +3,7 @@
 
 #include "../../CommandBase.h"
 #include "WPILib.h"
+#include "CommandBase.h"
 
 class SystemsCheck: public CommandBase
 {
@@ -10,6 +11,7 @@ private:
 	bool right;
 	double leftCurrent;
 	double rightCurrent;
+	DriveTrain* drivetrain;
 public:
 	SystemsCheck(bool _right);
 	void Initialize();
