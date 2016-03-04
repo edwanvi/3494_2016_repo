@@ -37,9 +37,9 @@ void Move_Check::Execute()
 		SmartDashboard::PutNumber("Left Current", leftCurrent);
 		SmartDashboard::PutNumber("Right Current", rightCurrent);
 		//duration = (std::clock - start)/ CLOCKS_PER_SEC;
-		if (duration >= time){
-		CommandBase::driveTrain->TankDrive(0,0);
-		}
+		//if (duration >= time){
+		//CommandBase::driveTrain->TankDrive(0,0);
+		//}
 	}
 }
 

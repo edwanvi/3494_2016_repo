@@ -1,10 +1,11 @@
 #include "WPILib.h"
-#include "AHRS.h"
+//#include "AHRS.h"
 #include "Commands/Command.h"
 #include "Commands/Autonomous/Autonomous_Sequences.h"
 #include "Commands/Autonomous/Auto_Score.h"
 #include "CommandBase.h"
 #include "OI.h"
+#include "Subsystems/DriveTrain.h"
 
 
 class Robot: public IterativeRobot
@@ -13,9 +14,10 @@ private:
 	std::unique_ptr<Command> autonomousCommand;
 	SendableChooser *chooser;
 	Command * autonomousSequence;
+	DriveTrain* drivetrain;
 
-	AHRS *ahrs; /* Alternatives:  SPI::kMXP, I2C::kMXP or SerialPort::kUSB */
-
+	//AHRS *ahrs; /* Alternatives:  SPI::kMXP, I2C::kMXP or SerialPort::kUSB */
+	bool bDrivetrain;
 	void RobotInit()
 	{
 		SmartDashboard::init();
@@ -89,6 +91,9 @@ private:
 	void TestPeriodic()
 	{
 		LiveWindow::GetInstance()->Run();
+		bDrivetrain = drivetrain->TestDriveTrain(2.0f);
+		SmartDashboard::PutBoolean("DriveTrain_GO",bDrivetrain);
+
 	}
 };
 
