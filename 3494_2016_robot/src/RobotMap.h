@@ -23,9 +23,12 @@
 //const int ROLLERS_MOTOR = 5;
 //const int ROLLERS_MOTOR_2 = 9;
 
-const int ROLLERS_MOTOR = 12;
-const int ROLLERS_MOTOR_2 = 0;
+const int ROLLERS_MOTOR_LIFT_RIGHT = 12;
+const int ROLLERS_MOTOR_LIFT_LEFT = 0;
 
+const int ROLLERS_MOTOR_LEFT = 0;
+const int ROLLERS_MOTOR_RIGHT = 5;
+const int ROLLERS_MOTOR_LEFT_PDP = 20;
 
 const int LEFT_MOTOR_MASTER = 1; // the values assigned are temporary until talon values are identified
 const int LEFT_MOTOR_FOLLOWER = 2;

@@ -11,8 +11,10 @@ class Rollers: public Subsystem
 private:
 	// It's desirable that everything possible under private except
 	// for methods that implement subsystem capabilities
-	CANTalon* talon_rollers;
-	CANTalon* talon_rollers_2;
+	CANTalon* talon_rollers_lift_left;
+	CANTalon* talon_rollers_lift_right;
+	Talon* roller_left;
+	Talon* roller_right;
 	double duration;
 
 	std::clock_t start;
@@ -30,7 +32,7 @@ public:
 	void InitDefaultCommand();
 	void Roll(bool forward, double _speed);
 	bool CheckRoll(double _duration);
-
+	void Roller_Lift(float magnitude);
 
 
 };

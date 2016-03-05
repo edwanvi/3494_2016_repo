@@ -5,16 +5,20 @@
 Rollers::Rollers() :
 		Subsystem("Rollers")
 {
-	//create a talon object to control the rollers
-	talon_rollers = new CANTalon(ROLLERS_MOTOR);
-	talon_rollers -> EnableControl();
-	talon_rollers -> SetSafetyEnabled(false);
+	//create a talon object to control the rollers lift
+	talon_rollers_lift_left = new CANTalon(ROLLERS_MOTOR_LIFT_LEFT);
+	talon_rollers_lift_left -> EnableControl();
+	talon_rollers_lift_left -> SetSafetyEnabled(false);
 
-	talon_rollers_2 = new CANTalon(ROLLERS_MOTOR_2);
-	talon_rollers_2 -> EnableControl();
-	talon_rollers_2 -> SetSafetyEnabled(false);
+	talon_rollers_lift_right = new CANTalon(ROLLERS_MOTOR_LIFT_RIGHT);
+	talon_rollers_lift_right -> EnableControl();
+	talon_rollers_lift_right -> SetSafetyEnabled(false);
 
-	pdp = new PowerDistributionPanel();
+	roller_left = new Talon(ROLLERS_MOTOR_LEFT);	// create talon rollers these are pwm
+
+	roller_right = new Talon(ROLLERS_MOTOR_RIGHT);
+
+	pdp = new PowerDistributionPanel(); // for current measuring
 
 	leftCurrent = 0.0;
 	 rightCurrent = 0.0;
@@ -25,7 +29,6 @@ Rollers::Rollers() :
 void Rollers::InitDefaultCommand()
 {
 	// Set the default command for a subsystem here.
-	//SetDefaultCommand(new MySpecialCommand());
 	//SetDefaultCommand(new RunRollers());
 }
 
@@ -33,14 +36,22 @@ void Rollers::InitDefaultCommand()
 // here. Call these from Commands.
 void Rollers::Roll(bool forward, double _speed){
 	speed = _speed;
+
 	if (forward == true){
-		talon_rollers->Set(speed);
-		talon_rollers_2->Set(-speed);
+		roller_left->Set(speed);
+		roller_right->Set(-speed);
 	}
 	else {
-		talon_rollers->Set(-speed);
-		talon_rollers_2->Set(speed);
+		roller_left->Set(-speed);
+		roller_right->Set(speed);
 	}
+}
+void Rollers::Roller_Lift(float magnitude)
+{
+	// limit = limitSwitchUp
+	talon_rollers_lift_left->Set(magnitude);
+	talon_rollers_lift_right->Set(-magnitude);
+
 }
 
 bool Rollers::CheckRoll(double _duration)
@@ -52,14 +63,15 @@ bool Rollers::CheckRoll(double _duration)
 
 		Roll(true, 0.1);
 		//again no idea which roller is which
-		leftCurrent = pdp->GetCurrent(ROLLERS_MOTOR);
-		rightCurrent = pdp->GetCurrent(ROLLERS_MOTOR_2);
+		leftCurrent = pdp->GetCurrent(ROLLERS_MOTOR_LEFT_PDP); // all pwm motors dont have a matching pdp
+		rightCurrent = pdp->GetCurrent(90); // ill figure that out soon
 		SmartDashboard::PutNumber("Roller_Current", leftCurrent);
 		SmartDashboard::PutNumber("Roller_Current_2", rightCurrent);
 
 timeElapsed = (std::clock() + start)/(double)CLOCKS_PER_SEC;
 	}
 //dont know proper current check
+/*
 if (abs(leftCurrent- rightCurrent) <= 2.0f)
 {
 bCheck = true;
@@ -67,3 +79,4 @@ bCheck = true;
 
 return bCheck;
 }
+*/

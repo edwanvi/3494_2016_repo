@@ -1,49 +1,53 @@
-#include "RunRollers.h"
+#include "Rollers_lift.h"
 
-RunRollers::RunRollers()
+Rollers_lift::Rollers_lift()
 {
 	// Use Requires() here to declare subsystem dependencies
-	// eg. Requires(chassis);
 	Requires(CommandBase::roller);
+	roller_lift_magnitude = 0;
 }
 
 // Called just before this Command runs the first time
-void RunRollers::Initialize()
+void Rollers_lift::Initialize()
 {
 
 }
 
 // Called repeatedly when this Command is scheduled to run
-void RunRollers::Execute()
+void Rollers_lift::Execute()
 {
-	if (oi->buttonLB){
-		CommandBase::roller->Roll(true, 0.75);
+
+	if(oi->GetRightTrigger > .25)
+	{
+		roller_lift_magnitude = oi->GetRightTrigger();
 	}
-	else if (oi->buttonRB){
-		CommandBase::roller->Roll(false, 0.75);
+	else if (oi->GetLeftTrigger() > .25)
+	{
+		roller_lift_magnitude = -oi->GetLeftTrigger();
 	}
 	else
 	{
-		CommandBase::roller->Roll(true, 0);
+		roller_lift_magnitude = 0;
 	}
-	//CommandBase::roller->Roll(direction);
+
+
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool RunRollers::IsFinished()
+bool Rollers_lift::IsFinished()
 {
 	return false;
 }
 
 // Called once after isFinished returns true
-void RunRollers::End()
+void Rollers_lift::End()
 {
 
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void RunRollers::Interrupted()
+void Rollers_lift::Interrupted()
 {
 
 }

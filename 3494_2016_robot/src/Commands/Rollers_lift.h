@@ -1,14 +1,15 @@
-#ifndef Lifting_H
-#define Lifting_H
+#ifndef Rollers_lift_H
+#define Rollers_lift_H
 
 #include "../CommandBase.h"
 #include "WPILib.h"
-#include "Subsystems/Robot_Lift.h"
 
-class Lifting: public CommandBase
+class Rollers_lift: public CommandBase
 {
+private:
+ float roller_lift_magnitude;
 public:
-	Lifting(bool _mode);
+	Rollers_lift();
 	void Initialize();
 	void Execute();
 	bool IsFinished();
