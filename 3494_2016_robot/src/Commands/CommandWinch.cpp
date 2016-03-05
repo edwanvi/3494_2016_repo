@@ -17,10 +17,11 @@ void CommandWinch::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void CommandWinch::Execute()
 {
-	if (oi->GetDPad_2() == 0){
+	int dpad = oi->GetDPad_2();
+	if (dpad == 0){
 		climber->Winch(true);
 	}
-	else if (oi->GetDPad_2() == 180){
+	else if (dpad == 180){
 		climber->Winch(false);
 	}
 	else {

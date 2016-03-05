@@ -3,7 +3,7 @@
 #include "../RobotMap.h"
 
 Climber::Climber() :
-		Subsystem("ExampleSubsystem")
+		Subsystem("Climber")
 {
 	WinchTalon_1 = new Talon(TALON_WINCH_1);
 	WinchTalon_1->SetSafetyEnabled(false);
@@ -24,12 +24,12 @@ void Climber::InitDefaultCommand()
 void Climber::Winch(bool _clockwise){
 	bool clockwise = _clockwise;
 	if (clockwise){
-		WinchTalon_1->Set(200);
-		WinchTalon_2->Set(-200);
+		WinchTalon_1->Set(10);
+		WinchTalon_2->Set(10);
 	}
 	else {
-		WinchTalon_1->Set(-200);
-		WinchTalon_2->Set(200);
+		WinchTalon_1->Set(-10);
+		WinchTalon_2->Set(-10);
 	}
 }
 void Climber::StopWinch(){
