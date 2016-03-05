@@ -1,4 +1,5 @@
 #include "Climber.h"
+#include "Commands/CommandWinch.h"
 #include "../RobotMap.h"
 
 Climber::Climber() :
@@ -15,6 +16,7 @@ void Climber::InitDefaultCommand()
 {
 	// Set the default command for a subsystem here.
 	//SetDefaultCommand(new MySpecialCommand());
+	SetDefaultCommand(new CommandWinch());
 }
 
 // Put methods for controlling this subsystem
@@ -22,11 +24,15 @@ void Climber::InitDefaultCommand()
 void Climber::Winch(bool _clockwise){
 	bool clockwise = _clockwise;
 	if (clockwise){
-		WinchTalon_1->Set(255);
-		WinchTalon_2->Set(-255);
+		WinchTalon_1->Set(200);
+		WinchTalon_2->Set(-200);
 	}
 	else {
-		WinchTalon_1->Set(-255);
-		WinchTalon_2->Set(255);
+		WinchTalon_1->Set(-200);
+		WinchTalon_2->Set(200);
 	}
+}
+void Climber::StopWinch(){
+	WinchTalon_1->Set(0);
+	WinchTalon_2->Set(0);
 }

@@ -57,8 +57,8 @@ const float DPAD = .5;
 
 ////////////////////////////////////////////////////////////
 
-const int TALON_WINCH_1 = 900;
-const int TALON_WINCH_2 = 9001;
+const int TALON_WINCH_1 = 6;
+const int TALON_WINCH_2 = 7;
 const int WINCH_SPEED = 255;
 
 ////////////////////////////////////////////////////////////
