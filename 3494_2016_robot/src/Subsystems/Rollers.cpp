@@ -69,9 +69,9 @@ bool Rollers::CheckRoll(double _duration)
 		SmartDashboard::PutNumber("Roller_Current_2", rightCurrent);
 
 timeElapsed = (std::clock() + start)/(double)CLOCKS_PER_SEC;
-	}
+	  }
 //dont know proper current check
-/*
+
 if (abs(leftCurrent- rightCurrent) <= 2.0f)
 {
 bCheck = true;
@@ -79,4 +79,4 @@ bCheck = true;
 
 return bCheck;
 }
-*/
+

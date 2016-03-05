@@ -5,14 +5,17 @@
 Climber::Climber() :
 		Subsystem("Climber")
 {
+/////////////////////////////////////////////////////////////////
+
 	WinchTalon_1 = new Talon(TALON_WINCH_1);	// will switch to srx during competition
 	WinchTalon_1->SetSafetyEnabled(false);
 
 	WinchTalon_2 = new Talon(TALON_WINCH_2);
 	WinchTalon_2->SetSafetyEnabled(false);
-
+/////////////////////////////////////////////////////////////////
 	pdp = new PowerDistributionPanel();
 	SmartDashboard::init();
+/////////////////////////////////////////////////////////////////
 }
 
 void Climber::InitDefaultCommand()
@@ -38,8 +41,16 @@ void Climber::Winch(bool _clockwise){
 	int current_2 = pdp->GetCurrent(9); // so wait till later to add to robot map for competition
 	SmartDashboard::PutNumber("Lift Current 1", current_1);
 	SmartDashboard::PutNumber("Lift Current 2", current_2);
+/////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
 }
 void Climber::StopWinch(){ // wench stop when neither is present
 	WinchTalon_1->Set(0);
 	WinchTalon_2->Set(0);
+}
+
+void Climber::Setter()
+{
+
+
 }

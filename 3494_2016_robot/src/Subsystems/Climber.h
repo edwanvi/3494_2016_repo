@@ -17,6 +17,7 @@ public:
 	void InitDefaultCommand();
 	void Winch(bool _clockwise);
 	void StopWinch();
+	void Setter();
 };
 
 #endif
