@@ -10,6 +10,8 @@ SystemsCheck::SystemsCheck(bool _right)
 	rightCurrent = 0;
 	leftCurrent = 0;
 	drivetrain = new DriveTrain();
+	rollers = new Rollers();
+
 
 }
 
@@ -25,6 +27,7 @@ void SystemsCheck::Initialize()
 void SystemsCheck::Execute()
 {
 drivetrain->TestDriveTrain(1.0f);
+rollers->CheckRoll(0.5);
 }
 
 // Make this return true when this Command no longer needs to run execute()
