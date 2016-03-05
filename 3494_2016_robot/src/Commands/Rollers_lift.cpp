@@ -17,7 +17,7 @@ void Rollers_lift::Initialize()
 void Rollers_lift::Execute()
 {
 
-	if(oi->GetRightTrigger > .25)
+	if(oi->GetRightTrigger() > .25)
 	{
 		roller_lift_magnitude = oi->GetRightTrigger();
 	}
