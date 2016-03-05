@@ -3,6 +3,7 @@
 
 #include "Commands/Subsystem.h"
 #include "WPILib.h"
+#include <ctime>
 
 class DriveTrain: public Subsystem
 {
@@ -23,6 +24,12 @@ private:
 	float Rpulse;
 	float Lpulse;
 
+	//clock
+	std::clock_t start;
+	double timeElapsed = 0.0;
+	double duration = 0.0;
+
+
 	// It's desirable that everything possible under private except
 	// for methods that implement subsystem capabilities
 public:
@@ -37,7 +44,7 @@ public:
 	bool currentGear;
 	int Encoder_Position();
 	void ResetEncoders();
-	bool TestDriveTrain(float duration);
+	bool TestDriveTrain(float _duration);
 private:
 	bool bCheck;
 	float rightCurrent;

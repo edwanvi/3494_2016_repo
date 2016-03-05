@@ -170,9 +170,11 @@ void DriveTrain::ResetEncoders(){
 	RightTalonFollower_2->SetPosition(0);
 }
 
-bool DriveTrain::TestDriveTrain(float duration)
+bool DriveTrain::TestDriveTrain(float _duration)
 {
-	for( int a = 0; a < 99; a++ )
+	duration = _duration;
+	start = std::clock();
+	while(timeElapsed <= _duration)
 	  {
 		TankDrive(-0.75,0.75);
 		rightCurrent = PowerSide(1);
@@ -191,7 +193,7 @@ bool DriveTrain::TestDriveTrain(float duration)
 		SmartDashboard::PutNumber("Right Current 1", pdp->GetCurrent(12));
 		SmartDashboard::PutNumber("Right Current 2", pdp->GetCurrent(13));
 		SmartDashboard::PutNumber("Right Current 3", pdp->GetCurrent(14));
-
+		timeElapsed = (std::clock() + start)/(double)CLOCKS_PER_SEC;
 
 
 	}

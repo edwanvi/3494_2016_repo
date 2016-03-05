@@ -24,7 +24,7 @@ void SystemsCheck::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void SystemsCheck::Execute()
 {
-drivetrain->TestDriveTrain(2.0f);
+drivetrain->TestDriveTrain(1.0f);
 }
 
 // Make this return true when this Command no longer needs to run execute()
