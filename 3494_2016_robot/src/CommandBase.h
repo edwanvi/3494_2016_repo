@@ -5,7 +5,7 @@
 #include "Commands/Command.h"
 #include "Subsystems/DriveTrain.h"
 #include "Subsystems/Rollers.h"
-#include "Subsystems/Robot_Lift.h"
+
 #include "Subsystems/Climber.h"
 #include "OI.h"
 #include "WPILib.h"
@@ -26,7 +26,7 @@ public:
 	static OI* oi;
 	static DriveTrain* driveTrain;
 	static Rollers* roller;
-	static Robot_Lift* lift;
+
 	static Climber* climber;
 	static bool AUTONOMOUS;
 	static void autonomous(bool mode);

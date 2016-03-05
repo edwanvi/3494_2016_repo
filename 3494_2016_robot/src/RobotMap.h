@@ -34,16 +34,16 @@ const int LEFT_MOTOR_MASTER = 1; // the values assigned are temporary until talo
 const int LEFT_MOTOR_FOLLOWER = 2;
 const int LEFT_MOTOR_FOLLOWER_2 = 3;
 ////////////////////////////////////////////////////////////
-//const int RIGHT_MOTOR_MASTER = 12; // temp values for right motors as viewed from the front of robot
+//const int RIGHT_MOTOR_MASTER = 12;
 //const int RIGHT_MOTOR_FOLLOWER = 13;
 //const int RIGHT_MOTOR_FOLLOWER_2 = 14;
-const int RIGHT_MOTOR_MASTER = 13; // temp values for right motors as viewed from the front of robot
+const int RIGHT_MOTOR_MASTER = 13; // temp values for practice robot
 const int RIGHT_MOTOR_FOLLOWER = 14;
 const int RIGHT_MOTOR_FOLLOWER_2 = 15;
 
 ////////////////////////////////////////////////////////////
-const int SOL_SHIFTER_1 = 0;
-const int SOL_SHIFTER_2 = 1;
+const int SOL_SHIFTER_1 = 3;
+const int SOL_SHIFTER_2 = 4;
 const int COMPRESSOR = 0;
 ////////////////////////////////////////////////////////////
 const float RAMP = 6.0;
