@@ -29,8 +29,12 @@ void Rollers::Roll(bool forward){
 		talon_rollers->Set(.75);
 		talon_rollers_2->Set(-.75);
 	}
-	else {
+	else if (forward == false){
 		talon_rollers->Set(-.75);
 		talon_rollers_2->Set(.75);
+	}
+	else {
+		talon_rollers->Set(0);
+		talon_rollers_2->Set(0);
 	}
 }

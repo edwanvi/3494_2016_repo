@@ -15,6 +15,7 @@ public:
 	Climber();
 	void InitDefaultCommand();
 	void Winch(bool _clockwise);
+	void StopWinch();
 };
 
 #endif

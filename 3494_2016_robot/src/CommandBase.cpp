@@ -7,6 +7,7 @@ OI* CommandBase::oi = NULL;
 DriveTrain* CommandBase::driveTrain = NULL;
 Rollers* CommandBase::roller = NULL;
 Robot_Lift* CommandBase::lift = NULL;
+Climber* CommandBase::climber = NULL;
 CommandBase::CommandBase(const std::string &name) :
 		Command(name)
 {
@@ -29,6 +30,7 @@ void CommandBase::init()
 	oi = new OI();
 	driveTrain = new DriveTrain();
 	lift = new Robot_Lift();
+	climber = new Climber();
 }
 
 void autonomous(bool mode)
