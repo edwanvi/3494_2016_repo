@@ -17,10 +17,10 @@ void RunRollers::Initialize()
 void RunRollers::Execute()
 {
 	if (oi->buttonLB){
-		CommandBase::roller->Roll(true);
+		CommandBase::roller->Roll(true, 0.75);
 	}
 	else if (oi->buttonRB){
-		CommandBase::roller->Roll(false);
+		CommandBase::roller->Roll(false, 0.75);
 	}
 	//CommandBase::roller->Roll(direction);
 }

@@ -12,6 +12,7 @@ private:
 	double leftCurrent;
 	double rightCurrent;
 	DriveTrain* drivetrain;
+	Rollers* rollers;
 public:
 	SystemsCheck(bool _right);
 	void Initialize();
