@@ -11,6 +11,7 @@ private:
 	// for methods that implement subsystem capabilities
 	Talon* WinchTalon_1;
 	Talon* WinchTalon_2;
+	PowerDistributionPanel* pdp;
 public:
 	Climber();
 	void InitDefaultCommand();

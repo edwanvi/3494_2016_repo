@@ -10,6 +10,9 @@ Climber::Climber() :
 
 	WinchTalon_2 = new Talon(TALON_WINCH_2);
 	WinchTalon_2->SetSafetyEnabled(false);
+
+	pdp = new PowerDistributionPanel();
+	SmartDashboard::init();
 }
 
 void Climber::InitDefaultCommand()
@@ -24,13 +27,17 @@ void Climber::InitDefaultCommand()
 void Climber::Winch(bool _clockwise){
 	bool clockwise = _clockwise;
 	if (clockwise){
-		WinchTalon_1->Set(125);
-		WinchTalon_2->Set(125);
+		WinchTalon_1->Set(110);
+		WinchTalon_2->Set(110);
 	}
 	else {
 		WinchTalon_1->Set(-255);
 		WinchTalon_2->Set(-255);
 	}
+	int current_1 = pdp->GetCurrent(8);
+	int current_2 = pdp->GetCurrent(9);
+	SmartDashboard::PutNumber("Lift Current 1", current_1);
+	SmartDashboard::PutNumber("Lift Current 2", current_2);
 }
 void Climber::StopWinch(){
 	WinchTalon_1->Set(0);
