@@ -3,6 +3,7 @@
 #include "math.h"
 #include "Commands/Drive/Drive.h"
 #include "ctime"
+#include "math.h"
 
 DriveTrain::DriveTrain() :
 		Subsystem("DriveTrain")
@@ -78,17 +79,17 @@ void DriveTrain::InitDefaultCommand()
 
 void DriveTrain::TankDrive(float leftAxis, float rightAxis)
 {
-// Monitors the total current draw of the robot
+// Monitors the total current draw of the robot use it when needed
 	SmartDashboard::PutNumber("Current",PowerDistOutput() );
 
-	SmartDashboard::PutNumber("Current_Chan left",PowerSide(0) );
-	SmartDashboard::PutNumber("Current_Chan Right", PowerSide(1));
-	SmartDashboard::PutNumber("Encoder_Position", Encoder_Position());
+	//SmartDashboard::PutNumber("Current_Chan left",PowerSide(0) );
+	//SmartDashboard::PutNumber("Current_Chan Right", PowerSide(1));
+	//SmartDashboard::PutNumber("Encoder_Position", Encoder_Position());
+
 // establishes sign value when below zero
 // the axis value, which is negative, is negated to be positive
 // The value is then taken to a power and then multiplied by the sign value	
-	int leftSign = 1;
-	int rightSign = 1;
+
 	if (leftAxis < 0) {
 		leftSign = -1;
 		leftAxis = leftAxis * -1;
@@ -103,13 +104,28 @@ void DriveTrain::TankDrive(float leftAxis, float rightAxis)
 	
 	float rightValue = rightSign * pow(rightAxis, power);
 	//drive the master talons. the others /will/ follow.
-	LeftTalonMaster->Set(leftValue);
-	RightTalonMaster->Set(rightValue);
+	if(fabs(leftAxis) < .10 )// instituting a deadband for the left and right motor
+	{
+		LeftTalonMaster->Set(0);
+	}
+	else
+	{
+		LeftTalonMaster->Set(leftValue);
+	}
+
+	if(fabs(leftAxis) < .10)
+	{
+		RightTalonMaster->Set(0);
+	}
+	else
+	{
+		RightTalonMaster->Set(rightValue);
+	}
 }
 
 int DriveTrain::PowerDistOutput()
 {
-	return pdp->GetTotalCurrent();
+	return pdp->GetTotalCurrent(); // displays total pdp current for documenting total draw and brownouts
 }
 
 /*int DriveTrain::IndPowerOutput(int PDP_Channel)

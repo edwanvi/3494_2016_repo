@@ -29,7 +29,8 @@ private:
 	double timeElapsed = 0.0;
 	double duration = 0.0;
 
-
+	int leftSign = 1;
+	int rightSign = 1;
 	// It's desirable that everything possible under private except
 	// for methods that implement subsystem capabilities
 public:

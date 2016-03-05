@@ -41,27 +41,27 @@ OI::OI()
 	buttonSelect_2->WhenPressed(new SystemsCheck(false));
 }
 //these methods all basically do what they say they do in their name so yeah
-float OI::GetLeftJoystick() {
+double OI::GetLeftJoystick() {
 	return 1 * controller->GetRawAxis(1);
 }
 
-float OI::GetRightJoystick() {
+double OI::GetRightJoystick() {
 	return -1 * controller->GetRawAxis(5);
 }
 
-float OI::GetLeftJoystick_2(){
+double OI::GetLeftJoystick_2(){
 	return -1 * controller_2->GetRawAxis(1);
 }
 
-float OI::GetRightJoystick_2(){
+double OI::GetRightJoystick_2(){
 	return -1 * controller_2->GetRawAxis(5);
 }
 
-float OI::GetLeftTrigger() {
+double OI::GetLeftTrigger() {
 	return controller->GetRawAxis(2);
 }
 
-float OI::GetRightTrigger() {
+double OI::GetRightTrigger() {
 	return controller->GetRawAxis(3);
 }
 int OI::GetDPad_2() {
@@ -71,18 +71,18 @@ int OI::GetDPad_2() {
 int OI::GetDPad() {
 	return controller->GetPOV();
 }
-float OI::GetLeftTrigger_2() {
+double OI::GetLeftTrigger_2() {
 	return controller_2->GetRawAxis(2);
 }
 
-float OI::GetRightTrigger_2() {
+double OI::GetRightTrigger_2() {
 	return controller_2->GetRawAxis(3);
 }
 
-float OI::GetLeftBumper() {
+double OI::GetLeftBumper() {
 	return controller->GetRawButton(5);
 }
 
-float OI::GetRightBumper() {
+double OI::GetRightBumper() {
 	return controller->GetRawButton(6);
 }

@@ -5,7 +5,7 @@
 Climber::Climber() :
 		Subsystem("Climber")
 {
-	WinchTalon_1 = new Talon(TALON_WINCH_1);
+	WinchTalon_1 = new Talon(TALON_WINCH_1);	// will switch to srx during competition
 	WinchTalon_1->SetSafetyEnabled(false);
 
 	WinchTalon_2 = new Talon(TALON_WINCH_2);
