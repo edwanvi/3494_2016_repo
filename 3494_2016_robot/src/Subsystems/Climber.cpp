@@ -24,12 +24,12 @@ void Climber::InitDefaultCommand()
 void Climber::Winch(bool _clockwise){
 	bool clockwise = _clockwise;
 	if (clockwise){
-		WinchTalon_1->Set(10);
-		WinchTalon_2->Set(10);
+		WinchTalon_1->Set(125);
+		WinchTalon_2->Set(125);
 	}
 	else {
-		WinchTalon_1->Set(-10);
-		WinchTalon_2->Set(-10);
+		WinchTalon_1->Set(-255);
+		WinchTalon_2->Set(-255);
 	}
 }
 void Climber::StopWinch(){
