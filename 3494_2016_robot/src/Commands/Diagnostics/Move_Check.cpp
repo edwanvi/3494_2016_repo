@@ -2,9 +2,9 @@
 #include "../../Subsystems/DriveTrain.h"
 #include "ctime"
 
-Move_Check::Move_Check()
+Move_Check::Move_Check(float _time)
 {
-
+	test_time = _time;
 }
 
 // Called just before this Command runs the first time
@@ -16,7 +16,7 @@ void Move_Check::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void Move_Check::Execute()
 {
-	driveTrain->TestDriveTrain(5.0f);
+	driveTrain->TestDriveTrain(test_time);
 }
 
 // Make this return true when this Command no longer needs to run execute()
