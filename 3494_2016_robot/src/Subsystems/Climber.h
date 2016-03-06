@@ -9,8 +9,8 @@ class Climber: public Subsystem
 private:
 	// It's desirable that everything possible under private except
 	// for methods that implement subsystem capabilities
-	Talon* WinchTalon_1;
-	Talon* WinchTalon_2;
+	Talon* WenchTalon_1;
+	Talon* WenchTalon_2;
 	PowerDistributionPanel* pdp;
 	DoubleSolenoid* solenoid_climber_arm;
 public:
