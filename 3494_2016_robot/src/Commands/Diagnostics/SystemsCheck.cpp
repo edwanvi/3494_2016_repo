@@ -26,8 +26,8 @@ void SystemsCheck::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void SystemsCheck::Execute()
 {
-drivetrain->TestDriveTrain(1.0f);
-rollers->CheckRoll(0.5);
+SmartDashboard::PutData("Test DriveTrain",drivetrain->TestDriveTrain(5.0f)) ; // drives for 5 seconds
+rollers->CheckRoll(1); // rolls for 1 second
 }
 
 // Make this return true when this Command no longer needs to run execute()
