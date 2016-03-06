@@ -1,5 +1,5 @@
 #include "Climber.h"
-#include "Commands/CommandWinch.h"
+#include "Commands/climb/CommandWinch.h"
 #include "../RobotMap.h"
 
 Climber::Climber() :

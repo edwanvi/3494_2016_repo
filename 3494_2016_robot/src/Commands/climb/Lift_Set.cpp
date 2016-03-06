@@ -1,49 +1,42 @@
-#include "CommandWinch.h"
-#include "../OI.h"
+#include "Lift_Set.h"
 
-CommandWinch::CommandWinch()
+Lift_Set::Lift_Set(bool _mode)
 {
+	mode = _mode;
 	// Use Requires() here to declare subsystem dependencies
-	// eg. Requires(chassis);
-	Requires(CommandBase::climber);
+	Requires(climber);
+	SmartDashboard::init();
 }
 
 // Called just before this Command runs the first time
-void CommandWinch::Initialize()
+void Lift_Set::Initialize()
 {
 
 }
 
 // Called repeatedly when this Command is scheduled to run
-void CommandWinch::Execute()
+void Lift_Set::Execute()
 {
-	int dpad = oi->GetDPad_2();
-	if (dpad == 0){
-		climber->Winch(true);
-	}
-	else if (dpad == 180){
-		climber->Winch(false);
-	}
-	else {
-		climber->StopWinch();
-	}
+	CommandBase::climber->Setter(mode);
+	SmartDashboard::PutBoolean("Set", mode);
+
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool CommandWinch::IsFinished()
+bool Lift_Set::IsFinished()
 {
 	return false;
 }
 
 // Called once after isFinished returns true
-void CommandWinch::End()
+void Lift_Set::End()
 {
 
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void CommandWinch::Interrupted()
+void Lift_Set::Interrupted()
 {
 
 }

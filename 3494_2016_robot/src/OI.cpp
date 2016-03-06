@@ -1,7 +1,8 @@
 #include "OI.h"
-#include "Commands/RunRollers.h"
+#include "Commands/Roller/RunRollers.h"
 #include "Commands/Drive/Shift_Gear.h"
 #include "Commands/Diagnostics/SystemsCheck.h"
+#include "Commands/climb/Lift_Set.h"
 
 OI::OI()
 {
@@ -35,6 +36,10 @@ OI::OI()
 	buttonX->WhenPressed(new Shift_Gear(true));
 	//gear up
 	buttonB->WhenPressed(new Shift_Gear(false));
+
+	buttonY->WhenPressed(new Lift_Set(true));
+
+	buttonA->WhenPressed(new Lift_Set(false));
 
 	//Run the system checks. Best done when driving
 	buttonStart_2->WhenPressed(new SystemsCheck(true));

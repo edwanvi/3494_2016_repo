@@ -1,7 +1,7 @@
 #ifndef Rollers_lift_H
 #define Rollers_lift_H
 
-#include "../CommandBase.h"
+#include "../../CommandBase.h"
 #include "WPILib.h"
 
 class Rollers_lift: public CommandBase

@@ -1,7 +1,7 @@
 #ifndef CommandWinch_H
 #define CommandWinch_H
 
-#include "../CommandBase.h"
+#include "../../CommandBase.h"
 #include "WPILib.h"
 
 class CommandWinch: public CommandBase
