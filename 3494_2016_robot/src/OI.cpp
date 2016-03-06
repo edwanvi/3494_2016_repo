@@ -44,6 +44,8 @@ OI::OI()
 	//Run the system checks. Best done when driving
 	buttonStart_2->WhenPressed(new SystemsCheck(true));
 	buttonSelect_2->WhenPressed(new SystemsCheck(false));
+
+	buttonRB->WhenPressed(new reset_encoders());
 }
 //these methods all basically do what they say they do in their name so yeah
 double OI::GetLeftJoystick() {

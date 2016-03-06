@@ -5,6 +5,7 @@
 Move_Check::Move_Check(float _time)
 {
 	test_time = _time;
+	Requires(driveTrain);
 }
 
 // Called just before this Command runs the first time

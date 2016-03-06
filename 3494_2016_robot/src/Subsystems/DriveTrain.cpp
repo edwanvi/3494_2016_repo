@@ -182,7 +182,7 @@ int DriveTrain::Encoder_Position()
 	return (Rpulse * RightTalonFollower_2->GetEncPosition());
 }
 void DriveTrain::ResetEncoders(){
-	LeftTalonFollower_2->SetPosition(0);
+	LeftTalonFollower_2->SetPosition(0);	// RESET ENCODERS
 	RightTalonFollower_2->SetPosition(0);
 }
 

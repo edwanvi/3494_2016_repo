@@ -8,6 +8,7 @@ SystemsCheck::SystemsCheck(bool _right)
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(chassis);
 	Requires(CommandBase::driveTrain);
+	Requires(CommandBase::roller);
 	right = _right;
 	rightCurrent = 0;
 	leftCurrent = 0;
