@@ -7,16 +7,9 @@
 class Move_Check: public CommandBase
 {
 private:
-	float letime;
-	bool direction;
-	std::clock_t start;
-	float duration;
-	bool time_loop;
-	double leftCurrent;
-	double rightCurrent;
 
 public:
-	Move_Check(float _time, bool _direction);
+	Move_Check();
 
 	void Initialize();
 	void Execute();

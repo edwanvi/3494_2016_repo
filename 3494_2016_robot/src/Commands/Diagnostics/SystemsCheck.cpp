@@ -1,4 +1,5 @@
 #include "SystemsCheck.h"
+#include "Move_Check.h"
 
 
 SystemsCheck::SystemsCheck(bool _right)
@@ -26,7 +27,7 @@ void SystemsCheck::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void SystemsCheck::Execute()
 {
-SmartDashboard::PutData("Test DriveTrain",drivetrain->TestDriveTrain(5.0f)) ; // drives for 5 seconds
+SmartDashboard::PutData("Test DriveTrain",new Move_Check()) ; // drives for 5 seconds
 rollers->CheckRoll(1); // rolls for 1 second
 }
 
