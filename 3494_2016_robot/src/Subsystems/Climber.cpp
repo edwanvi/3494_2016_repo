@@ -15,6 +15,7 @@ Climber::Climber() :
 /////////////////////////////////////////////////////////////////
 	pdp = new PowerDistributionPanel();
 	SmartDashboard::init();
+	solenoid_climber_arm = new DoubleSolenoid(SOL_CLIMBER_1, SOL_CLIMBER_2);
 /////////////////////////////////////////////////////////////////
 }
 
@@ -49,8 +50,12 @@ void Climber::StopWinch(){ // wench stop when neither is present
 	WinchTalon_2->Set(0);
 }
 
-void Climber::Setter()
+void Climber::Setter(bool forward)
 {
-
-
+	if (forward){
+		solenoid_climber_arm->Set(solenoid_climber_arm->kForward);
+	}
+	else if (forward == false) {
+		solenoid_climber_arm->Set(solenoid_climber_arm->kReverse);
+	}
 }

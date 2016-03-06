@@ -65,4 +65,8 @@ const int TALON_WINCH_2 = 7;
 const int WINCH_SPEED = 255;
 
 ////////////////////////////////////////////////////////////
+
+const int SOL_CLIMBER_1 = 2;
+const int SOL_CLIMBER_2 = 3;
+
 #endif

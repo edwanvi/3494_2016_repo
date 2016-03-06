@@ -12,12 +12,13 @@ private:
 	Talon* WinchTalon_1;
 	Talon* WinchTalon_2;
 	PowerDistributionPanel* pdp;
+	DoubleSolenoid* solenoid_climber_arm;
 public:
 	Climber();
 	void InitDefaultCommand();
 	void Winch(bool _clockwise);
 	void StopWinch();
-	void Setter();
+	void Setter(bool forward);
 };
 
 #endif
