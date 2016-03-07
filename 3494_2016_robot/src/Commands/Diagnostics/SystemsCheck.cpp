@@ -29,8 +29,10 @@ void SystemsCheck::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void SystemsCheck::Execute()
 {
-SmartDashboard::PutData("Test DriveTrain",new Move_Check(5.0f)) ; // drives for 5 seconds
-SmartDashboard::PutData("Test Roller", new Roller_Check(1)); // rolls for 1 second
+driveTrain->TestDriveTrain(5.0);
+roller->CheckRoll(3);
+//SmartDashboard::PutData("Test DriveTrain",new Move_Check(5.0f)) ; // drives for 5 seconds
+//SmartDashboard::PutData("Test Roller", new Roller_Check(1)); // rolls for 1 second
 }
 
 // Make this return true when this Command no longer needs to run execute()

@@ -18,6 +18,9 @@ private:
 
 	PowerDistributionPanel* pdp;
 
+
+
+	//////////
 	DoubleSolenoid* solenoid_Shifter;
 	float power = 1;
 

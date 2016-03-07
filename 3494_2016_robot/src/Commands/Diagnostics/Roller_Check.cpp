@@ -16,7 +16,7 @@ void Roller_Check::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void Roller_Check::Execute()
 {
-	roller->CheckRoll(test_time); // rolls for 1 second
+	 // rolls for 1 second
 }
 
 // Make this return true when this Command no longer needs to run execute()

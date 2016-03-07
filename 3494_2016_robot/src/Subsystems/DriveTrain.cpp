@@ -4,7 +4,6 @@
 #include "Commands/Drive/Drive.h"
 #include "ctime"
 #include "math.h"
-
 DriveTrain::DriveTrain() :
 		Subsystem("DriveTrain")
 {

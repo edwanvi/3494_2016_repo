@@ -3,7 +3,6 @@
 #include "Commands/Drive/Shift_Gear.h"
 #include "Commands/Diagnostics/SystemsCheck.h"
 #include "Commands/climb/Lift_Set.h"
-#include "Commands/Drive/reset_encoders.h"
 
 OI::OI()
 {
