@@ -1,6 +1,8 @@
+#include <Commands/Roller/Rollers_lift.h>
+#include <Commands/Roller/RunRollers.h>
 #include "Subsystems/Rollers.h"
-#include "../src/Commands/Roller/RunRollers.h"
 #include "../RobotMap.h"
+#include "../OI.h"
 
 Rollers::Rollers() :
 		Subsystem("Rollers")
@@ -18,7 +20,7 @@ Rollers::Rollers() :
 
 	roller_right = new Talon(ROLLERS_MOTOR_RIGHT);
 
-	pdp = new PowerDistributionPanel(); // for current measuring
+	//pdp = new PowerDistributionPanel(); // for current measuring
 
 	leftCurrent = 0.0;
 	 rightCurrent = 0.0;
@@ -29,7 +31,8 @@ Rollers::Rollers() :
 void Rollers::InitDefaultCommand()
 {
 	// Set the default command for a subsystem here.
-	//SetDefaultCommand(new RunRollers());
+	SetDefaultCommand(new Rollers_lift());
+
 }
 
 // Put methods for controlling this subsystem
@@ -45,6 +48,8 @@ void Rollers::Roll(bool forward, double _speed){
 		roller_left->Set(-speed);
 		roller_right->Set(speed);
 	}
+
+
 }
 void Rollers::Roller_Lift(float magnitude)
 {

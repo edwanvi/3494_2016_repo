@@ -42,11 +42,11 @@ const int RIGHT_MOTOR_FOLLOWER = 14;
 const int RIGHT_MOTOR_FOLLOWER_2 = 15;
 
 ////////////////////////////////////////////////////////////
-const int SOL_SHIFTER_1 = 3;
-const int SOL_SHIFTER_2 = 4;
+const int SOL_SHIFTER_1 = 0;
+const int SOL_SHIFTER_2 = 1;
 const int COMPRESSOR = 0;
 ////////////////////////////////////////////////////////////
-const float RAMP = 6.0;
+const float RAMP = 21;
 ////////////////////////////////////////////////////////////
 
 const int Talon_Lift_Setter = 70;
