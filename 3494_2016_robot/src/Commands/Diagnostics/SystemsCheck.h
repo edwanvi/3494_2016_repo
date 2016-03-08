@@ -13,6 +13,8 @@ private:
 	double rightCurrent;
 	DriveTrain* drivetrain;
 	Rollers* rollers;
+	bool bRollers;
+	bool bDriveTrain;
 public:
 	SystemsCheck(bool _right);
 	void Initialize();

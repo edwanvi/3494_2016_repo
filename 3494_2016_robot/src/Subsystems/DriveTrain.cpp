@@ -4,7 +4,6 @@
 #include "Commands/Drive/Drive.h"
 #include "ctime"
 #include "math.h"
-
 DriveTrain::DriveTrain() :
 		Subsystem("DriveTrain")
 {
@@ -192,8 +191,8 @@ void DriveTrain::ResetEncoders(){
 bool DriveTrain::TestDriveTrain(float _duration)
 {
 	duration = _duration;
-	start = std::clock();
-	while(timeElapsed <= _duration)
+	//start = std::clock();
+	for(int a = 0; a < 99;a++)
 	  {
 		TankDrive(-0.75,0.75);
 		rightCurrent = PowerSide(1);
@@ -201,7 +200,7 @@ bool DriveTrain::TestDriveTrain(float _duration)
 
 
 
-		//total motors
+		//total motorsS
 		SmartDashboard::PutNumber("Left Current", leftCurrent);
 		SmartDashboard::PutNumber("Right Current", rightCurrent);
 		//induviddual motors
@@ -219,7 +218,7 @@ bool DriveTrain::TestDriveTrain(float _duration)
 
 
 
-timeElapsed = (std::clock() + start)/(double)CLOCKS_PER_SEC;
+//timeElapsed = (std::clock() + start)/(double)CLOCKS_PER_SEC;
 	}
 
 	if (abs(leftCurrent - rightCurrent) <= 5.0f)

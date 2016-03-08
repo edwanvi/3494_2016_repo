@@ -62,18 +62,18 @@ void Rollers::Roller_Lift(float magnitude)
 bool Rollers::CheckRoll(double _duration)
 {
 	duration = _duration;
-	start = std::clock();
-	while(timeElapsed <= _duration)
+	//sstart = std::clock();
+	for(int a = 0; a < 99;a++)
 	  {
 
 		Roll(true, 0.1);
 		//again no idea which roller is which
 		leftCurrent = pdp->GetCurrent(ROLLERS_MOTOR_LEFT_PDP); // all pwm motors dont have a matching pdp
-		rightCurrent = pdp->GetCurrent(90); // ill figure that out soon
+		rightCurrent = pdp->GetCurrent(ROLLERS_MOTOR_RIGHT_PDP); // ill figure that out soon
 		SmartDashboard::PutNumber("Roller_Current", leftCurrent);
 		SmartDashboard::PutNumber("Roller_Current_2", rightCurrent);
 
-timeElapsed = (std::clock() + start)/(double)CLOCKS_PER_SEC;
+//timeElapsed = (std::clock() + start)/(double)CLOCKS_PER_SEC;
 	  }
 //dont know proper current check
 

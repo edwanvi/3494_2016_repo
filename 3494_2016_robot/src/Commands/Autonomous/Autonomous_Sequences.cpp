@@ -84,7 +84,7 @@ void Autonomous_Sequences::Execute() // pure virtual function needing defined
 
 bool Autonomous_Sequences::IsFinished() // pure virtual function needing defined
 {
-	return true;// skip this warning because the function is not meant to be used
+	// skip this warning because the function is not meant to be used
 }
 
 void Autonomous_Sequences::End() // pure virtual function needing defined
