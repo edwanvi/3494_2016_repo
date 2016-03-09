@@ -9,7 +9,7 @@ Kompressor_2::Kompressor_2() :
 	//starts off false because it will be switched to true the first time called
 	//On  = false;
 	// if there happens to be a compressor in the robot then uncomment the code.
-	kompressor->SetClosedLoopControl(true);
+	//kompressor->SetClosedLoopControl(true);
 
 }
 

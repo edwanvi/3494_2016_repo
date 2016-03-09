@@ -1,11 +1,8 @@
-#include "Commands/Roller/RunRollers.h"
 #include "OI.h"
+#include "Commands/Roller/RunRollers.h"
 #include "Commands/Drive/Shift_Gear.h"
 #include "Commands/Diagnostics/SystemsCheck.h"
 #include "Commands/climb/Lift_Set.h"
-
-#include "Commands/Drive/reset_encoders.h"
-#include "Commands/Roller/Rollers_lift.h"
 
 OI::OI()
 {
@@ -36,29 +33,24 @@ OI::OI()
 	//buttonLB->WhenPressed(new RunRollers(true));
 	//buttonRB->WhenPressed(new RunRollers(false));
 	//gear down
-	//buttonX->WhenPressed(new Shift_Gear(true));
+	buttonX->WhenPressed(new Shift_Gear(true));
 	//gear up
-	//buttonB->WhenPressed(new Shift_Gear(false));
+	buttonB->WhenPressed(new Shift_Gear(false));
 
-	buttonX->WhenPressed(new Lift_Set(true));
+	buttonY->WhenPressed(new Lift_Set(true));
 
-	buttonB->WhenPressed(new Lift_Set(false));
+	buttonA->WhenPressed(new Lift_Set(false));
 
 	//Run the system checks. Best done when driving
 	buttonStart_2->WhenPressed(new SystemsCheck(true));
 	buttonSelect_2->WhenPressed(new SystemsCheck(false));
-
-	buttonRB->WhenPressed(new RunRollers());
-	buttonLB->WhenPressed(new RunRollers());
-
-
 }
 //these methods all basically do what they say they do in their name so yeah
-float OI::GetLeftJoystick() {
+double OI::GetLeftJoystick() {
 	return 1 * controller->GetRawAxis(1);
 }
 
-float OI::GetRightJoystick() {
+double OI::GetRightJoystick() {
 	return -1 * controller->GetRawAxis(5);
 }
 
@@ -92,10 +84,10 @@ double OI::GetRightTrigger_2() {
 	return controller_2->GetRawAxis(3);
 }
 
-float OI::GetLeftBumper() {
+double OI::GetLeftBumper() {
 	return controller->GetRawButton(5);
 }
 
-float OI::GetRightBumper() {
+double OI::GetRightBumper() {
 	return controller->GetRawButton(6);
 }

@@ -29,7 +29,7 @@ const int ROLLERS_MOTOR_LIFT_LEFT = 0;
 const int ROLLERS_MOTOR_LEFT = 0;
 const int ROLLERS_MOTOR_RIGHT = 5;
 const int ROLLERS_MOTOR_LEFT_PDP = 20;
-const int ROLLERS_MOTOR_RIGHT_PDP = 69;
+
 const int LEFT_MOTOR_MASTER = 1; // the values assigned are temporary until talon values are identified
 const int LEFT_MOTOR_FOLLOWER = 2;
 const int LEFT_MOTOR_FOLLOWER_2 = 3;
@@ -42,11 +42,11 @@ const int RIGHT_MOTOR_FOLLOWER = 14;
 const int RIGHT_MOTOR_FOLLOWER_2 = 15;
 
 ////////////////////////////////////////////////////////////
-const int SOL_SHIFTER_1 = 0;
-const int SOL_SHIFTER_2 = 1;
+const int SOL_SHIFTER_1 = 3;
+const int SOL_SHIFTER_2 = 4;
 const int COMPRESSOR = 0;
 ////////////////////////////////////////////////////////////
-const float RAMP = 21;
+const float RAMP = 6.0;
 ////////////////////////////////////////////////////////////
 
 const int Talon_Lift_Setter = 70;

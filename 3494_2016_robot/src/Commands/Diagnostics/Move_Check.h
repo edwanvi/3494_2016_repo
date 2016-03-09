@@ -7,9 +7,9 @@
 class Move_Check: public CommandBase
 {
 private:
-float test_time;
+
 public:
-	Move_Check(float _time);
+	Move_Check();
 
 	void Initialize();
 	void Execute();

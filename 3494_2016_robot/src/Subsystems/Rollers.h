@@ -5,7 +5,6 @@
 #include "WPILib.h"
 #include "../RobotMap.h"
 #include <ctime>
-#include "CommandBase.h"
 
 class Rollers: public Subsystem
 {

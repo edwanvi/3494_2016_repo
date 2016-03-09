@@ -1,8 +1,6 @@
-#include <Commands/Roller/Rollers_lift.h>
-#include <Commands/Roller/RunRollers.h>
 #include "Subsystems/Rollers.h"
+#include "../src/Commands/Roller/RunRollers.h"
 #include "../RobotMap.h"
-#include "../OI.h"
 
 Rollers::Rollers() :
 		Subsystem("Rollers")
@@ -20,7 +18,7 @@ Rollers::Rollers() :
 
 	roller_right = new Talon(ROLLERS_MOTOR_RIGHT);
 
-	//pdp = new PowerDistributionPanel(); // for current measuring
+	pdp = new PowerDistributionPanel(); // for current measuring
 
 	leftCurrent = 0.0;
 	 rightCurrent = 0.0;
@@ -31,8 +29,7 @@ Rollers::Rollers() :
 void Rollers::InitDefaultCommand()
 {
 	// Set the default command for a subsystem here.
-	SetDefaultCommand(new Rollers_lift());
-
+	//SetDefaultCommand(new RunRollers());
 }
 
 // Put methods for controlling this subsystem
@@ -48,8 +45,6 @@ void Rollers::Roll(bool forward, double _speed){
 		roller_left->Set(-speed);
 		roller_right->Set(speed);
 	}
-
-
 }
 void Rollers::Roller_Lift(float magnitude)
 {
@@ -62,18 +57,18 @@ void Rollers::Roller_Lift(float magnitude)
 bool Rollers::CheckRoll(double _duration)
 {
 	duration = _duration;
-	//sstart = std::clock();
-	for(int a = 0; a < 99;a++)
+	start = std::clock();
+	while(timeElapsed <= _duration)
 	  {
 
 		Roll(true, 0.1);
 		//again no idea which roller is which
 		leftCurrent = pdp->GetCurrent(ROLLERS_MOTOR_LEFT_PDP); // all pwm motors dont have a matching pdp
-		rightCurrent = pdp->GetCurrent(ROLLERS_MOTOR_RIGHT_PDP); // ill figure that out soon
+		rightCurrent = pdp->GetCurrent(90); // ill figure that out soon
 		SmartDashboard::PutNumber("Roller_Current", leftCurrent);
 		SmartDashboard::PutNumber("Roller_Current_2", rightCurrent);
 
-//timeElapsed = (std::clock() + start)/(double)CLOCKS_PER_SEC;
+timeElapsed = (std::clock() + start)/(double)CLOCKS_PER_SEC;
 	  }
 //dont know proper current check
 
