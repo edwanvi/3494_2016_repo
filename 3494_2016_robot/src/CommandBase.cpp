@@ -1,11 +1,13 @@
 #include "CommandBase.h"
-#include "Subsystems/ExampleSubsystem.h"
-#include "Commands/Scheduler.h"
+
 
 // Initialize a single static instance of all of your subsystems to NULL
-std::unique_ptr<ExampleSubsystem> CommandBase::examplesubsystem;
-std::unique_ptr<OI> CommandBase::oi;
+//std::unique_ptr<ExampleSubsystem> CommandBase::examplesubsystem;
+OI* CommandBase::oi = NULL;
+DriveTrain* CommandBase::driveTrain = NULL;
+Rollers* CommandBase::roller = NULL;
 
+Climber* CommandBase::climber = NULL;
 CommandBase::CommandBase(const std::string &name) :
 		Command(name)
 {
@@ -21,7 +23,17 @@ void CommandBase::init()
 {
 	// Create a single static instance of all of your subsystems. The following
 	// line should be repeated for each subsystem in the project.
-	examplesubsystem.reset(new ExampleSubsystem());
+	//examplesubsystem.reset(new ExampleSubsystem());
 
-	oi.reset(new OI());
+
+	roller = new Rollers();
+	oi = new OI();
+	driveTrain = new DriveTrain();
+
+	climber = new Climber();
+}
+
+void autonomous(bool mode)
+{
+	//Autonomous = mode;
 }

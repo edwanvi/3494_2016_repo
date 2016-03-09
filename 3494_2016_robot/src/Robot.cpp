@@ -1,21 +1,42 @@
+
 #include "WPILib.h"
+#include "AHRS.h"
 #include "Commands/Command.h"
-#include "Commands/ExampleCommand.h"
+#include "Commands/Autonomous/Autonomous_Sequences.h"
+#include "Commands/Autonomous/Auto_Score.h"
 #include "CommandBase.h"
+#include "OI.h"
+#include "Subsystems/DriveTrain.h"
+
 
 class Robot: public IterativeRobot
 {
 private:
 	std::unique_ptr<Command> autonomousCommand;
 	SendableChooser *chooser;
+	Command * autonomousSequence;
+	DriveTrain* drivetrain;
 
+	AHRS *ahrs; /* Alternatives:  SPI::kMXP, I2C::kMXP or SerialPort::kUSB */
+	bool bDrivetrain;
 	void RobotInit()
 	{
+		SmartDashboard::init();
 		CommandBase::init();
 		chooser = new SendableChooser();
-		chooser->AddDefault("Default Auto", new ExampleCommand());
+		chooser->AddDefault("Auto 1", new Autonomous_Sequences(1)); // adds the radio buttons for choosing in the smart dashboard
+		chooser->AddObject("Auto 2", new Autonomous_Sequences(2));
+		chooser->AddObject("Auto 3", new Autonomous_Sequences(3));
+		chooser->AddObject("Auto 4", new Autonomous_Sequences(4));
+		chooser->AddObject("Auto 5", new Autonomous_Sequences(5));
+
+
+
 		//chooser->AddObject("My Auto", new MyAutoCommand());
-		SmartDashboard::PutData("Auto Modes", chooser);
+		//SmartDashboard::PutData("Auto Modes", chooser);
+		//obstacle->AddObject("My Auto", new MyAutoCommand());
+		//SmartDashboard::PutData("Auto Modes", obstacle);
+		//SmartDashboard::PutData("Position", position);
 	}
 
 	/**
@@ -43,17 +64,9 @@ private:
 	 */
 	void AutonomousInit()
 	{
-		/* std::string autoSelected = SmartDashboard::GetString("Auto Selector", "Default");
-		if(autoSelected == "My Auto") {
-			autonomousCommand.reset(new MyAutoCommand());
-		} else {
-			autonomousCommand.reset(new ExampleCommand());
-		} */
-
-		autonomousCommand.reset((Command *)chooser->GetSelected());
-
-		if (autonomousCommand != NULL)
-			autonomousCommand->Start();
+		autonomousSequence = (Command*)chooser->GetSelected();
+		if (autonomousSequence != NULL)
+			autonomousSequence->Start();
 	}
 
 	void AutonomousPeriodic()
@@ -67,8 +80,8 @@ private:
 		// teleop starts running. If you want the autonomous to
 		// continue until interrupted by another command, remove
 		// this line or comment it out.
-		if (autonomousCommand != NULL)
-			autonomousCommand->Cancel();
+		if (autonomousSequence != NULL)
+			autonomousSequence->Cancel();
 	}
 
 	void TeleopPeriodic()
@@ -78,9 +91,10 @@ private:
 
 	void TestPeriodic()
 	{
-		LiveWindow::GetInstance()->Run();
+		//LiveWindow::GetInstance()->Run();
+		//bDrivetrain = drivetrain->TestDriveTrain(2.0f);
+		//SmartDashboard::PutBoolean("DriveTrain_GO",bDrivetrain);
 	}
 };
 
 START_ROBOT_CLASS(Robot)
-

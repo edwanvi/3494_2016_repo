@@ -1,4 +1,11 @@
+#include "Commands/Roller/RunRollers.h"
 #include "OI.h"
+#include "Commands/Drive/Shift_Gear.h"
+#include "Commands/Diagnostics/SystemsCheck.h"
+#include "Commands/climb/Lift_Set.h"
+
+#include "Commands/Drive/reset_encoders.h"
+#include "Commands/Roller/Rollers_lift.h"
 
 OI::OI()
 {
@@ -17,7 +24,7 @@ OI::OI()
 	buttonStart = new JoystickButton(controller, 8);
 	buttonSelect = new JoystickButton(controller, 7);
 
-	buttonA_2 = new JoystickButton(controller_2, 2);//2  //  xbox or whats
+	buttonA_2 = new JoystickButton(controller_2, 2);//2  //  xbox
 	buttonB_2 = new JoystickButton(controller_2, 3);
 	buttonX_2 = new JoystickButton(controller_2, 1);
 	buttonY_2 = new JoystickButton(controller_2, 4);
@@ -25,6 +32,26 @@ OI::OI()
 	buttonRB_2 = new JoystickButton(controller_2, 6);
 	buttonStart_2 = new JoystickButton(controller_2, 8);
 	buttonSelect_2 = new JoystickButton(controller_2, 7);
+
+	//buttonLB->WhenPressed(new RunRollers(true));
+	//buttonRB->WhenPressed(new RunRollers(false));
+	//gear down
+	//buttonX->WhenPressed(new Shift_Gear(true));
+	//gear up
+	//buttonB->WhenPressed(new Shift_Gear(false));
+
+	buttonX->WhenPressed(new Lift_Set(true));
+
+	buttonB->WhenPressed(new Lift_Set(false));
+
+	//Run the system checks. Best done when driving
+	buttonStart_2->WhenPressed(new SystemsCheck(true));
+	buttonSelect_2->WhenPressed(new SystemsCheck(false));
+
+	buttonRB->WhenPressed(new RunRollers());
+	buttonLB->WhenPressed(new RunRollers());
+
+
 }
 //these methods all basically do what they say they do in their name so yeah
 float OI::GetLeftJoystick() {
@@ -35,19 +62,19 @@ float OI::GetRightJoystick() {
 	return -1 * controller->GetRawAxis(5);
 }
 
-float OI::GetLeftJoystick_2(){
+double OI::GetLeftJoystick_2(){
 	return -1 * controller_2->GetRawAxis(1);
 }
 
-float OI::GetRightJoystick_2(){
+double OI::GetRightJoystick_2(){
 	return -1 * controller_2->GetRawAxis(5);
 }
 
-float OI::GetLeftTrigger() {
+double OI::GetLeftTrigger() {
 	return controller->GetRawAxis(2);
 }
 
-float OI::GetRightTrigger() {
+double OI::GetRightTrigger() {
 	return controller->GetRawAxis(3);
 }
 int OI::GetDPad_2() {
@@ -57,11 +84,11 @@ int OI::GetDPad_2() {
 int OI::GetDPad() {
 	return controller->GetPOV();
 }
-float OI::GetLeftTrigger_2() {
+double OI::GetLeftTrigger_2() {
 	return controller_2->GetRawAxis(2);
 }
 
-float OI::GetRightTrigger_2() {
+double OI::GetRightTrigger_2() {
 	return controller_2->GetRawAxis(3);
 }
 
