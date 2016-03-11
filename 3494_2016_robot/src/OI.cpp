@@ -43,9 +43,9 @@ OI::OI()
 
 	buttonStart->WhenPressed(new reset_encoders());
 
-	buttonX->WhenPressed(new Lift_Set(true));
+	buttonX->WhenPressed(new Shift_Gear(true));
 
-	buttonB->WhenPressed(new Lift_Set(false));
+	buttonB->WhenPressed(new Shift_Gear(false));
 
 	//Run the system checks. Best done when driving
 	buttonStart_2->WhenPressed(new SystemsCheck(true));

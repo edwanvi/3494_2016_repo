@@ -170,23 +170,18 @@ float DriveTrain::PowerSide(int value)
 	}
 }
 void DriveTrain::ChangeGear(bool _gear) {
-	if (currentGear != _gear)
-	{
-		if (_gear)
-		{
-			//shifts up
+	if (_gear){
+		solenoid_Shifter->Set(solenoid_Shifter->kForward);
+	}
+	else if (!_gear) {
 			solenoid_Shifter->Set(solenoid_Shifter->kReverse);
-		}
-		else if (!_gear)
-		{
-			// shifts down
-			solenoid_Shifter->Set(solenoid_Shifter->kForward);
-		}
-		currentGear = _gear;
 	}
 }
 double DriveTrain::GetPosition(){
-	return ((LeftTalonFollower_2->GetEncPosition() * Rpulse) + (RightTalonMaster->GetEncPosition() * Rpulse));
+//	return ((LeftTalonFollower_2->GetEncPosition() * Rpulse) + (RightTalonMaster->GetEncPosition() * Rpulse));
+//  this will be uncommented when the measurements are correct
+
+
 }
 
 int DriveTrain::Encoder_Position()

@@ -23,18 +23,18 @@ void Turn::Initialize()
 void Turn::Execute()
 {
 
-	angle = abs(ahrs->GetAngle());
+	angle = ahrs->GetAngle();
 
 	SmartDashboard::PutNumber(" Angle measure ", angle );
 
 	/*
 
-	if(angle )
+	if(angle > 0)
 	{
 
 	}
 
-	else if()
+	else if(angle < 0)
 	{
 
 	}
