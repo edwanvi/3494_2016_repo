@@ -1,69 +1,38 @@
-#include "Turn.h"
+#include "reset_encoders.h"
 
-Turn::Turn()
+reset_encoders::reset_encoders()
 {
 	// Use Requires() here to declare subsystem dependencies
-	Requires(CommandBase::driveTrain);
-	ahrs = new AHRS(SPI::Port::kMXP);
-	angle = 0;
-	ahrs->Reset();
-
-
+	Requires(driveTrain);
 }
 
 // Called just before this Command runs the first time
-void Turn::Initialize()
+void reset_encoders::Initialize()
 {
-
-
 
 }
 
 // Called repeatedly when this Command is scheduled to run
-void Turn::Execute()
+void reset_encoders::Execute()
 {
-
-	angle = abs(ahrs->GetAngle());
-
-	SmartDashboard::PutNumber(" Angle measure ", angle );
-
-	/*
-
-	if(angle )
-	{
-
-	}
-
-	else if()
-	{
-
-	}
-
-	else
-	{
-
-	}
-
-	*/
-
-
+	driveTrain->ResetEncoders();
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool Turn::IsFinished()
+bool reset_encoders::IsFinished()
 {
-	return false;
+	return true;
 }
 
 // Called once after isFinished returns true
-void Turn::End()
+void reset_encoders::End()
 {
 
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void Turn::Interrupted()
+void reset_encoders::Interrupted()
 {
 
 }

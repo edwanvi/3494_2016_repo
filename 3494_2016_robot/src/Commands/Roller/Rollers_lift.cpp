@@ -29,7 +29,7 @@ void Rollers_lift::Execute()
 	{
 		roller_lift_magnitude = 0;
 	}
-
+	roller->Roller_Lift(roller_lift_magnitude);
 
 }
 

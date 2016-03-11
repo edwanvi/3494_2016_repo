@@ -1,19 +1,13 @@
-#ifndef Turn_H
-#define Turn_H
+#ifndef reset_encoders_H
+#define reset_encoders_H
 
 #include "../../CommandBase.h"
 #include "WPILib.h"
-#include "AHRS.h"
 
-
-class Turn: public CommandBase
+class reset_encoders: public CommandBase
 {
-private:
-	AHRS *ahrs;
-
-	float angle;
 public:
-	Turn();
+	reset_encoders();
 	void Initialize();
 	void Execute();
 	bool IsFinished();

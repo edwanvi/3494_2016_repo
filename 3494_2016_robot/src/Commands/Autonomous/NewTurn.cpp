@@ -1,5 +1,6 @@
 #include "NewTurn.h"
 
+
 NewTurn::NewTurn(bool _left, double time, float _speed){
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(chassis);

@@ -1,69 +1,39 @@
-#include "Turn.h"
+#include "Roller_Check.h"
 
-Turn::Turn()
+Roller_Check::Roller_Check(float _time)
 {
 	// Use Requires() here to declare subsystem dependencies
-	Requires(CommandBase::driveTrain);
-	ahrs = new AHRS(SPI::Port::kMXP);
-	angle = 0;
-	ahrs->Reset();
-
-
+	test_time = _time;
+	Requires(roller);
 }
 
 // Called just before this Command runs the first time
-void Turn::Initialize()
+void Roller_Check::Initialize()
 {
-
-
 
 }
 
 // Called repeatedly when this Command is scheduled to run
-void Turn::Execute()
+void Roller_Check::Execute()
 {
-
-	angle = abs(ahrs->GetAngle());
-
-	SmartDashboard::PutNumber(" Angle measure ", angle );
-
-	/*
-
-	if(angle )
-	{
-
-	}
-
-	else if()
-	{
-
-	}
-
-	else
-	{
-
-	}
-
-	*/
-
-
+	 // rolls for 1 second
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool Turn::IsFinished()
+bool Roller_Check::IsFinished()
 {
 	return false;
 }
 
 // Called once after isFinished returns true
-void Turn::End()
+void Roller_Check::End()
 {
 
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void Turn::Interrupted()
+void Roller_Check::Interrupted()
 {
 
 }

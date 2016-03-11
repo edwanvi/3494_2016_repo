@@ -1,17 +1,15 @@
-#ifndef RunRollers_H
-#define RunRollers_H
+#ifndef Roller_Check_H
+#define Roller_Check_H
 
 #include "../../CommandBase.h"
-#include "../../OI.h"
 #include "WPILib.h"
-#include "../../Subsystems/Rollers.h"
 
-class RunRollers: public CommandBase
+class Roller_Check: public CommandBase
 {
 private:
-int mode;
+	float test_time;
 public:
-	RunRollers();
+	Roller_Check(float _time);
 	void Initialize();
 	void Execute();
 	bool IsFinished();

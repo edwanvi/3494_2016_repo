@@ -3,7 +3,7 @@
 
 #include "../../CommandBase.h"
 #include "WPILib.h"
-#include "CommandBase.h"
+#include "../../CommandBase.h"
 
 class SystemsCheck: public CommandBase
 {
@@ -13,6 +13,8 @@ private:
 	double rightCurrent;
 	DriveTrain* drivetrain;
 	Rollers* rollers;
+	bool bRollers;
+	bool bDriveTrain;
 public:
 	SystemsCheck(bool _right);
 	void Initialize();
