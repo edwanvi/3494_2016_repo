@@ -1,13 +1,14 @@
 #include "Turn.h"
 
-Turn::Turn()
+Turn::Turn(float _target)
 {
 	// Use Requires() here to declare subsystem dependencies
 	Requires(CommandBase::driveTrain);
 	ahrs = new AHRS(SPI::Port::kMXP);
 	angle = 0;
 	ahrs->Reset();
-
+	speed = .60;
+	target = _target;
 
 }
 
@@ -27,32 +28,32 @@ void Turn::Execute()
 
 	SmartDashboard::PutNumber(" Angle measure ", angle );
 
-	/*
-
-	if(angle > 0)
+	if((angle - target) > 0) // if the angle is past the point or for auto could use the reference angle for switching clockwise or counter clockwise
 	{
-
+		driveTrain->TankDrive(speed, - speed);
 	}
 
-	else if(angle < 0)
+	else if((angle - target) < 0)
 	{
-
+		driveTrain->TankDrive(-speed, speed);
 	}
-
-	else
-	{
-
-	}
-
-	*/
-
-
 }
 
 // Make this return true when this Command no longer needs to run execute()
 bool Turn::IsFinished()
 {
+if (abs(abs(angle) - abs(target)) >= 5)
+{
+	driveTrain->TankDrive(0,0);
+	return true;
+}
+
+else
+{
+
 	return false;
+
+}
 }
 
 // Called once after isFinished returns true

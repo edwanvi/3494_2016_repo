@@ -12,8 +12,10 @@ private:
 	AHRS *ahrs;
 
 	float angle;
+	float speed;
+	float target;
 public:
-	Turn();
+	Turn(float _turn);
 	void Initialize();
 	void Execute();
 	bool IsFinished();
