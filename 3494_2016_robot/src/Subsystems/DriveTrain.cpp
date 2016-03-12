@@ -60,8 +60,8 @@ DriveTrain::DriveTrain() :
 ////////////////////////////////////////////////////////////
 	SmartDashboard::init();
 ////////////////////////////////////////////////////////////
-	solenoid_Shifter = new DoubleSolenoid(SOL_SHIFTER_1, SOL_SHIFTER_2);
-	currentGear = false;
+//	solenoid_Shifter = new DoubleSolenoid(SOL_SHIFTER_1, SOL_SHIFTER_2);
+//	currentGear = false;
 ////////////////////////////////////////////////////////////
 //for the system check
 	bCheck = false;
@@ -172,7 +172,7 @@ float DriveTrain::PowerSide(int value)
 		return (0);
 	}
 }
-void DriveTrain::ChangeGear(bool _gear) {
+/*void DriveTrain::ChangeGear(bool _gear) {
 	if (_gear){
 		solenoid_Shifter->Set(solenoid_Shifter->kForward);
 
@@ -182,7 +182,7 @@ void DriveTrain::ChangeGear(bool _gear) {
 			//SmartDashboard::PutBoolean("Gear", _gear);
 	}
 	SmartDashboard::PutBoolean("Gear", _gear);
-}
+}*/
 double DriveTrain::GetPosition(){
 	return ((LeftTalonFollower_2->GetEncPosition() * Rpulse) + (RightTalonMaster->GetEncPosition() * Rpulse));
 //  this will be uncommented when the measurements are correct

@@ -4,7 +4,7 @@
 #include "Commands/Drive/Shift_Gear.h"
 #include "Commands/Diagnostics/SystemsCheck.h"
 #include "Commands/climb/Lift_Set.h"
-
+#include "Commands/climb/cam.h"
 #include "Commands/Drive/reset_encoders.h"
 #include "Commands/Roller/Rollers_lift.h"
 
@@ -54,11 +54,14 @@ OI::OI()
 
 	buttonA->WhenPressed(new Roller_Lift_Mid);
 
-////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////
+	/////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
 	buttonX_2->WhenPressed(new Lift_Set(true));
 	buttonB_2->WhenPressed(new Lift_Set(false));
+	buttonA_2->WhenPressed(new cam(true));
+	buttonY_2->WhenPressed(new cam(false));
 
 
 	buttonStart_2->WhenPressed(new SystemsCheck(true));

@@ -16,6 +16,9 @@ Climber::Climber() :
 	pdp = new PowerDistributionPanel();
 	SmartDashboard::init();
 	solenoid_climber_arm = new DoubleSolenoid(SOL_CLIMBER_1, SOL_CLIMBER_2);
+	shifter = new DoubleSolenoid(SOL_SHIFTER_1, SOL_SHIFTER_2);
+	camera = new DoubleSolenoid(CAM_1, CAM_2);
+	//currentGear = false;
 /////////////////////////////////////////////////////////////////
 }
 
@@ -50,6 +53,19 @@ void Climber::StopWinch(){ // wench stop when neither is present
 	WenchTalon_2->Set(0);
 }
 
+void Climber::ChangeGear(bool _gear) {
+	if (_gear){
+		shifter->Set(shifter->kForward);
+
+	}
+	else if (_gear == false) {
+			shifter->Set(shifter->kReverse);
+			//SmartDashboard::PutBoolean("Gear", _gear);
+	}
+	SmartDashboard::PutBoolean("Gear", _gear);
+}
+
+
 void Climber::Setter(bool forward)
 {
 	if (forward){
@@ -57,5 +73,16 @@ void Climber::Setter(bool forward)
 	}
 	else if (forward == false) {
 		solenoid_climber_arm->Set(solenoid_climber_arm->kReverse);
+	}
+}
+
+void Climber::Camera(bool up)
+{
+	if (up){
+		camera->Set(camera->kForward);
+	}
+	else if (up == false) {
+		camera->Set(camera->kReverse);
+		SmartDashboard::PutBoolean("up", up);
 	}
 }
