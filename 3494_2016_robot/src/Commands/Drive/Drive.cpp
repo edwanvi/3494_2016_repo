@@ -36,6 +36,17 @@ void Drive::Execute()
 		CommandBase::driveTrain->TankDrive(DPAD, DPAD);
 	}
 	SmartDashboard::PutNumber("Encoder_Position", driveTrain->Encoder_Position());
+	/* Sif (oi->GetB())
+	{
+		driveTrain->ChangeGear(true);
+	}
+	else if (oi->GetX())
+	{
+
+		driveTrain->ChangeGear(false);
+
+	}*/
+
 }
 
 // Make this return true when this Command no longer needs to run execute()

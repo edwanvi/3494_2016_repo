@@ -23,29 +23,29 @@
 //const int ROLLERS_MOTOR = 5;
 //const int ROLLERS_MOTOR_2 = 9;
 
-const int ROLLERS_MOTOR_LIFT_RIGHT = 12;
-const int ROLLERS_MOTOR_LIFT_LEFT = 0;
+const int ROLLERS_MOTOR_LIFT_RIGHT = 8;
+const int ROLLERS_MOTOR_LIFT_LEFT = 4;
 
-const int ROLLERS_MOTOR_LEFT = 0;
-const int ROLLERS_MOTOR_RIGHT = 5;
-const int ROLLERS_MOTOR_LEFT_PDP = 20;
-const int ROLLERS_MOTOR_RIGHT_PDP = 69;
+const int ROLLERS_MOTOR_LEFT = 5;
+const int ROLLERS_MOTOR_RIGHT = 9;
+const int ROLLERS_MOTOR_LEFT_PDP = 4;
+const int ROLLERS_MOTOR_RIGHT_PDP = 8;
 const int ROLLER_DOWN = 3;
 ////////////////////////////////////////////////////////////
 const int LEFT_MOTOR_MASTER = 1; // the values assigned are temporary until talon values are identified
 const int LEFT_MOTOR_FOLLOWER = 2;
 const int LEFT_MOTOR_FOLLOWER_2 = 3;
 ////////////////////////////////////////////////////////////
-//const int RIGHT_MOTOR_MASTER = 12;
-//const int RIGHT_MOTOR_FOLLOWER = 13;
-//const int RIGHT_MOTOR_FOLLOWER_2 = 14;
-const int RIGHT_MOTOR_MASTER = 13; // temp values for practice robot
-const int RIGHT_MOTOR_FOLLOWER = 14;
-const int RIGHT_MOTOR_FOLLOWER_2 = 15;
+const int RIGHT_MOTOR_MASTER = 12;
+const int RIGHT_MOTOR_FOLLOWER = 13;
+const int RIGHT_MOTOR_FOLLOWER_2 = 14;
+//const int RIGHT_MOTOR_MASTER = 13; // temp values for practice robot
+//const int RIGHT_MOTOR_FOLLOWER = 14;
+//const int RIGHT_MOTOR_FOLLOWER_2 = 15;
 
 ////////////////////////////////////////////////////////////
-const int SOL_SHIFTER_1 = 0;
-const int SOL_SHIFTER_2 = 1;
+const int SOL_SHIFTER_1 = 2;
+const int SOL_SHIFTER_2 = 3;
 const int COMPRESSOR = 0;
 ////////////////////////////////////////////////////////////
 const float RAMP = 30;
@@ -62,13 +62,13 @@ const float DPAD = .5;
 
 ////////////////////////////////////////////////////////////
 
-const int TALON_WINCH_1 = 6;
-const int TALON_WINCH_2 = 7;
+const int TALON_WINCH_1 = 3;
+const int TALON_WINCH_2 = 9;
 const int WINCH_SPEED = 255;
 
 ////////////////////////////////////////////////////////////
 
-const int SOL_CLIMBER_1 = 2;
-const int SOL_CLIMBER_2 = 3;
+const int SOL_CLIMBER_1 = 0;
+const int SOL_CLIMBER_2 = 1;
 
 #endif

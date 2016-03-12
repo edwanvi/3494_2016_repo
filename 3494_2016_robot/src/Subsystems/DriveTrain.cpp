@@ -7,6 +7,9 @@
 DriveTrain::DriveTrain() :
 		Subsystem("DriveTrain")
 {
+
+	timeElapsed = 0.0;
+	duration = 0.0;
 ////////////////////////////////////////////////////////////
 	LeftTalonMaster = new CANTalon(LEFT_MOTOR_MASTER);			//	Left CANTalon motor subgroup
 	LeftTalonFollower = new CANTalon(LEFT_MOTOR_FOLLOWER);		//	1 talon is assigned for each CIM
@@ -172,13 +175,16 @@ float DriveTrain::PowerSide(int value)
 void DriveTrain::ChangeGear(bool _gear) {
 	if (_gear){
 		solenoid_Shifter->Set(solenoid_Shifter->kForward);
+
 	}
-	else if (!_gear) {
+	else if (_gear == false) {
 			solenoid_Shifter->Set(solenoid_Shifter->kReverse);
+			//SmartDashboard::PutBoolean("Gear", _gear);
 	}
+	SmartDashboard::PutBoolean("Gear", _gear);
 }
 double DriveTrain::GetPosition(){
-//	return ((LeftTalonFollower_2->GetEncPosition() * Rpulse) + (RightTalonMaster->GetEncPosition() * Rpulse));
+	return ((LeftTalonFollower_2->GetEncPosition() * Rpulse) + (RightTalonMaster->GetEncPosition() * Rpulse));
 //  this will be uncommented when the measurements are correct
 
 

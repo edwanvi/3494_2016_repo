@@ -14,8 +14,8 @@ private:
 	// for methods that implement subsystem capabilities
 	CANTalon* talon_rollers_lift_left;
 	CANTalon* talon_rollers_lift_right;
-	Talon* roller_left;
-	Talon* roller_right;
+	CANTalon* roller_left;
+	CANTalon* roller_right;
 	double duration;
 
 

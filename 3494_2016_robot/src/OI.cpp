@@ -25,9 +25,9 @@ OI::OI()
 	buttonStart = new JoystickButton(controller, 8);
 	buttonSelect = new JoystickButton(controller, 7);
 
-	buttonA_2 = new JoystickButton(controller_2, 2);//2  //  xbox
-	buttonB_2 = new JoystickButton(controller_2, 3);
-	buttonX_2 = new JoystickButton(controller_2, 1);
+	buttonA_2 = new JoystickButton(controller_2, 1);//2  //  xbox
+	buttonB_2 = new JoystickButton(controller_2, 2);
+	buttonX_2 = new JoystickButton(controller_2, 3);
 	buttonY_2 = new JoystickButton(controller_2, 4);
 	buttonLB_2 = new JoystickButton(controller_2, 5);
 	buttonRB_2 = new JoystickButton(controller_2, 6);
@@ -57,8 +57,9 @@ OI::OI()
 ////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
-	buttonA_2->WhenPressed(new Lift_Set(true));
+	buttonX_2->WhenPressed(new Lift_Set(true));
 	buttonB_2->WhenPressed(new Lift_Set(false));
+
 
 	buttonStart_2->WhenPressed(new SystemsCheck(true));
 	buttonSelect_2->WhenPressed(new SystemsCheck(false));
@@ -114,3 +115,13 @@ float OI::GetSelect() {
 
 	return controller->GetRawButton(7);
 }
+
+float OI::GetX() {
+
+	return controller->GetRawButton(3);
+}
+float OI::GetB() {
+
+	return controller->GetRawButton(2);
+}
+

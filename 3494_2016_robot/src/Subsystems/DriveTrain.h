@@ -38,8 +38,8 @@ private:
 
 	//clock
 	std::clock_t start;
-	double timeElapsed = 0.0;
-	double duration = 0.0;
+	double timeElapsed= 0.0;
+	double duration;
 
 	int leftSign = 1;
 	int rightSign = 1;

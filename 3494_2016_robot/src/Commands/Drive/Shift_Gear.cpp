@@ -4,7 +4,7 @@ Shift_Gear::Shift_Gear(bool _mode)
 {
 	mode = _mode;
 	// Use Requires() here to declare subsystem dependencies
-	// eg. Requires(chassis);
+	Requires(driveTrain);
 	SmartDashboard::init();
 }
 
