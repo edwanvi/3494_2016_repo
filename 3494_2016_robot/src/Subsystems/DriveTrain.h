@@ -25,14 +25,15 @@ private:
 
 	PowerDistributionPanel* pdp;
 	//////////
-	DoubleSolenoid* solenoid_Shifter;
+	//moved to another subsystem
+	//DoubleSolenoid* solenoid_Shifter;
 	float power = 1;
 
 	float Rpulse;
 	float Lpulse;
 
-	//clock
-	std::clock_t start;
+	//clock (commented out for now)
+	//std::clock_t start;
 	double timeElapsed= 0.0;
 	float duration;
 

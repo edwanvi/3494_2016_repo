@@ -20,7 +20,8 @@ private:
 
 	double down;
 
-	std::clock_t start;
+	//commented out clock for now until we know how to use it
+	//std::clock_t start;
 	double timeElapsed = 0.0;
 	double speed = 0.0;
 	PowerDistributionPanel* pdp;
