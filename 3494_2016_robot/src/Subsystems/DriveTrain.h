@@ -6,11 +6,11 @@
 #include <ctime>
 #include "AHRS.h"
 
-
-
 class DriveTrain: public Subsystem
 {
 private:
+	// It's desirable that everything possible under private except
+	// for methods that implement subsystem capabilities
 	CANTalon* LeftTalonMaster;
 	CANTalon* LeftTalonFollower;
 	CANTalon* LeftTalonFollower_2;
@@ -19,16 +19,11 @@ private:
 	CANTalon* RightTalonFollower;
 	CANTalon* RightTalonFollower_2;
 
-
 	AHRS *ahrs;
 
 	float angle;
 
-
 	PowerDistributionPanel* pdp;
-
-
-
 	//////////
 	DoubleSolenoid* solenoid_Shifter;
 	float power = 1;
@@ -39,12 +34,11 @@ private:
 	//clock
 	std::clock_t start;
 	double timeElapsed= 0.0;
-	double duration;
+	float duration;
 
 	int leftSign = 1;
 	int rightSign = 1;
-	// It's desirable that everything possible under private except
-	// for methods that implement subsystem capabilities
+
 public:
 	DriveTrain();
 	void InitDefaultCommand();

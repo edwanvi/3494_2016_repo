@@ -20,7 +20,7 @@ Rollers::Rollers() :
 
 	roller_right = new CANTalon(ROLLERS_MOTOR_RIGHT);
 
-	//pdp = new PowerDistributionPanel(); // for current measuring
+	pdp = new PowerDistributionPanel(); // for current measuring
 
 
 	down = 0;
@@ -71,7 +71,7 @@ bool Rollers::CheckRoll(double _duration)
 	duration = _duration;
 	//sstart = std::clock();
 	for(int a = 0; a < 99;a++)
-	  {
+	{
 
 		Roll(true, 0.1);
 		//again no idea which roller is which
@@ -80,15 +80,14 @@ bool Rollers::CheckRoll(double _duration)
 		SmartDashboard::PutNumber("Roller_Current", leftCurrent);
 		SmartDashboard::PutNumber("Roller_Current_2", rightCurrent);
 
-//timeElapsed = (std::clock() + start)/(double)CLOCKS_PER_SEC;
-	  }
+		//timeElapsed = (std::clock() + start)/(double)CLOCKS_PER_SEC;
+	}
 //dont know proper current check
 
 if (abs(leftCurrent- rightCurrent) <= 2.0f)
-{
-bCheck = true;
-}
-
-return bCheck;
+	{
+		bCheck = true;
+	}
+	return bCheck;
 }
 

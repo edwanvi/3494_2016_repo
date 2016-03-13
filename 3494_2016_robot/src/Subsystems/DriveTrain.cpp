@@ -7,9 +7,8 @@
 DriveTrain::DriveTrain() :
 		Subsystem("DriveTrain")
 {
-
 	timeElapsed = 0.0;
-	duration = 0.0;
+	double duration = 0.0;
 ////////////////////////////////////////////////////////////
 	LeftTalonMaster = new CANTalon(LEFT_MOTOR_MASTER);			//	Left CANTalon motor subgroup
 	LeftTalonFollower = new CANTalon(LEFT_MOTOR_FOLLOWER);		//	1 talon is assigned for each CIM
@@ -130,10 +129,7 @@ SmartDashboard::PutNumber("LeftAxis", leftAxis);
 	{
 
 	}
-
 	*/
-
-
 
 	LeftTalonMaster->Set(leftAxis);
 	LeftTalonFollower->Set(leftAxis);
@@ -203,7 +199,7 @@ void DriveTrain::ResetEncoders(){
 
 bool DriveTrain::TestDriveTrain(float _duration)
 {
-	duration = _duration;
+	float duration = _duration;
 	//start = std::clock();
 	for(int a = 0; a < 99;a++)
 	{
