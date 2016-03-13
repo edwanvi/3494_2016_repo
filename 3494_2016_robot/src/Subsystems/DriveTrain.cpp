@@ -18,8 +18,8 @@ DriveTrain::DriveTrain() :
 	LeftTalonMaster->SetSafetyEnabled(false);
 	LeftTalonMaster->SetVoltageRampRate(RAMP);
 	LeftTalonFollower->EnableControl();
-	LeftTalonFollower->SetControlMode(CANSpeedController::kFollower);
-	LeftTalonFollower->Set(LEFT_MOTOR_MASTER);
+	//LeftTalonFollower->SetControlMode(CANSpeedController::kFollower);
+	//LeftTalonFollower->Set(LEFT_MOTOR_MASTER);
 	LeftTalonFollower_2->EnableControl();
 	LeftTalonFollower_2->SetControlMode(CANSpeedController::kFollower);
 	LeftTalonFollower_2->Set(LEFT_MOTOR_MASTER);
@@ -55,6 +55,7 @@ DriveTrain::DriveTrain() :
 	RightTalonFollower_2->SetControlMode(CANSpeedController::kFollower);
 	RightTalonFollower_2->Set(RIGHT_MOTOR_MASTER);
 	RightTalonMaster->SetVoltageRampRate(RAMP);
+	LeftTalonFollower->SetVoltageRampRate(RAMP);
 ////////////////////////////////////////////////////////////
 	pdp = new PowerDistributionPanel();
 ////////////////////////////////////////////////////////////
@@ -135,12 +136,13 @@ SmartDashboard::PutNumber("LeftAxis", leftAxis);
 
 
 	LeftTalonMaster->Set(leftAxis);
+	LeftTalonFollower->Set(leftAxis);
 	RightTalonMaster->Set(rightAxis);
 }
 
 int DriveTrain::PowerDistOutput()
 {
-	return pdp->GetTotalCurrent(); // displays total pdp current for documenting total draw and brownouts
+	return pdp->GetCurrent(LEFT_MOTOR_FOLLOWER); // displays total pdp current for documenting total draw and brownouts
 }
 
 /*int DriveTrain::IndPowerOutput(int PDP_Channel)
@@ -204,12 +206,10 @@ bool DriveTrain::TestDriveTrain(float _duration)
 	duration = _duration;
 	//start = std::clock();
 	for(int a = 0; a < 99;a++)
-	  {
+	{
 		TankDrive(-0.75,0.75);
 		rightCurrent = PowerSide(1);
 		leftCurrent = PowerSide(0);
-
-
 
 		//total motorsS
 		SmartDashboard::PutNumber("Left Current", leftCurrent);
@@ -219,22 +219,16 @@ bool DriveTrain::TestDriveTrain(float _duration)
 		SmartDashboard::PutNumber("Left Current 2", pdp->GetCurrent(LEFT_MOTOR_FOLLOWER));
 		SmartDashboard::PutNumber("Left Current 3", pdp->GetCurrent(LEFT_MOTOR_FOLLOWER_2));
 
-
-
-
-
 		SmartDashboard::PutNumber("Right Current 1", pdp->GetCurrent(RIGHT_MOTOR_MASTER));
 		SmartDashboard::PutNumber("Right Current 2", pdp->GetCurrent(RIGHT_MOTOR_FOLLOWER));
 		SmartDashboard::PutNumber("Right Current 3", pdp->GetCurrent(RIGHT_MOTOR_FOLLOWER_2));
-
-
 
 //timeElapsed = (std::clock() + start)/(double)CLOCKS_PER_SEC;
 	}
 
 	if (abs(leftCurrent - rightCurrent) <= 5.0f)
-			{
-			bCheck = true;
-			}
-return bCheck;
+	{
+		bCheck = true;
+	}
+	return bCheck;
 }

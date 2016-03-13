@@ -28,7 +28,7 @@ private:
 		chooser->AddObject("Auto 3", new Autonomous_Sequences(3));
 		chooser->AddObject("Auto 4", new Autonomous_Sequences(4));
 		chooser->AddObject("Auto 5", new Autonomous_Sequences(5));
-
+		SmartDashboard::PutData("AutoMode", chooser);
 
 
 		//chooser->AddObject("My Auto", new MyAutoCommand());

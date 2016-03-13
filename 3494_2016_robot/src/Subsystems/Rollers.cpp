@@ -46,11 +46,11 @@ void Rollers::Roll(bool forward, double _speed){
 
 	if (forward == true){
 		roller_left->Set(speed);
-		roller_right->Set(-speed);
+		roller_right->Set(speed);
 	}
 	else {
 		roller_left->Set(-speed);
-		roller_right->Set(speed);
+		roller_right->Set(-speed);
 	}
 
 

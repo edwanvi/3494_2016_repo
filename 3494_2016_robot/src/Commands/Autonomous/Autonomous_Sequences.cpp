@@ -1,6 +1,6 @@
 #include "Autonomous_Sequences.h"
 #include "../../OI.h"
-
+#include "Auto_Move_Tim.h"
 
 Autonomous_Sequences::Autonomous_Sequences(int autoMode)
 {
@@ -11,8 +11,7 @@ Autonomous_Sequences::Autonomous_Sequences(int autoMode)
 	three = false;
 	four = false;
 	five = false;
-	if (autoMode == 1 ) // checks smart dashboard what the
-						//user has selected the default is 1
+	if (autoMode == 1) // checks smart dashboard for what the user has selected the default is 1
 	{
 		auto1();
 		one = true;
@@ -55,7 +54,7 @@ void Autonomous_Sequences::auto2()
 void Autonomous_Sequences::auto3()
 {
 
-
+	AddSequential(new Auto_Move_Tim(-.75,5));
 	SmartDashboard::PutBoolean("Auto3 State", three);
 }
 
@@ -84,7 +83,7 @@ void Autonomous_Sequences::Execute() // pure virtual function needing defined
 
 bool Autonomous_Sequences::IsFinished() // pure virtual function needing defined
 {
-	// skip this warning because the function is not meant to be used
+	return true;// skip this warning because the function is not meant to be used
 }
 
 void Autonomous_Sequences::End() // pure virtual function needing defined
