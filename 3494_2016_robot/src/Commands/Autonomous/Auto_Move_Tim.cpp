@@ -6,7 +6,6 @@ Auto_Move_Tim::Auto_Move_Tim(float speed_, float time_)
 	Requires(driveTrain);
 	speed = speed_;
 	time = time_;
-
 }
 
 // Called just before this Command runs the first time
@@ -18,11 +17,9 @@ void Auto_Move_Tim::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void Auto_Move_Tim::Execute()
 {
-
 	CommandBase::driveTrain->TankDrive(speed, -speed);
 
 	wait(time);
-
 }
 
 // Make this return true when this Command no longer needs to run execute()

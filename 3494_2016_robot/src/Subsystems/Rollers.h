@@ -18,7 +18,6 @@ private:
 	CANTalon* roller_right;
 	double duration;
 
-
 	double down;
 
 	std::clock_t start;
@@ -37,8 +36,6 @@ public:
 	void Roll(bool forward, double _speed);
 	bool CheckRoll(double _duration);
 	void Roller_Lift(float magnitude);
-
-
 };
 
 #endif

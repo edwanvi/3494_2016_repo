@@ -25,18 +25,20 @@ Rollers::Rollers() :
 
 	down = 0;
 
+	//ignore the line after this one, it's to get eclipse to shut its mouth
+	duration = 0.0;
+
 	leftCurrent = 0.0;
-	 rightCurrent = 0.0;
-	 bCheck = false;
-	 timeElapsed = 0.0;
-	 SmartDashboard::init();
+	rightCurrent = 0.0;
+	bCheck = false;
+	timeElapsed = 0.0;
+	SmartDashboard::init();
 }
 
 void Rollers::InitDefaultCommand()
 {
 	// Set the default command for a subsystem here.
 	SetDefaultCommand(new Rollers_lift());
-
 }
 
 // Put methods for controlling this subsystem
@@ -68,11 +70,10 @@ void Rollers::Roller_Lift(float magnitude)
 
 bool Rollers::CheckRoll(double _duration)
 {
-	duration = _duration;
+	//duration = _duration;
 	//sstart = std::clock();
-	for(int a = 0; a < 99;a++)
+	for(int a = 0; a < 99; a++)
 	{
-
 		Roll(true, 0.1);
 		//again no idea which roller is which
 		leftCurrent = pdp->GetCurrent(ROLLERS_MOTOR_LEFT_PDP); // all pwm motors dont have a matching pdp
