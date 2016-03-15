@@ -9,21 +9,17 @@ Turn::Turn(float _target)
 	ahrs->Reset();
 	speed = .60;
 	target = _target;
-
 }
 
 // Called just before this Command runs the first time
 void Turn::Initialize()
 {
 
-
-
 }
 
 // Called repeatedly when this Command is scheduled to run
 void Turn::Execute()
 {
-
 	angle = ahrs->GetAngle();
 
 	SmartDashboard::PutNumber(" Angle measure ", angle );
@@ -42,18 +38,16 @@ void Turn::Execute()
 // Make this return true when this Command no longer needs to run execute()
 bool Turn::IsFinished()
 {
-if (abs(abs(angle) - abs(target)) >= 5)
-{
-	driveTrain->TankDrive(0,0);
-	return true;
-}
+	if (abs(abs(angle) - abs(target)) >= 5)
+	{
+		driveTrain->TankDrive(0,0);
+		return true;
+	}
 
-else
-{
-
-	return false;
-
-}
+	else
+	{
+		return false;
+	}
 }
 
 // Called once after isFinished returns true

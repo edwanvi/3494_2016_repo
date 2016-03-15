@@ -29,3 +29,4 @@
 
 # XML from eclipse
 *.xml
+*.settings.xml
