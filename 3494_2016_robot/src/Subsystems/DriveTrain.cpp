@@ -15,10 +15,10 @@ DriveTrain::DriveTrain() :
 	LeftTalonFollower_2 = new CANTalon(LEFT_MOTOR_FOLLOWER_2);	//	3 CIM per gearbox
 	LeftTalonMaster->EnableControl();
 	LeftTalonMaster->SetSafetyEnabled(false);
-	LeftTalonMaster->SetVoltageRampRate(RAMP);
+	//LeftTalonMaster->SetVoltageRampRate(RAMP);
 	LeftTalonFollower->EnableControl();
-	//LeftTalonFollower->SetControlMode(CANSpeedController::kFollower);
-	//LeftTalonFollower->Set(LEFT_MOTOR_MASTER);
+	LeftTalonFollower->SetControlMode(CANSpeedController::kFollower);
+	LeftTalonFollower->Set(LEFT_MOTOR_MASTER);
 	LeftTalonFollower_2->EnableControl();
 	LeftTalonFollower_2->SetControlMode(CANSpeedController::kFollower);
 	LeftTalonFollower_2->Set(LEFT_MOTOR_MASTER);
@@ -53,8 +53,8 @@ DriveTrain::DriveTrain() :
 	RightTalonFollower_2->EnableControl();
 	RightTalonFollower_2->SetControlMode(CANSpeedController::kFollower);
 	RightTalonFollower_2->Set(RIGHT_MOTOR_MASTER);
-	RightTalonMaster->SetVoltageRampRate(RAMP);
-	LeftTalonFollower->SetVoltageRampRate(RAMP);
+	//RightTalonMaster->SetVoltageRampRate(RAMP);
+	//LeftTalonFollower->SetVoltageRampRate(RAMP);
 ////////////////////////////////////////////////////////////
 	pdp = new PowerDistributionPanel();
 ////////////////////////////////////////////////////////////
@@ -132,7 +132,7 @@ SmartDashboard::PutNumber("LeftAxis", leftAxis);
 	*/
 
 	LeftTalonMaster->Set(leftAxis);
-	LeftTalonFollower->Set(leftAxis);
+	//LeftTalonFollower->Set(leftAxis);
 	RightTalonMaster->Set(rightAxis);
 }
 

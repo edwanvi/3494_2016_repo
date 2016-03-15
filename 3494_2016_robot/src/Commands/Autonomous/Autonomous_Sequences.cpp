@@ -1,6 +1,7 @@
 #include "Autonomous_Sequences.h"
 #include "../../OI.h"
 #include "Auto_Move_Tim.h"
+#include "NewTurn.h"
 
 Autonomous_Sequences::Autonomous_Sequences(int autoMode)
 {
@@ -47,13 +48,14 @@ void Autonomous_Sequences::auto1() // autonomous sequence
 
 void Autonomous_Sequences::auto2()
 {
-
+	//turn and drive
+	AddSequential(new NewTurn(true, 2, 0.75));
+	AddSequential(new Auto_Move_Tim(-.75,5));
 	SmartDashboard::PutBoolean("Auto2 State", two);
 }
 
 void Autonomous_Sequences::auto3()
 {
-
 	AddSequential(new Auto_Move_Tim(-.75,5));
 	SmartDashboard::PutBoolean("Auto3 State", three);
 }
