@@ -22,7 +22,7 @@ void Turn::Execute()
 {
 	angle = ahrs->GetAngle();
 
-	SmartDashboard::PutNumber("Angle measure", angle );
+	SmartDashboard::PutNumber("Angle measure", angle);
 
 	if((angle - target) > 0) // if the angle is past the point or for auto could use the reference angle for switching clockwise or counter clockwise
 	{
