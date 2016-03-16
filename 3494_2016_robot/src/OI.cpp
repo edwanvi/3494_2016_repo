@@ -16,23 +16,31 @@ OI::OI()
 	controller_2 = new Joystick(1);
 
 	//Define all the buttons, all of them
-	buttonA = new JoystickButton(controller, 1);
-	buttonB = new JoystickButton(controller, 2);
-	buttonX = new JoystickButton(controller, 3);
-	buttonY = new JoystickButton(controller, 4);
-	buttonLB = new JoystickButton(controller, 5);
-	buttonRB = new JoystickButton(controller, 6);
-	buttonStart = new JoystickButton(controller, 8);
-	buttonSelect = new JoystickButton(controller, 7);
+	button1 = new JoystickButton(controller, 1);
+	button2 = new JoystickButton(controller, 2);
+	button3 = new JoystickButton(controller, 3);
+	button4 = new JoystickButton(controller, 4);
+	button5 = new JoystickButton(controller, 5);
+	button6 = new JoystickButton(controller, 6);
+	button7 = new JoystickButton(controller, 7);
+	button8 = new JoystickButton(controller, 8);
+	button9 = new JoystickButton(controller, 9);
+	button10 = new JoystickButton(controller, 10);
+	button11 = new JoystickButton(controller, 11);
+	button12 = new JoystickButton(controller, 12);
 
-	buttonA_2 = new JoystickButton(controller_2, 1);//2  //  xbox
-	buttonB_2 = new JoystickButton(controller_2, 2);
-	buttonX_2 = new JoystickButton(controller_2, 3);
-	buttonY_2 = new JoystickButton(controller_2, 4);
-	buttonLB_2 = new JoystickButton(controller_2, 5);
-	buttonRB_2 = new JoystickButton(controller_2, 6);
-	buttonStart_2 = new JoystickButton(controller_2, 8);
-	buttonSelect_2 = new JoystickButton(controller_2, 7);
+	button1_2 = new JoystickButton(controller_2, 1);//2  //  xbox
+	button2_2 = new JoystickButton(controller_2, 2);
+	button3_2 = new JoystickButton(controller_2, 3);
+	button4_2 = new JoystickButton(controller_2, 4);
+	button5_2 = new JoystickButton(controller_2, 5);
+	button6_2 = new JoystickButton(controller_2, 6);
+	button7_2 = new JoystickButton(controller_2, 7);
+	button8_2 = new JoystickButton(controller_2, 8);
+	button9_2 = new JoystickButton(controller_2, 9);
+	button10_2 = new JoystickButton(controller_2, 10);
+	button11_2 = new JoystickButton(controller_2, 11);
+	button12_2 = new JoystickButton(controller_2, 12);
 
 	//buttonLB->WhenPressed(new RunRollers(true));
 	//buttonRB->WhenPressed(new RunRollers(false));
@@ -41,31 +49,31 @@ OI::OI()
 	//gear up
 	//buttonB->WhenPressed(new Shift_Gear(false));
 
-	buttonStart->WhenPressed(new reset_encoders());
+	button7_2->WhenPressed(new reset_encoders());
 
-	buttonX->WhenPressed(new Shift_Gear(true));
+	button3->WhenPressed(new Shift_Gear(true));
 
-	buttonB->WhenPressed(new Shift_Gear(false));
+	button4->WhenPressed(new Shift_Gear(false));
 
 	//Run the system checks. Best done when driving
 
-	buttonRB->WhenPressed(new RunRollers());
-	buttonLB->WhenPressed(new RunRollers());
+	button1->WhenPressed(new RunRollers());
+	button1_2->WhenPressed(new RunRollers());
 
-	buttonA->WhenPressed(new Roller_Lift_Mid);
+	//buttonA->WhenPressed(new Roller_Lift_Mid);
 
 ///////////////////////////
 	/////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
-	buttonX_2->WhenPressed(new Lift_Set(true));
-	buttonB_2->WhenPressed(new Lift_Set(false));
-	buttonA_2->WhenPressed(new cam(true));
-	buttonY_2->WhenPressed(new cam(false));
+	//buttonX_2->WhenPressed(new Lift_Set(true));
+	//buttonB_2->WhenPressed(new Lift_Set(false));
+	//buttonA_2->WhenPressed(new cam(true));
+	//buttonY_2->WhenPressed(new cam(false));
 
 
-	buttonStart_2->WhenPressed(new SystemsCheck(true));
-	buttonSelect_2->WhenPressed(new SystemsCheck(false));
+	//buttonStart_2->WhenPressed(new SystemsCheck(true));
+	//buttonSelect_2->WhenPressed(new SystemsCheck(false));
 
 }
 //these methods all basically do what they say they do in their name so yeah

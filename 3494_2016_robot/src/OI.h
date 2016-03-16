@@ -9,23 +9,32 @@ private:
 	Joystick* controller;
 	Joystick* controller_2;
 public:
-	JoystickButton* buttonA;
-	JoystickButton* buttonB;
-	JoystickButton* buttonX;
-	JoystickButton* buttonY;
-	JoystickButton* buttonLB;
-	JoystickButton* buttonRB;
-	JoystickButton* buttonStart;
-	JoystickButton* buttonSelect;
+	JoystickButton* button1;
+	JoystickButton* button2;
+	JoystickButton* button3;
+	JoystickButton* button4;
+	JoystickButton* button5;
+	JoystickButton* button6;
+	JoystickButton* button7;
+	JoystickButton* button8;
+	JoystickButton* button9;
+	JoystickButton* button10;
+	JoystickButton* button11;
+	JoystickButton* button12;
 
-	JoystickButton* buttonA_2;
-	JoystickButton* buttonB_2;
-	JoystickButton* buttonX_2;
-	JoystickButton* buttonY_2;
-	JoystickButton* buttonLB_2;
-	JoystickButton* buttonRB_2;
-	JoystickButton* buttonStart_2;
-	JoystickButton* buttonSelect_2;
+	JoystickButton* button1_2;
+	JoystickButton* button2_2;
+	JoystickButton* button3_2;
+	JoystickButton* button4_2;
+	JoystickButton* button5_2;
+	JoystickButton* button6_2;
+	JoystickButton* button7_2;
+	JoystickButton* button8_2;
+	JoystickButton* button9_2;
+	JoystickButton* button10_2;
+	JoystickButton* button11_2;
+	JoystickButton* button12_2;
+
 	OI();
 	float GetLeftJoystick();
 	float GetRightJoystick();
