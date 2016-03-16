@@ -18,7 +18,7 @@ void Auto_Move_Tim::Initialize()
 void Auto_Move_Tim::Execute()
 {
 	CommandBase::driveTrain->TankDrive(speed, -speed);
-	wait(time);
+	Wait(time);
 	driveTrain->TankDrive(0, 0);
 }
 
