@@ -68,8 +68,8 @@ OI::OI()
 
 	//buttonX_2->WhenPressed(new Lift_Set(true));
 	//buttonB_2->WhenPressed(new Lift_Set(false));
-	//buttonA_2->WhenPressed(new cam(true));
-	//buttonY_2->WhenPressed(new cam(false));
+	button5_2->WhenPressed(new cam(true));
+	button6_2->WhenPressed(new cam(false));
 
 
 	//buttonStart_2->WhenPressed(new SystemsCheck(true));

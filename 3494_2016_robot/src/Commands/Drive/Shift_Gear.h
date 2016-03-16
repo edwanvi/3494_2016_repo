@@ -3,6 +3,7 @@
 
 #include "../../CommandBase.h"
 #include "WPILib.h"
+#include "../../Subsystems/DriveTrain.h"
 
 class Shift_Gear: public CommandBase
 {

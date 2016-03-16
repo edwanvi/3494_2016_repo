@@ -6,11 +6,13 @@ cam::cam(bool _mode)
 	// Use Requires() here to declare subsystem dependencies
 	Requires(climber);
 	SmartDashboard::init();
+	camera = new DoubleSolenoid(CAM_1, CAM_2);
 }
 
 // Called just before this Command runs the first time
 void cam::Initialize()
 {
+
 
 }
 
@@ -18,10 +20,12 @@ void cam::Initialize()
 void cam::Execute()
 {
 
-	CommandBase::climber->Camera(mode);
-		//SmartDashboard::PutBoolean("Set", mode);
-
-
+	if (mode){
+			camera->Set(camera->kForward);
+		}
+		else if (!mode) {
+			camera->Set(camera->kReverse);
+		}
 
 
 }

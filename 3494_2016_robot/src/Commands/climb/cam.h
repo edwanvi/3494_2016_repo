@@ -4,11 +4,13 @@
 #include "../../CommandBase.h"
 #include "../../Subsystems/Climber.h"
 #include "WPILib.h"
+#include "../../Robotmap.h"
 
 class cam: public CommandBase
 {
 private:
 	bool mode;
+	DoubleSolenoid* camera;
 public:
 	cam(bool _mode);
 	void Initialize();

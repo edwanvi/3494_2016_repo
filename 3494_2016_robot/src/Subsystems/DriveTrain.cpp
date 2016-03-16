@@ -60,8 +60,10 @@ DriveTrain::DriveTrain() :
 ////////////////////////////////////////////////////////////
 	SmartDashboard::init();
 ////////////////////////////////////////////////////////////
-//	solenoid_Shifter = new DoubleSolenoid(SOL_SHIFTER_1, SOL_SHIFTER_2);
-//	currentGear = false;
+	//solenoid_Shifter = new DoubleSolenoid(SOL_SHIFTER_1, SOL_SHIFTER_2);
+	currentGear = false;
+	shifter = new DoubleSolenoid(SOL_SHIFTER_1, SOL_SHIFTER_2);
+
 ////////////////////////////////////////////////////////////
 //for the system check
 	bCheck = false;
@@ -233,7 +235,7 @@ bool DriveTrain::TestDriveTrain(float _duration)
 }
 
 
-void Climber::ChangeGear(bool _gear) {
+void DriveTrain::ChangeGear(bool _gear) {
 	if (_gear){
 		shifter->Set(shifter->kForward);
 

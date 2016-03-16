@@ -16,8 +16,7 @@ Climber::Climber() :
 	pdp = new PowerDistributionPanel();
 	SmartDashboard::init();
 	solenoid_climber_arm = new DoubleSolenoid(SOL_CLIMBER_1, SOL_CLIMBER_2);
-	shifter = new DoubleSolenoid(SOL_SHIFTER_1, SOL_SHIFTER_2);
-	camera = new DoubleSolenoid(CAM_1, CAM_2);
+
 	//currentGear = false;
 /////////////////////////////////////////////////////////////////
 }
@@ -65,13 +64,4 @@ void Climber::Setter(bool forward)
 	}
 }
 
-void Climber::Camera(bool up)
-{
-	if (up){
-		camera->Set(camera->kForward);
-	}
-	else if (up == false) {
-		camera->Set(camera->kReverse);
-		SmartDashboard::PutBoolean("up", up);
-	}
-}
+
