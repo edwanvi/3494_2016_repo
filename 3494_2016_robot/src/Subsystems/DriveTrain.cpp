@@ -134,6 +134,9 @@ SmartDashboard::PutNumber("LeftAxis", leftAxis);
 	LeftTalonMaster->Set(leftAxis);
 	//LeftTalonFollower->Set(leftAxis);
 	RightTalonMaster->Set(rightAxis);
+
+	angle = ahrs->GetAngle();
+	SmartDashboard::PutNumber("Angle measure", angle);
 }
 
 int DriveTrain::PowerDistOutput()
