@@ -12,6 +12,10 @@ Autonomous_Sequences::Autonomous_Sequences(int autoMode)
 	three = false;
 	four = false;
 	five = false;
+	//test of reading from smart dashboard
+	prefs = Preferences::GetInstance();;
+	backto = false;
+	defense = "Bernie Sanders";
 	if (autoMode == 1) // checks smart dashboard for what the user has selected the default is 1
 	{
 		auto1();
@@ -62,19 +66,33 @@ void Autonomous_Sequences::auto3()
 
 void Autonomous_Sequences::auto4()
 {
-
-
 	SmartDashboard::PutBoolean("Auto4 State", four);
+	//this is the fancy one
+	defense = prefs->GetString("defense", "Flowey the Flower");
+	backto = prefs->GetBoolean("back to", false);
+	switch(defense){
+	case defense == "low bar" or defense == "bar":
+		AddSequential(new Auto_Move_Tim(0.75, 5));
+		break;
+	case defense == "ramparts":
+		//ramps
+		break;
+	case defense == "moat":
+		//moat
+		break;
+	default:
+		std::cout << "I'm amazed. " << defense << " is on the field and not a defense.";
+		break;
+	}
 }
 
 void Autonomous_Sequences::auto5()
 {
-
+	//please ensure we always have a blank auto program
 	SmartDashboard::PutBoolean("Auto5 State", five);
 }
 void Autonomous_Sequences::Initialize() // pure virtual function needing defined doesn't have any other use
 {
-
 
 }
 
@@ -95,6 +113,5 @@ void Autonomous_Sequences::End() // pure virtual function needing defined
 
 void Autonomous_Sequences::Interrupted() // pure virtual function needing defined
 {
-
 
 }

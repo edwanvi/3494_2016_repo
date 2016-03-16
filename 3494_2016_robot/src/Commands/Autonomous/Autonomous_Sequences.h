@@ -14,7 +14,9 @@ private:
 	void auto3();
 	void auto4();
 	void auto5();
-	bool one,two,three,four,five;
+	bool one, two, three, four, five, backto;
+	Preferences *prefs;
+	std::string defense;
 public:
 	Autonomous_Sequences(int autoMode);
 	void Initialize();

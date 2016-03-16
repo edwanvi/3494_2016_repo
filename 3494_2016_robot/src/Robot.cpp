@@ -30,7 +30,6 @@ private:
 		chooser->AddObject("Auto 5", new Autonomous_Sequences(5));
 		SmartDashboard::PutData("AutoMode", chooser);
 
-
 		//chooser->AddObject("My Auto", new MyAutoCommand());
 		//SmartDashboard::PutData("Auto Modes", chooser);
 		//obstacle->AddObject("My Auto", new MyAutoCommand());
