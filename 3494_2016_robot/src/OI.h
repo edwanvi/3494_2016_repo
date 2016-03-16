@@ -36,12 +36,12 @@ public:
 	JoystickButton* button12_2;
 
 	OI();
-	float GetLeftJoystick();
-	float GetRightJoystick();
+	float GetJoystickY();
+	//float GetRightJoystick();
 	double GetLeftTrigger();
 	double GetRightTrigger();
-	double GetLeftJoystick_2();
-	double GetRightJoystick_2();
+	double GetJoystick_2Y();
+	//double GetRightJoystick_2();
 	int GetDPad();
 	int GetDPad_2();
 	double GetLeftTrigger_2();

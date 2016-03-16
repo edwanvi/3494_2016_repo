@@ -53,17 +53,6 @@ void Climber::StopWinch(){ // wench stop when neither is present
 	WenchTalon_2->Set(0);
 }
 
-void Climber::ChangeGear(bool _gear) {
-	if (_gear){
-		shifter->Set(shifter->kForward);
-
-	}
-	else if (_gear == false) {
-			shifter->Set(shifter->kReverse);
-			//SmartDashboard::PutBoolean("Gear", _gear);
-	}
-	SmartDashboard::PutBoolean("Gear", _gear);
-}
 
 
 void Climber::Setter(bool forward)

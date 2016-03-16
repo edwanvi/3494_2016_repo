@@ -231,3 +231,17 @@ bool DriveTrain::TestDriveTrain(float _duration)
 	}
 	return bCheck;
 }
+
+
+void Climber::ChangeGear(bool _gear) {
+	if (_gear){
+		shifter->Set(shifter->kForward);
+
+	}
+	else if (_gear == false) {
+			shifter->Set(shifter->kReverse);
+			//SmartDashboard::PutBoolean("Gear", _gear);
+	}
+	SmartDashboard::PutBoolean("Gear", _gear);
+}
+

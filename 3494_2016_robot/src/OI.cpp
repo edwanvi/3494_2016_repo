@@ -77,21 +77,23 @@ OI::OI()
 
 }
 //these methods all basically do what they say they do in their name so yeah
-float OI::GetLeftJoystick() {
+float OI::GetJoystickY() {
 	return 1 * controller->GetRawAxis(1);
 }
 
-float OI::GetRightJoystick() {
+/*float OI::GetRightJoystick() {
 	return -1 * controller->GetRawAxis(5);
 }
-
-double OI::GetLeftJoystick_2(){
+*/
+double OI::GetJoystick_2Y(){
 	return -1 * controller_2->GetRawAxis(1);
 }
 
+/*
 double OI::GetRightJoystick_2(){
 	return -1 * controller_2->GetRawAxis(5);
 }
+*/
 
 double OI::GetLeftTrigger() {
 	return controller->GetRawAxis(2);
@@ -127,7 +129,7 @@ float OI::GetSelect() {
 	return controller->GetRawButton(7);
 }
 
-float OI::GetX() {
+/* float OI::GetX() {
 
 	return controller->GetRawButton(3);
 }
@@ -135,4 +137,5 @@ float OI::GetB() {
 
 	return controller->GetRawButton(2);
 }
+*/
 

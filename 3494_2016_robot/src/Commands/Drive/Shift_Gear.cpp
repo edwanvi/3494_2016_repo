@@ -4,7 +4,7 @@ Shift_Gear::Shift_Gear(bool _mode)
 {
 	mode = _mode;
 	// Use Requires() here to declare subsystem dependencies
-	Requires(climber);
+	Requires(driveTrain);
 	SmartDashboard::init();
 }
 
@@ -17,7 +17,7 @@ void Shift_Gear::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void Shift_Gear::Execute()
 {
-	CommandBase::climber->ChangeGear(mode);
+	CommandBase::driveTrain->ChangeGear(mode);
 	SmartDashboard::PutBoolean("High Gear", mode);
 }
 
