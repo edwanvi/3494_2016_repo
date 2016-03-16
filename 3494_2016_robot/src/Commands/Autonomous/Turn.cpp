@@ -22,13 +22,12 @@ void Turn::Execute()
 {
 	angle = ahrs->GetAngle();
 
-	SmartDashboard::PutNumber(" Angle measure ", angle );
+	SmartDashboard::PutNumber("Angle measure", angle );
 
 	if((angle - target) > 0) // if the angle is past the point or for auto could use the reference angle for switching clockwise or counter clockwise
 	{
 		driveTrain->TankDrive(speed, - speed);
 	}
-
 	else if((angle - target) < 0)
 	{
 		driveTrain->TankDrive(-speed, speed);
@@ -43,7 +42,6 @@ bool Turn::IsFinished()
 		driveTrain->TankDrive(0,0);
 		return true;
 	}
-
 	else
 	{
 		return false;

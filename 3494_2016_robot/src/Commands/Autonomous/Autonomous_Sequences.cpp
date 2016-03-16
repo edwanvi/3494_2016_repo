@@ -2,6 +2,7 @@
 #include "../../OI.h"
 #include "Auto_Move_Tim.h"
 #include "NewTurn.h"
+#include "Turn.h"
 
 Autonomous_Sequences::Autonomous_Sequences(int autoMode)
 {
@@ -70,19 +71,23 @@ void Autonomous_Sequences::auto4()
 	//this is the fancy one
 	defense = prefs->GetString("defense", "Flowey the Flower");
 	backto = prefs->GetBoolean("back to", false);
-	switch(defense){
-	case defense == "low bar" or defense == "bar":
-		AddSequential(new Auto_Move_Tim(0.75, 5));
-		break;
-	case defense == "ramparts":
+	if (defense == "low bar" or "bar"){
+		if (backto == false){
+			AddSequential(new Auto_Move_Tim(0.75, 5));
+		}
+		else {
+			AddSequential(new Turn(180));
+			AddSequential(new Auto_Move_Tim(0.75, 5));
+		}
+	}
+	else if (defense == "ramparts"){
 		//ramps
-		break;
-	case defense == "moat":
-		//moat
-		break;
-	default:
+	}
+	else if (defense == "moat"){
+
+	}
+	else{
 		std::cout << "I'm amazed. " << defense << " is on the field and not a defense.";
-		break;
 	}
 }
 
