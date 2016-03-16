@@ -4,7 +4,7 @@
 #include "Commands/Drive/Shift_Gear.h"
 #include "Commands/Diagnostics/SystemsCheck.h"
 #include "Commands/climb/Lift_Set.h"
-#include "Commands/climb/cam.h"
+#include "Commands/cam.h"
 #include "Commands/Drive/reset_encoders.h"
 #include "Commands/Roller/Rollers_lift.h"
 
@@ -14,6 +14,7 @@ OI::OI()
 	//Define controllers as Joystick objects
 	controller = new Joystick(0);
 	controller_2 = new Joystick(1);
+	controller_3 = new Joystick(2);
 
 	//Define all the buttons, all of them
 	button1 = new JoystickButton(controller, 1);
@@ -42,14 +43,18 @@ OI::OI()
 	button11_2 = new JoystickButton(controller_2, 11);
 	button12_2 = new JoystickButton(controller_2, 12);
 
-	//buttonLB->WhenPressed(new RunRollers(true));
-	//buttonRB->WhenPressed(new RunRollers(false));
-	//gear down
-	//buttonX->WhenPressed(new Shift_Gear(true));
-	//gear up
-	//buttonB->WhenPressed(new Shift_Gear(false));
+	buttonA_3 = new JoystickButton(controller_3, 1);
+	buttonB_3 = new JoystickButton(controller_3, 2);
+	buttonX_3 = new JoystickButton(controller_3, 3);
+	buttonY_3 = new JoystickButton(controller_3, 4);
+	buttonLB_3 = new JoystickButton(controller_3, 5);
+	buttonRB_3 = new JoystickButton(controller_3, 6);
+	buttonSelect_3 = new JoystickButton(controller_3, 7);
+	buttonStart_3 = new JoystickButton(controller_3, 8);
 
-	button7_2->WhenPressed(new reset_encoders());
+
+
+	button12->WhenPressed(new reset_encoders());
 
 	button3->WhenPressed(new Shift_Gear(true));
 
@@ -60,20 +65,20 @@ OI::OI()
 	button1->WhenPressed(new RunRollers());
 	button1_2->WhenPressed(new RunRollers());
 
-	//buttonA->WhenPressed(new Roller_Lift_Mid);
+	button12->WhenPressed(new Roller_Lift_Mid);
 
 ///////////////////////////
 	/////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
-	//buttonX_2->WhenPressed(new Lift_Set(true));
-	//buttonB_2->WhenPressed(new Lift_Set(false));
-	button5_2->WhenPressed(new cam(true));
-	button6_2->WhenPressed(new cam(false));
+	buttonB_3->WhenPressed(new Lift_Set(true));
+	buttonX_3->WhenPressed(new Lift_Set(false));
+	buttonY_3->WhenPressed(new cam(true));
+	buttonA_3->WhenPressed(new cam(false));
 
 
-	//buttonStart_2->WhenPressed(new SystemsCheck(true));
-	//buttonSelect_2->WhenPressed(new SystemsCheck(false));
+	button7_2->WhenPressed(new SystemsCheck(true));
+	button7->WhenPressed(new SystemsCheck(false));
 
 }
 //these methods all basically do what they say they do in their name so yeah

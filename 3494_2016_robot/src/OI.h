@@ -8,6 +8,7 @@ class OI
 private:
 	Joystick* controller;
 	Joystick* controller_2;
+	Joystick* controller_3;
 public:
 	JoystickButton* button1;
 	JoystickButton* button2;
@@ -34,6 +35,15 @@ public:
 	JoystickButton* button10_2;
 	JoystickButton* button11_2;
 	JoystickButton* button12_2;
+
+	JoystickButton*buttonA_3;
+	JoystickButton*buttonB_3;
+	JoystickButton*buttonX_3;
+	JoystickButton*buttonY_3;
+	JoystickButton*buttonRB_3;
+	JoystickButton*buttonLB_3;
+	JoystickButton*buttonSelect_3;
+	JoystickButton*buttonStart_3;
 
 	OI();
 	float GetJoystickY();

@@ -15,7 +15,6 @@ DriveTrain::DriveTrain() :
 	LeftTalonFollower_2 = new CANTalon(LEFT_MOTOR_FOLLOWER_2);	//	3 CIM per gearbox
 	LeftTalonMaster->EnableControl();
 	LeftTalonMaster->SetSafetyEnabled(false);
-	//LeftTalonMaster->SetVoltageRampRate(RAMP);
 	LeftTalonFollower->EnableControl();
 	LeftTalonFollower->SetControlMode(CANSpeedController::kFollower);
 	LeftTalonFollower->Set(LEFT_MOTOR_MASTER);
@@ -53,17 +52,13 @@ DriveTrain::DriveTrain() :
 	RightTalonFollower_2->EnableControl();
 	RightTalonFollower_2->SetControlMode(CANSpeedController::kFollower);
 	RightTalonFollower_2->Set(RIGHT_MOTOR_MASTER);
-	//RightTalonMaster->SetVoltageRampRate(RAMP);
-	//LeftTalonFollower->SetVoltageRampRate(RAMP);
 ////////////////////////////////////////////////////////////
 	pdp = new PowerDistributionPanel();
 ////////////////////////////////////////////////////////////
 	SmartDashboard::init();
 ////////////////////////////////////////////////////////////
-	//solenoid_Shifter = new DoubleSolenoid(SOL_SHIFTER_1, SOL_SHIFTER_2);
 	currentGear = false;
 	shifter = new DoubleSolenoid(SOL_SHIFTER_1, SOL_SHIFTER_2);
-
 ////////////////////////////////////////////////////////////
 //for the system check
 	bCheck = false;
@@ -114,27 +109,7 @@ void DriveTrain::TankDrive(float leftAxis, float rightAxis)
 	float rightValue = rightSign * pow(rightAxis, power);
 	*/
 	//drive the master talons. the others /will/ follow.
-	/*if(fabs(leftAxis) < .10 )// instituting a deadband for the left and right motor
-	{
-		LeftTalonMaster->Set(0);
-	}
-	else
-	{
-
-	}
-SmartDashboard::PutNumber("LeftAxis", leftAxis);
-	if(fabs(leftAxis) < .10)
-	{
-		RightTalonMaster->Set(0);
-	}
-	else
-	{
-
-	}
-	*/
-
 	LeftTalonMaster->Set(leftAxis);
-	//LeftTalonFollower->Set(leftAxis);
 	RightTalonMaster->Set(rightAxis);
 
 	angle = ahrs->GetAngle();
