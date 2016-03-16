@@ -82,6 +82,15 @@ void Autonomous_Sequences::auto4()
 	}
 	else if (defense == "ramparts"){
 		//ramps
+		if (backto == false){
+			AddSequential(new Auto_Move_Tim(0.75, 2.5));
+			AddSequential(new Auto_Move_Tim(1, 3));
+		}
+		else {
+			AddSequential(new Turn(180));
+			AddSequential(new Auto_Move_Tim(0.75, 2.5));
+			AddSequential(new Auto_Move_Tim(1, 3));
+		}
 	}
 	else if (defense == "moat"){
 
