@@ -1,10 +1,10 @@
 #ifndef cam_H
 #define cam_H
 
-#include "../CommandBase.h"
-#include "../Subsystems/Climber.h"
+#include "../../CommandBase.h"
+#include "../../Subsystems/Climber.h"
 #include "WPILib.h"
-#include "../Robotmap.h"
+#include "../../Robotmap.h"
 
 class cam: public CommandBase
 {
