@@ -113,6 +113,10 @@ int OI::GetDPad_2() {
 	return controller_2->GetPOV();
 }
 
+int OI::GetDPad_3() {
+	return controller_3->GetPOV();
+}
+
 int OI::GetDPad() {
 	return controller->GetPOV();
 }

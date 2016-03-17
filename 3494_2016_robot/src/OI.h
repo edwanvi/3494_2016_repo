@@ -54,6 +54,7 @@ public:
 	//double GetRightJoystick_2();
 	int GetDPad();
 	int GetDPad_2();
+	int GetDPad_3();
 	double GetLeftTrigger_2();
 	double GetRightTrigger_2();
 	float GetLeftBumper();
