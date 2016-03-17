@@ -71,6 +71,7 @@ void Autonomous_Sequences::auto4()
 	//this is the fancy one
 	defense = prefs->GetString("defense", "Flowey the Flower");
 	backto = prefs->GetBoolean("back to", false);
+	//TODO write better auto codes here
 	if (defense == "low bar" or "bar"){
 		if (backto == false){
 			AddSequential(new Auto_Move_Tim(0.75, 5));
@@ -93,9 +94,18 @@ void Autonomous_Sequences::auto4()
 		}
 	}
 	else if (defense == "moat"){
-
+		//cross the moat in theory
+		if (backto == false){
+			AddSequential(new Auto_Move_Tim(0.75, 2.5));
+			AddSequential(new Auto_Move_Tim(1, 3));
+		}
+		else {
+			AddSequential(new Turn(180));
+			AddSequential(new Auto_Move_Tim(0.75, 2.5));
+			AddSequential(new Auto_Move_Tim(1, 3));
+		}
 	}
-	else{
+	else {
 		std::cout << "I'm amazed. " << defense << " is on the field and not a defense.";
 	}
 }
