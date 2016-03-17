@@ -7,6 +7,7 @@
 #include "Commands/Utilities/cam.h"
 #include "Commands/Drive/reset_encoders.h"
 #include "Commands/Roller/Rollers_lift.h"
+#include "Commands/Drive/Fail_NavX.h"
 
 OI::OI()
 {
@@ -54,7 +55,7 @@ OI::OI()
 
 
 
-	button12->WhenPressed(new reset_encoders());
+	button12_2->WhenPressed(new reset_encoders());
 
 	button3->WhenPressed(new Shift_Gear(true));
 
@@ -67,15 +68,16 @@ OI::OI()
 
 	button12->WhenPressed(new Roller_Lift_Mid);
 
-///////////////////////////
-	/////////////////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
 	buttonB_3->WhenPressed(new Lift_Set(true));
 	buttonX_3->WhenPressed(new Lift_Set(false));
 	buttonY_3->WhenPressed(new cam(true));
 	buttonA_3->WhenPressed(new cam(false));
-
+	buttonStart_3->WhenPressed(new Fail_NavX(true));
+	buttonSelect_3->WhenPressed(new Fail_NavX(false));
 
 	button7_2->WhenPressed(new SystemsCheck(true));
 	button7->WhenPressed(new SystemsCheck(false));
@@ -129,9 +131,9 @@ float OI::GetLeftBumper() {
 float OI::GetRightBumper() {
 	return controller->GetRawButton(6);
 }
-float OI::GetSelect() {
+float OI::Get11() {
 
-	return controller->GetRawButton(7);
+	return controller->GetRawButton(11);
 }
 
 /* float OI::GetX() {

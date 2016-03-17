@@ -7,6 +7,8 @@
 DriveTrain::DriveTrain() :
 		Subsystem("DriveTrain")
 {
+	NavXFail = false;
+	ramp = 0;
 	timeElapsed = 0.0;
 	duration = 0.0;
 ////////////////////////////////////////////////////////////
@@ -89,31 +91,39 @@ void DriveTrain::TankDrive(float leftAxis, float rightAxis)
 	SmartDashboard::PutNumber("Current_Chan left",PowerSide(0) );
 	SmartDashboard::PutNumber("Current_Chan Right", PowerSide(1));
 	SmartDashboard::PutNumber("Encoder_Position", Encoder_Position());
+/////////////////////////////////////////////////////////////////////
+	angle = ahrs->GetPitch();
+	SmartDashboard::PutNumber("Angle measure", angle);
+	LeftTalonMaster->SetVoltageRampRate(ramp);
+	RightTalonMaster->SetVoltageRampRate(ramp);
 
-// establishes sign value when below zero
-// the axis value, which is negative, is negated to be positive
-// The value is then taken to a power and then multiplied by the sign value	
-/*
-	if (leftAxis < 0) {
-		leftSign = -1;
-		leftAxis = leftAxis * -1;
-	}
+	SmartDashboard::PutBoolean("NavX Fail", NavXFail);
+	// added a prototype that will limit the amount of
+	// acceleration depending on the dipping angle of the robot
+	// This will defiantly will need tweaked values
+	if (!NavXFail)
+	{
+		if (angle > 25)
+		{
+			ramp = (12 - (25 - angle)); // the ramp rate will slow down even more if the robot dips more
 
-	if (rightAxis < 0) {
-		rightSign = -1;
-		rightAxis = rightAxis * -1;
+		}
+		else if (angle < -25)
+		{
+			ramp = (12 + (-25 + angle)); // if the robot dips backwards then this will compensate
+
+		}
+		else
+		{
+			ramp = 0; // if the robot is just fine then there is no ramp rate
+
+		}
 	}
-	
-	float leftValue = leftSign * pow(leftAxis, power);
-	
-	float rightValue = rightSign * pow(rightAxis, power);
-	*/
-	//drive the master talons. the others /will/ follow.
 	LeftTalonMaster->Set(leftAxis);
 	RightTalonMaster->Set(rightAxis);
 
-	angle = ahrs->GetAngle();
-	SmartDashboard::PutNumber("Angle measure", angle);
+	
+	
 }
 
 int DriveTrain::PowerDistOutput()
@@ -150,17 +160,8 @@ float DriveTrain::PowerSide(int value)
 		return (0);
 	}
 }
-/*void DriveTrain::ChangeGear(bool _gear) {
-	if (_gear){
-		solenoid_Shifter->Set(solenoid_Shifter->kForward);
 
-	}
-	else if (_gear == false) {
-			solenoid_Shifter->Set(solenoid_Shifter->kReverse);
-			//SmartDashboard::PutBoolean("Gear", _gear);
-	}
-	SmartDashboard::PutBoolean("Gear", _gear);
-}*/
+
 double DriveTrain::GetPosition(){
 	return ((LeftTalonFollower_2->GetEncPosition() * Rpulse) + (RightTalonMaster->GetEncPosition() * Rpulse));
 //  this will be uncommented when the measurements are correct
@@ -222,3 +223,32 @@ void DriveTrain::ChangeGear(bool _gear) {
 	SmartDashboard::PutBoolean("Gear", _gear);
 }
 
+
+
+
+// Put this in the drivetrian function if the robot is running a power of 2
+// establishes sign value when below zero
+// the axis value, which is negative, is negated to be positive
+// The value is then taken to a power and then multiplied by the sign value
+/*
+	if (leftAxis < 0) {
+		leftSign = -1;
+		leftAxis = leftAxis * -1;
+	}
+
+	if (rightAxis < 0) {
+		rightSign = -1;
+		rightAxis = rightAxis * -1;
+	}
+
+	float leftValue = leftSign * pow(leftAxis, power);
+
+	float rightValue = rightSign * pow(rightAxis, power);
+	*/
+	//drive the master talons. the others /will/ follow.
+
+void DriveTrain::Fail_NavX(bool fail)
+{
+	NavXFail = fail;
+
+}
