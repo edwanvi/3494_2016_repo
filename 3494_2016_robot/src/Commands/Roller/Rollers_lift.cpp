@@ -16,20 +16,23 @@ void Rollers_lift::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void Rollers_lift::Execute()
 {
+int dpad = oi->GetDPad();
 
-	if(oi->GetRightTrigger() > .25)
-	{
-		roller_lift_magnitude = oi->GetRightTrigger();
-	}
-	else if (oi->GetLeftTrigger() > .25)
-	{
-		roller_lift_magnitude = -oi->GetLeftTrigger();
-	}
-	else
-	{
-		roller_lift_magnitude = 0;
-	}
-	roller->Roller_Lift(roller_lift_magnitude);
+if (dpad == 0){
+	CommandBase::driveTrain->TankDrive(-DPAD_LIFT, DPAD_LIFT);
+}
+else if (dpad == 180){
+	CommandBase::driveTrain->TankDrive(DPAD_LIFT, -DPAD_LIFT);
+}
+else if (dpad == 90){
+	CommandBase::driveTrain->TankDrive(-DPAD_LIFT, -DPAD_LIFT);
+}
+else if (dpad == 270){
+	CommandBase::driveTrain->TankDrive(DPAD_LIFT, DPAD_LIFT);
+}
+else {
+	CommandBase::roller->Roller_Lift(0);
+}
 
 }
 

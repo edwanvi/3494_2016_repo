@@ -16,36 +16,26 @@ void Drive::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void Drive::Execute()
 {
-	int dpad = oi->GetDPad();
+	int dpad_2 = oi->GetDPad_2();
 	float leftThrottle =oi->GetJoystickY();
 	float rightThrottle =oi->GetJoystick_2Y();
 	CommandBase::driveTrain->TankDrive(leftThrottle, rightThrottle);
 
-	//dpad steering.
+	//DPAD_DRIVE steering.
 
-	if (dpad == 0){
-		CommandBase::driveTrain->TankDrive(-DPAD, DPAD);
+	if (dpad_2 == 0){
+		CommandBase::driveTrain->TankDrive(-DPAD_DRIVE, DPAD_DRIVE);
 	}
-	else if (dpad == 180){
-		CommandBase::driveTrain->TankDrive(DPAD, -DPAD);
+	else if (dpad_2 == 180){
+		CommandBase::driveTrain->TankDrive(DPAD_DRIVE, -DPAD_DRIVE);
 	}
-	else if (dpad == 90){
-		CommandBase::driveTrain->TankDrive(-DPAD, -DPAD);
+	else if (dpad_2 == 90){
+		CommandBase::driveTrain->TankDrive(-DPAD_DRIVE, -DPAD_DRIVE);
 	}
-	else if (dpad == 270){
-		CommandBase::driveTrain->TankDrive(DPAD, DPAD);
+	else if (dpad_2 == 270){
+		CommandBase::driveTrain->TankDrive(DPAD_DRIVE, DPAD_DRIVE);
 	}
 	SmartDashboard::PutNumber("Encoder_Position", driveTrain->Encoder_Position());
-	/* Sif (oi->GetB())
-	{
-		driveTrain->ChangeGear(true);
-	}
-	else if (oi->GetX())
-	{
-
-		driveTrain->ChangeGear(false);
-
-	}*/
 
 }
 

@@ -18,27 +18,22 @@ private:
 	CANTalon* RightTalonMaster;
 	CANTalon* RightTalonFollower;
 	CANTalon* RightTalonFollower_2;
-
+	DoubleSolenoid* shifter;
 	AHRS *ahrs;
-
+	bool NavXFail;
 	float angle;
+	double ramp;
 
 	PowerDistributionPanel* pdp;
-	//////////
-	//moved to another subsystem
-	//DoubleSolenoid* solenoid_Shifter;
 	float power = 1;
-
-	float Rpulse;
-	float Lpulse;
-
 	//clock (commented out for now)
 	//std::clock_t start;
 	double timeElapsed= 0.0;
 	float duration;
 
-	int leftSign = 1;
-	int rightSign = 1;
+	float Rpulse, Lpulse;
+//	int leftSign = 1;
+//	int rightSign = 1;
 
 public:
 	DriveTrain();
@@ -53,11 +48,12 @@ public:
 	int Encoder_Position();
 	void ResetEncoders();
 	bool TestDriveTrain(float _duration);
+	void Fail_NavX(bool fail);
 private:
 	bool bCheck;
 	float rightCurrent;
 	float leftCurrent;
-	DoubleSolenoid* shifter;
+
 };
 
 #endif
