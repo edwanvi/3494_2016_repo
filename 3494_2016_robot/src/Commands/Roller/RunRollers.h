@@ -2,6 +2,7 @@
 #define RunRollers_H
 
 #include "../../CommandBase.h"
+#include "Rollers_lift.h"
 #include "../../OI.h"
 #include "WPILib.h"
 #include "../../Subsystems/Rollers.h"

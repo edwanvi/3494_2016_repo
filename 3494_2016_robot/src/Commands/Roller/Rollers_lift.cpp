@@ -19,16 +19,11 @@ void Rollers_lift::Execute()
 int dpad = oi->GetDPad();
 
 if (dpad == 0){
-	CommandBase::driveTrain->TankDrive(-DPAD_LIFT, DPAD_LIFT);
-}
-else if (dpad == 180){
-	CommandBase::driveTrain->TankDrive(DPAD_LIFT, -DPAD_LIFT);
+	CommandBase::roller->Roller_Lift(1);
+
 }
 else if (dpad == 90){
-	CommandBase::driveTrain->TankDrive(-DPAD_LIFT, -DPAD_LIFT);
-}
-else if (dpad == 270){
-	CommandBase::driveTrain->TankDrive(DPAD_LIFT, DPAD_LIFT);
+	CommandBase::roller->Roller_Lift(-1);
 }
 else {
 	CommandBase::roller->Roller_Lift(0);

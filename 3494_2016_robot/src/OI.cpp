@@ -66,8 +66,7 @@ OI::OI()
 	button1->WhenPressed(new RunRollers());
 	button1_2->WhenPressed(new RunRollers());
 
-	button12->WhenPressed(new Roller_Lift_Mid);
-
+//	button12->WhenPressed(new Roller_Lift_Mid);
 
 /////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -79,8 +78,8 @@ OI::OI()
 	buttonStart_3->WhenPressed(new Fail_NavX(true));
 	buttonSelect_3->WhenPressed(new Fail_NavX(false));
 
-	button7_2->WhenPressed(new SystemsCheck(true));
-	button7->WhenPressed(new SystemsCheck(false));
+	//button7_2->WhenPressed(new SystemsCheck(true));
+	//button7->WhenPressed(new SystemsCheck(false));
 
 }
 //these methods all basically do what they say they do in their name so yeah
@@ -102,31 +101,41 @@ double OI::GetRightJoystick_2(){
 }
 */
 
+double OI::GetRightTrigger() {
+	return controller->GetRawButton(1);
+
+}
+
+double OI::GetRightTrigger_2() {
+	return controller_2->GetRawButton(1);
+
+}
+
 double OI::GetLeftTrigger() {
 	return controller->GetRawAxis(2);
 }
 
-double OI::GetRightTrigger() {
-	return controller->GetRawAxis(3);
-}
-int OI::GetDPad_2() {
+//double OI::GetRightTrigger() {
+	//return controller->GetRawAxis(3);
+//}
+double OI::GetDPad_2() {
 	return controller_2->GetPOV();
 }
 
-int OI::GetDPad_3() {
+double OI::GetDPad_3() {
 	return controller_3->GetPOV();
 }
 
-int OI::GetDPad() {
+double OI::GetDPad() {
 	return controller->GetPOV();
 }
 double OI::GetLeftTrigger_2() {
 	return controller_2->GetRawAxis(2);
 }
 
-double OI::GetRightTrigger_2() {
-	return controller_2->GetRawAxis(3);
-}
+//double OI::GetRightTrigger_2() {
+	//return controller_2->GetRawAxis(3);
+//}
 
 float OI::GetLeftBumper() {
 	return controller->GetRawButton(5);

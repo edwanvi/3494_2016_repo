@@ -18,21 +18,20 @@ void RunRollers::Initialize()
 void RunRollers::Execute()
 {
 
-	if (oi->GetLeftBumper()){
-			CommandBase::roller->Roll(true, 0.75);
+	if (oi->GetRightTrigger()){
+			CommandBase::roller->Roll(true, 244);
 			mode = 1;
 		}
-		else if (oi->GetRightBumper()){
-			CommandBase::roller->Roll(false, 0.75);
+		else if (oi->GetRightTrigger_2()){
+			CommandBase::roller->Roll(false, 244);
 			mode = 2;
 		}
 
-/*	if (CommandBase::oi->GetLeftJoystick() || CommandBase::oi->GetLeftJoystick())
+	if (CommandBase::oi->GetDPad())
 		{
 		new Rollers_lift();
 		}
 
-*/
 
 	//CommandBase::roller->Roll(direction);
 }
@@ -40,12 +39,12 @@ void RunRollers::Execute()
 // Make this return true when this Command no longer needs to run execute()
 bool RunRollers::IsFinished()
 {
-	if (!oi->GetLeftBumper() && mode == 1)
+	if (!oi->GetRightTrigger() && mode == 1)
 	{
 		return true;
 	}
 
-	if (!oi->GetRightBumper() && mode == 2)
+	if (!oi->GetRightTrigger_2() && mode == 2)
 	{
 		return true;
 	}

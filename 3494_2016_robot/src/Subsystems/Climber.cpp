@@ -17,6 +17,8 @@ Climber::Climber() :
 	SmartDashboard::init();
 	solenoid_climber_arm = new DoubleSolenoid(SOL_CLIMBER_1, SOL_CLIMBER_2);
 
+	currentGear = false;
+	shifter = new DoubleSolenoid(SOL_SHIFTER_1, SOL_SHIFTER_2);
 	//currentGear = false;
 /////////////////////////////////////////////////////////////////
 }
@@ -34,11 +36,11 @@ void Climber::Winch(bool _clockwise){
 	bool clockwise = _clockwise; // if true then the dpad value is 0
 	if (clockwise){
 		WenchTalon_1->Set(110); // values are the same because of mechanical
-		WenchTalon_2->Set(110);
+		WenchTalon_2->Set(-110);
 	}
 	else {						// if 180 then the value sent is false
 		WenchTalon_1->Set(-255);
-		WenchTalon_2->Set(-255);
+		WenchTalon_2->Set(255);
 	}
 	int current_1 = pdp->GetCurrent(8); // these will be srx's
 	int current_2 = pdp->GetCurrent(9); // so wait till later to add to robot map for competition
@@ -63,5 +65,18 @@ void Climber::Setter(bool forward)
 		solenoid_climber_arm->Set(solenoid_climber_arm->kReverse);
 	}
 }
+
+void Climber::ChangeGear(bool _gear) {
+	if (_gear){
+		shifter->Set(shifter->kForward);
+
+	}
+	else if (_gear == false) {
+			shifter->Set(shifter->kReverse);
+			//SmartDashboard::PutBoolean("Gear", _gear);
+	}
+	SmartDashboard::PutBoolean("Gear", _gear);
+}
+
 
 

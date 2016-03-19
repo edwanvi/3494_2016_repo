@@ -7,8 +7,8 @@
 DriveTrain::DriveTrain() :
 		Subsystem("DriveTrain")
 {
-	NavXFail = false;
-	ramp = 0;
+	NavXFail = true;
+	//ramp = 0;
 	timeElapsed = 0.0;
 	duration = 0.0;
 ////////////////////////////////////////////////////////////
@@ -59,8 +59,7 @@ DriveTrain::DriveTrain() :
 ////////////////////////////////////////////////////////////
 	SmartDashboard::init();
 ////////////////////////////////////////////////////////////
-	currentGear = false;
-	shifter = new DoubleSolenoid(SOL_SHIFTER_1, SOL_SHIFTER_2);
+
 ////////////////////////////////////////////////////////////
 //for the system check
 	bCheck = false;
@@ -69,7 +68,7 @@ DriveTrain::DriveTrain() :
 
 	ahrs = new AHRS(SPI::Port::kMXP);
 	angle = 0;
-	ahrs->Reset();
+	//ahrs->Reset();
 
 	// angle = 0;
 }
@@ -92,10 +91,10 @@ void DriveTrain::TankDrive(float leftAxis, float rightAxis)
 	SmartDashboard::PutNumber("Current_Chan Right", PowerSide(1));
 	SmartDashboard::PutNumber("Encoder_Position", Encoder_Position());
 /////////////////////////////////////////////////////////////////////
-	angle = ahrs->GetPitch();
+	angle = ahrs->GetRoll();
 	SmartDashboard::PutNumber("Angle measure", angle);
-	LeftTalonMaster->SetVoltageRampRate(ramp);
-	RightTalonMaster->SetVoltageRampRate(ramp);
+	//LeftTalonMaster->SetVoltageRampRate(ramp);
+	//RightTalonMaster->SetVoltageRampRate(ramp);
 
 	SmartDashboard::PutBoolean("NavX Fail", NavXFail);
 	// added a prototype that will limit the amount of
@@ -211,17 +210,6 @@ bool DriveTrain::TestDriveTrain(float _duration)
 }
 
 
-void DriveTrain::ChangeGear(bool _gear) {
-	if (_gear){
-		shifter->Set(shifter->kForward);
-
-	}
-	else if (_gear == false) {
-			shifter->Set(shifter->kReverse);
-			//SmartDashboard::PutBoolean("Gear", _gear);
-	}
-	SmartDashboard::PutBoolean("Gear", _gear);
-}
 
 
 

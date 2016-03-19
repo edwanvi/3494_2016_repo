@@ -13,8 +13,8 @@ private:
 	Talon* WenchTalon_2;
 	PowerDistributionPanel* pdp;
 	DoubleSolenoid* solenoid_climber_arm;
-
-
+	DoubleSolenoid* shifter;
+	bool currentGear;
 
 //	bool currentGear;
 public:
@@ -25,6 +25,7 @@ public:
 	void Setter(bool forward);
 	void ChangeGear(bool _gear);
 	void Camera(bool up);
+
 };
 
 #endif

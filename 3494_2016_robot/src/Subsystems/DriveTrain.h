@@ -18,7 +18,7 @@ private:
 	CANTalon* RightTalonMaster;
 	CANTalon* RightTalonFollower;
 	CANTalon* RightTalonFollower_2;
-	DoubleSolenoid* shifter;
+
 	AHRS *ahrs;
 	bool NavXFail;
 	float angle;

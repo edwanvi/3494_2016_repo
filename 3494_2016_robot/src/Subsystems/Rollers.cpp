@@ -8,17 +8,17 @@ Rollers::Rollers() :
 		Subsystem("Rollers")
 {
 	//create a talon object to control the rollers lift
-	talon_rollers_lift_left = new CANTalon(ROLLERS_MOTOR_LIFT_LEFT);
-	talon_rollers_lift_left -> EnableControl();
+	talon_rollers_lift_left = new Talon(ROLLERS_MOTOR_LIFT_LEFT);
+	//talon_rollers_lift_left -> EnableControl();
 	talon_rollers_lift_left -> SetSafetyEnabled(false);
 
-	talon_rollers_lift_right = new CANTalon(ROLLERS_MOTOR_LIFT_RIGHT);
-	talon_rollers_lift_right -> EnableControl();
+	talon_rollers_lift_right = new Talon(ROLLERS_MOTOR_LIFT_RIGHT);
+	//talon_rollers_lift_right -> EnableControl();
 	talon_rollers_lift_right -> SetSafetyEnabled(false);
 
-	roller_left = new CANTalon(ROLLERS_MOTOR_LEFT);	// create talon rollers these are pwm
+	roller_left = new Talon(ROLLERS_MOTOR_LEFT);	// create talon rollers these are pwm
 
-	roller_right = new CANTalon(ROLLERS_MOTOR_RIGHT);
+	roller_right = new Talon(ROLLERS_MOTOR_RIGHT);
 
 	pdp = new PowerDistributionPanel(); // for current measuring
 
@@ -47,11 +47,11 @@ void Rollers::Roll(bool forward, double _speed){
 	speed = _speed;
 
 	if (forward == true){
-		roller_left->Set(speed);
+		roller_left->Set(-speed);
 		roller_right->Set(speed);
 	}
 	else {
-		roller_left->Set(-speed);
+		roller_left->Set(speed);
 		roller_right->Set(-speed);
 	}
 
