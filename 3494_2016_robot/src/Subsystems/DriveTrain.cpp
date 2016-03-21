@@ -17,6 +17,7 @@ DriveTrain::DriveTrain() :
 	LeftTalonFollower_2 = new CANTalon(LEFT_MOTOR_FOLLOWER_2);	//	3 CIM per gearbox
 	LeftTalonMaster->EnableControl();
 	LeftTalonMaster->SetSafetyEnabled(false);
+	LeftTalonMaster->SetPosition(0);
 	LeftTalonFollower->EnableControl();
 	LeftTalonFollower->SetControlMode(CANSpeedController::kFollower);
 	LeftTalonFollower->Set(LEFT_MOTOR_MASTER);
@@ -51,6 +52,7 @@ DriveTrain::DriveTrain() :
 	RightTalonFollower->SetControlMode(CANSpeedController::kFollower);
 	RightTalonFollower->Set(RIGHT_MOTOR_MASTER);
 	RightTalonMaster->SetFeedbackDevice(CANTalon::QuadEncoder);
+	RightTalonMaster->SetPosition(0);
 	RightTalonFollower_2->EnableControl();
 	RightTalonFollower_2->SetControlMode(CANSpeedController::kFollower);
 	RightTalonFollower_2->Set(RIGHT_MOTOR_MASTER);
@@ -59,8 +61,6 @@ DriveTrain::DriveTrain() :
 ////////////////////////////////////////////////////////////
 	SmartDashboard::init();
 ////////////////////////////////////////////////////////////
-
-////////////////////////////////////////////////////////////
 //for the system check
 	bCheck = false;
 	rightCurrent = 75.0f;
@@ -68,9 +68,8 @@ DriveTrain::DriveTrain() :
 
 	ahrs = new AHRS(SPI::Port::kMXP);
 	angle = 0;
+	ramp = 0;
 	//ahrs->Reset();
-
-	// angle = 0;
 }
 
 void DriveTrain::InitDefaultCommand()
@@ -86,7 +85,7 @@ void DriveTrain::TankDrive(float leftAxis, float rightAxis)
 {
 // Monitors the total current draw of the robot use it when needed
 	SmartDashboard::PutNumber("Current",PowerDistOutput() );
-
+	SmartDashboard::PutNumber("Encoder", GetPosition());
 	SmartDashboard::PutNumber("Current_Chan left",PowerSide(0) );
 	SmartDashboard::PutNumber("Current_Chan Right", PowerSide(1));
 	SmartDashboard::PutNumber("Encoder_Position", Encoder_Position());
@@ -162,7 +161,7 @@ float DriveTrain::PowerSide(int value)
 
 
 double DriveTrain::GetPosition(){
-	return ((LeftTalonFollower_2->GetEncPosition() * Rpulse) + (RightTalonMaster->GetEncPosition() * Rpulse));
+	return ((-1 * LeftTalonMaster->GetEncPosition() * Rpulse) + (RightTalonMaster->GetEncPosition() * Rpulse));
 //  this will be uncommented when the measurements are correct
 
 
