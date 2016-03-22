@@ -102,7 +102,6 @@ double OI::GetRightJoystick_2(){
 
 double OI::GetRightTrigger() {
 	return controller->GetRawButton(1);
-
 }
 
 double OI::GetRightTrigger_2() {
