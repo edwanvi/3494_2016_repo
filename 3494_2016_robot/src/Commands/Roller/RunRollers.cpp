@@ -19,11 +19,11 @@ void RunRollers::Execute()
 {
 
 	if (oi->GetRightTrigger()){
-			CommandBase::roller->Roll(true, 244);
+			CommandBase::roller->Roll(true, .95);
 			mode = 1;
 		}
 		else if (oi->GetRightTrigger_2()){
-			CommandBase::roller->Roll(false, 244);
+			CommandBase::roller->Roll(false, .95);
 			mode = 2;
 		}
 

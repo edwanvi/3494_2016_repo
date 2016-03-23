@@ -18,11 +18,11 @@ void Rollers_lift::Execute()
 {
 int dpad = oi->GetDPad();
 
-if (dpad == 0){
+if (dpad == 180){
 	CommandBase::roller->Roller_Lift(1);
 
 }
-else if (dpad == 90){
+else if (dpad == 0){
 	CommandBase::roller->Roller_Lift(-1);
 }
 else {

@@ -19,7 +19,7 @@ void Auto_Move_Tim::Execute()
 {
 	CommandBase::driveTrain->TankDrive(speed, -speed);
 	Wait(time);
-	driveTrain->TankDrive(0, 0);
+	//driveTrain->TankDrive(0, 0);
 }
 
 // Make this return true when this Command no longer needs to run execute()

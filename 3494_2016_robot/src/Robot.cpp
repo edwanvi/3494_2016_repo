@@ -13,7 +13,7 @@ class Robot: public IterativeRobot
 private:
 	std::unique_ptr<Command> autonomousCommand;
 	SendableChooser *chooser;
-	Command * autonomousSequence;
+	Command * autonomousSequences;
 	DriveTrain* drivetrain;
 
 	AHRS *ahrs; /* Alternatives:  SPI::kMXP, I2C::kMXP or SerialPort::kUSB */
@@ -62,9 +62,9 @@ private:
 	 */
 	void AutonomousInit()
 	{
-		autonomousSequence = (Command*)chooser->GetSelected();
-		if (autonomousSequence != NULL)
-			autonomousSequence->Start();
+		autonomousSequences = (Command*)chooser->GetSelected();
+		if (autonomousSequences != NULL)
+			autonomousSequences->Start();
 	}
 
 	void AutonomousPeriodic()
@@ -78,8 +78,8 @@ private:
 		// teleop starts running. If you want the autonomous to
 		// continue until interrupted by another command, remove
 		// this line or comment it out.
-		if (autonomousSequence != NULL)
-			autonomousSequence->Cancel();
+		if (autonomousSequences != NULL)
+			autonomousSequences->Cancel();
 	}
 
 	void TeleopPeriodic()

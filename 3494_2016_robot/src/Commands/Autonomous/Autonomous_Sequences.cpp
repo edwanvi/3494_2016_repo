@@ -50,7 +50,9 @@ void Autonomous_Sequences::auto1() // autonomous sequence
 {
 	//AddParallel(new Solenoid_Roller_Set(true)); is an example of a parallel sequence
 	//AddSequential(new Autonomous_Roller(1, 1)); is an example
-	SmartDashboard::PutBoolean("Auto1 State", one); // displays during autnomous if the display is on
+	SmartDashboard::PutNumber("Auto1 State", 1); // displays during autnomous if the display is on
+
+
 }
 
 void Autonomous_Sequences::auto2()
@@ -63,8 +65,8 @@ void Autonomous_Sequences::auto2()
 
 void Autonomous_Sequences::auto3()
 {
-	AddSequential(new Auto_Move_Tim(-.75,5));
 	SmartDashboard::PutBoolean("Auto3 State", three);
+	AddSequential(new Auto_Move_Tim(-.75,2));
 }
 
 void Autonomous_Sequences::auto4()
