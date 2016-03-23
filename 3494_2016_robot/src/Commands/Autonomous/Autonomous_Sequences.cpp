@@ -98,6 +98,7 @@ void Autonomous_Sequences::auto4()
 		if (backto == false){
 			AddSequential(new Auto_Move_Tim(0.75, 2.5));
 			AddSequential(new Auto_Move_Tim(1, 3));
+			AddSequential(new Auto_Move_Tim(0.75, 1));
 		}
 		else {
 			AddSequential(new Turn(180));
