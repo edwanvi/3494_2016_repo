@@ -7,7 +7,7 @@
 DriveTrain::DriveTrain() :
 		Subsystem("DriveTrain")
 {
-	NavXFail = true;
+	NavXFail = false;
 	//ramp = 0;
 	timeElapsed = 0.0;
 	duration = 0.0;
@@ -15,6 +15,7 @@ DriveTrain::DriveTrain() :
 	LeftTalonMaster = new CANTalon(LEFT_MOTOR_MASTER);			//	Left CANTalon motor subgroup
 	LeftTalonFollower = new CANTalon(LEFT_MOTOR_FOLLOWER);		//	1 talon is assigned for each CIM
 	LeftTalonFollower_2 = new CANTalon(LEFT_MOTOR_FOLLOWER_2);	//	3 CIM per gearbox
+
 	LeftTalonMaster->EnableControl();
 	LeftTalonMaster->SetSafetyEnabled(false);
 	LeftTalonMaster->SetPosition(0);
@@ -58,6 +59,9 @@ DriveTrain::DriveTrain() :
 	RightTalonFollower_2->Set(RIGHT_MOTOR_MASTER);
 ////////////////////////////////////////////////////////////
 	pdp = new PowerDistributionPanel();
+
+	//gyro = new AnalogGyro(2);
+	//gyro->Reset();
 ////////////////////////////////////////////////////////////
 	SmartDashboard::init();
 ////////////////////////////////////////////////////////////
@@ -66,7 +70,7 @@ DriveTrain::DriveTrain() :
 	rightCurrent = 75.0f;
 	leftCurrent = 0.0f;
 
-	ahrs = new AHRS(SPI::Port::kMXP);
+	ahrs = new AHRS(SerialPort::Port::kMXP);
 	angle = 0;
 	ramp = 0;
 	//ahrs->Reset();
@@ -94,27 +98,24 @@ void DriveTrain::TankDrive(float leftAxis, float rightAxis)
 	SmartDashboard::PutNumber("Angle measure", angle);
 	//LeftTalonMaster->SetVoltageRampRate(ramp);
 	//RightTalonMaster->SetVoltageRampRate(ramp);
-
+	//SmartDashboard::PutNumber("angle", gyro->GetAngle());
 	SmartDashboard::PutBoolean("NavX Fail", NavXFail);
 	// added a prototype that will limit the amount of
 	// acceleration depending on the dipping angle of the robot
 	// This will defiantly will need tweaked values
 	if (!NavXFail)
 	{
-		if (angle > 25)
+		if (angle < -7)
 		{
-			ramp = (12 - (25 - angle)); // the ramp rate will slow down even more if the robot dips more
-
+			ramp = (25 + (angle)); // the ramp rate will slow down even more if the robot dips more
 		}
-		else if (angle < -25)
+		else if (angle > 7)
 		{
-			ramp = (12 + (-25 + angle)); // if the robot dips backwards then this will compensate
-
+			ramp = (25 - angle); // if the robot dips backwards then this will compensate
 		}
 		else
 		{
 			ramp = 0; // if the robot is just fine then there is no ramp rate
-
 		}
 	}
 	LeftTalonMaster->Set(leftAxis);

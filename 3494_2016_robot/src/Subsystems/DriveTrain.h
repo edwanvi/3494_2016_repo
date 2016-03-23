@@ -19,6 +19,8 @@ private:
 	CANTalon* RightTalonFollower;
 	CANTalon* RightTalonFollower_2;
 
+//	AnalogGyro* gyro;
+
 	AHRS *ahrs;
 	bool NavXFail;
 	float angle;
