@@ -14,7 +14,7 @@ Autonomous_Sequences::Autonomous_Sequences(int autoMode)
 	four = false;
 	five = false;
 	//test of reading from smart dashboard
-	prefs = Preferences::GetInstance();;
+	prefs = Preferences::GetInstance();
 	backto = false;
 	defense = "Bernie Sanders";
 	if (autoMode == 1) // checks smart dashboard for what the user has selected the default is 1
@@ -34,6 +34,8 @@ Autonomous_Sequences::Autonomous_Sequences(int autoMode)
 	}
 	else if (autoMode == 4)
 	{
+		defense = prefs->GetString("defense", "Flowey the Flower");
+		backto = prefs->GetBoolean("back to", false);
 		auto4();
 		four = true;
 	}
@@ -69,8 +71,6 @@ void Autonomous_Sequences::auto4()
 {
 	SmartDashboard::PutBoolean("Auto4 State", four);
 	//this is the fancy one
-	defense = prefs->GetString("defense", "Flowey the Flower");
-	backto = prefs->GetBoolean("back to", false);
 	//TODO write better auto codes here
 	if (defense == "low bar" or "bar"){
 		if (backto == false){
