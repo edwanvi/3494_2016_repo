@@ -29,9 +29,9 @@ DriveTrain::DriveTrain() :
 ////////////////////////////////////////////////////////////
 	//encoder things
 	static double WHEEL_DIAMETER =  3.939;
-	static double GEAR_RATIO = 2.65;
+	static double GEAR_RATIO = 2.50;
 	//may need to set to 360
-	static double PULSE_PER_REVOLUTION = 360;
+	static double PULSE_PER_REVOLUTION = 256;
 	Rpulse = ((3.14 * (WHEEL_DIAMETER/GEAR_RATIO)) / PULSE_PER_REVOLUTION);
 	Lpulse = ((3.14 * (WHEEL_DIAMETER/GEAR_RATIO)) / PULSE_PER_REVOLUTION);
 ////////////////////////////////////////////////////////////
@@ -107,11 +107,11 @@ void DriveTrain::TankDrive(float leftAxis, float rightAxis)
 	{
 		if (angle < -7)
 		{
-			ramp = (25 + (angle)); // the ramp rate will slow down even more if the robot dips more
+			ramp = (16 + (angle)); // the ramp rate will slow down even more if the robot dips more
 		}
 		else if (angle > 7)
 		{
-			ramp = (25 - angle); // if the robot dips backwards then this will compensate
+			ramp = (16 - angle); // if the robot dips backwards then this will compensate
 		}
 		else
 		{
