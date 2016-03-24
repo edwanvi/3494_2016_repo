@@ -7,7 +7,7 @@
 DriveTrain::DriveTrain() :
 		Subsystem("DriveTrain")
 {
-	NavXFail = false;
+	NavXFail = true;
 	//ramp = 0;
 	timeElapsed = 0.0;
 	duration = 0.0;
@@ -26,14 +26,15 @@ DriveTrain::DriveTrain() :
 	LeftTalonFollower_2->SetControlMode(CANSpeedController::kFollower);
 	LeftTalonFollower_2->Set(LEFT_MOTOR_MASTER);
 	LeftTalonMaster->SetFeedbackDevice(CANTalon::QuadEncoder);
+	LeftTalonMaster->ConfigEncoderCodesPerRev(256);
 ////////////////////////////////////////////////////////////
 	//encoder things
 	static double WHEEL_DIAMETER =  3.939;
 	static double GEAR_RATIO = 2.50;
 	//may need to set to 360
-	static double PULSE_PER_REVOLUTION = 256;
-	Rpulse = ((3.14 * (WHEEL_DIAMETER/GEAR_RATIO)) / PULSE_PER_REVOLUTION);
-	Lpulse = ((3.14 * (WHEEL_DIAMETER/GEAR_RATIO)) / PULSE_PER_REVOLUTION);
+	//static double PULSE_PER_REVOLUTION = 256;
+	Rpulse = ((3.14 * (WHEEL_DIAMETER/GEAR_RATIO)));
+	Lpulse = ((3.14 * (WHEEL_DIAMETER/GEAR_RATIO)));
 ////////////////////////////////////////////////////////////
 /*
 	LeftTalonMaster->SetVoltageRampRate(RAMP);
@@ -53,6 +54,7 @@ DriveTrain::DriveTrain() :
 	RightTalonFollower->SetControlMode(CANSpeedController::kFollower);
 	RightTalonFollower->Set(RIGHT_MOTOR_MASTER);
 	RightTalonMaster->SetFeedbackDevice(CANTalon::QuadEncoder);
+	RightTalonMaster->ConfigEncoderCodesPerRev(256);
 	RightTalonMaster->SetPosition(0);
 	RightTalonFollower_2->EnableControl();
 	RightTalonFollower_2->SetControlMode(CANSpeedController::kFollower);
@@ -96,6 +98,7 @@ void DriveTrain::TankDrive(float leftAxis, float rightAxis)
 	SmartDashboard::PutNumber("Current_Chan Right", PowerSide(1));
 	SmartDashboard::PutNumber("Encoder_Position", Encoder_Position());
 /////////////////////////////////////////////////////////////////////
+
 	angle = ahrs->GetRoll();
 	SmartDashboard::PutNumber("Angle measure", angle);
 	//LeftTalonMaster->SetVoltageRampRate(ramp);
@@ -107,7 +110,7 @@ void DriveTrain::TankDrive(float leftAxis, float rightAxis)
 	// This will defiantly will need tweaked values
 	if (!NavXFail)
 	{
-		if (angle < -7)
+		if (angle < -7) // 12 = penalty
 		{
 			ramp = (16 + (angle)); // the ramp rate will slow down even more if the robot dips more
 		}
