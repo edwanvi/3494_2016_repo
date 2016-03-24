@@ -86,7 +86,6 @@ void DriveTrain::InitDefaultCommand()
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
 
-
 void DriveTrain::TankDrive(float leftAxis, float rightAxis)
 {
 // Monitors the total current draw of the robot use it when needed
@@ -122,9 +121,6 @@ void DriveTrain::TankDrive(float leftAxis, float rightAxis)
 	}
 	LeftTalonMaster->Set(leftAxis);
 	RightTalonMaster->Set(rightAxis);
-
-	
-	
 }
 
 int DriveTrain::PowerDistOutput()
@@ -165,9 +161,7 @@ float DriveTrain::PowerSide(int value)
 
 double DriveTrain::GetPosition(){
 	return ((-1 * LeftTalonMaster->GetEncPosition() * Rpulse) + (RightTalonMaster->GetEncPosition() * Rpulse));
-//  this will be uncommented when the measurements are correct
-
-
+	//  this will be uncommented when the measurements are correct
 }
 
 int DriveTrain::Encoder_Position()
@@ -189,7 +183,7 @@ bool DriveTrain::TestDriveTrain(float _duration)
 		rightCurrent = PowerSide(1);
 		leftCurrent = PowerSide(0);
 
-		//total motorsS
+		//total motors
 		SmartDashboard::PutNumber("Left Current", leftCurrent);
 		SmartDashboard::PutNumber("Right Current", rightCurrent);
 		//induviddual motors
@@ -201,7 +195,7 @@ bool DriveTrain::TestDriveTrain(float _duration)
 		SmartDashboard::PutNumber("Right Current 2", pdp->GetCurrent(RIGHT_MOTOR_FOLLOWER));
 		SmartDashboard::PutNumber("Right Current 3", pdp->GetCurrent(RIGHT_MOTOR_FOLLOWER_2));
 
-//timeElapsed = (std::clock() + start)/(double)CLOCKS_PER_SEC;
+		//timeElapsed = (std::clock() + start)/(double)CLOCKS_PER_SEC;
 	}
 
 	if (abs(leftCurrent - rightCurrent) <= 5.0f)
@@ -234,5 +228,4 @@ bool DriveTrain::TestDriveTrain(float _duration)
 void DriveTrain::Fail_NavX(bool fail)
 {
 	NavXFail = fail;
-
 }

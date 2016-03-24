@@ -71,40 +71,23 @@ void Autonomous_Sequences::auto4()
 {
 	SmartDashboard::PutBoolean("Auto4 State", four);
 	//this is the fancy one
-	//TODO write better auto codes here
+	//TODO write better auto code
+	if (backto){
+		AddSequential(new Turn(180));
+	}
 	if (defense == "low bar" or "bar"){
-		if (backto == false){
 			AddSequential(new Auto_Move_Tim(0.75, 5));
-		}
-		else {
-			AddSequential(new Turn(180));
-			AddSequential(new Auto_Move_Tim(0.75, 5));
-		}
 	}
 	else if (defense == "ramparts"){
 		//ramps
-		if (backto == false){
 			AddSequential(new Auto_Move_Tim(0.75, 2.5));
 			AddSequential(new Auto_Move_Tim(1, 3));
-		}
-		else {
-			AddSequential(new Turn(180));
-			AddSequential(new Auto_Move_Tim(0.75, 2.5));
-			AddSequential(new Auto_Move_Tim(1, 3));
-		}
 	}
 	else if (defense == "moat"){
 		//cross the moat in theory
-		if (backto == false){
 			AddSequential(new Auto_Move_Tim(0.75, 2.5));
 			AddSequential(new Auto_Move_Tim(1, 3));
 			AddSequential(new Auto_Move_Tim(0.75, 1));
-		}
-		else {
-			AddSequential(new Turn(180));
-			AddSequential(new Auto_Move_Tim(0.75, 2.5));
-			AddSequential(new Auto_Move_Tim(1, 3));
-		}
 	}
 	else {
 		std::cout << "I'm amazed. " << defense << " is on the field and not a defense.";
