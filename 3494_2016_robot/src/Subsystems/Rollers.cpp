@@ -64,7 +64,6 @@ void Rollers::Roller_Lift(float magnitude)
 	talon_rollers_lift_right->Set(-magnitude);
 
 	//down = roller_down->GetVoltage();
-
 	SmartDashboard::PutNumber("Roller down", down);
 }
 
