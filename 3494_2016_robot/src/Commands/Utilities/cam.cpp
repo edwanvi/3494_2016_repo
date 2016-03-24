@@ -19,15 +19,12 @@ void cam::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void cam::Execute()
 {
-
 	if (mode){
-			camera->Set(camera->kForward);
-		}
-		else if (!mode) {
-			camera->Set(camera->kReverse);
-		}
-
-
+		camera->Set(camera->kForward);
+	}
+	else if (!mode) {
+		camera->Set(camera->kReverse);
+	}
 }
 
 // Make this return true when this Command no longer needs to run execute()

@@ -10,7 +10,6 @@ Kompressor_2::Kompressor_2() :
 	//On  = false;
 	// if there happens to be a compressor in the robot then uncomment the code.
 	kompressor->SetClosedLoopControl(true);
-
 }
 
 void Kompressor_2::InitDefaultCommand()

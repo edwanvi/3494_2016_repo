@@ -58,5 +58,5 @@ void Turn::End()
 // subsystems is scheduled to run
 void Turn::Interrupted()
 {
-
+	std::cout << "What a rude command, interrupting me like that.\n";
 }

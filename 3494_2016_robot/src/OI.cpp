@@ -69,7 +69,6 @@ OI::OI()
 //	button12->WhenPressed(new Roller_Lift_Mid);
 
 /////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////
 
 	buttonB_3->WhenPressed(new Lift_Set(true));
 	buttonX_3->WhenPressed(new Lift_Set(false));
@@ -103,7 +102,6 @@ double OI::GetRightJoystick_2(){
 
 double OI::GetRightTrigger() {
 	return controller->GetRawButton(1);
-
 }
 
 double OI::GetRightTrigger_2() {
@@ -145,17 +143,13 @@ float OI::GetRightBumper() {
 	return controller->GetRawButton(6);
 }
 float OI::Get11() {
-
 	return controller->GetRawButton(11);
 }
 
 /* float OI::GetX() {
-
 	return controller->GetRawButton(3);
 }
 float OI::GetB() {
-
 	return controller->GetRawButton(2);
 }
 */
-

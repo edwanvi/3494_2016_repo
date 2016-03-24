@@ -69,6 +69,8 @@ DriveTrain::DriveTrain() :
 	bCheck = false;
 	rightCurrent = 75.0f;
 	leftCurrent = 0.0f;
+	//until we know for sure
+	//currentGear = false;
 
 	ahrs = new AHRS(SerialPort::Port::kMXP);
 	angle = 0;
@@ -208,12 +210,6 @@ bool DriveTrain::TestDriveTrain(float _duration)
 	}
 	return bCheck;
 }
-
-
-
-
-
-
 // Put this in the drivetrian function if the robot is running a power of 2
 // establishes sign value when below zero
 // the axis value, which is negative, is negated to be positive

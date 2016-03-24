@@ -46,7 +46,7 @@ public:
 	float PowerSide(int value);
 	void ChangeGear(bool _gear);
 	double GetPosition();
-	bool currentGear;
+	//bool currentGear;
 	int Encoder_Position();
 	void ResetEncoders();
 	bool TestDriveTrain(float _duration);

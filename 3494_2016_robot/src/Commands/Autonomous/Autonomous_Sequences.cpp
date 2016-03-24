@@ -14,7 +14,7 @@ Autonomous_Sequences::Autonomous_Sequences(int autoMode)
 	four = false;
 	five = false;
 	//test of reading from smart dashboard
-	prefs = Preferences::GetInstance();;
+	prefs = Preferences::GetInstance();
 	backto = false;
 	defense = "Bernie Sanders";
 	if (autoMode == 1) // checks smart dashboard for what the user has selected the default is 1
@@ -34,6 +34,8 @@ Autonomous_Sequences::Autonomous_Sequences(int autoMode)
 	}
 	else if (autoMode == 4)
 	{
+		defense = prefs->GetString("defense", "Flowey the Flower");
+		backto = prefs->GetBoolean("back to", false);
 		auto4();
 		four = true;
 	}
@@ -47,10 +49,8 @@ Autonomous_Sequences::Autonomous_Sequences(int autoMode)
 void Autonomous_Sequences::auto1() // autonomous sequence
 {
 	//AddParallel(new Solenoid_Roller_Set(true)); is an example of a parallel sequence
-	//AddSequential(new Autonomous_Roller(1, 1)); is an example
+	//AddSequential(new Autonomous_Roller(1, 1)); is an example of a simple command call
 	SmartDashboard::PutNumber("Auto1 State", 1); // displays during autnomous if the display is on
-
-
 }
 
 void Autonomous_Sequences::auto2()
@@ -71,8 +71,6 @@ void Autonomous_Sequences::auto4()
 {
 	SmartDashboard::PutBoolean("Auto4 State", four);
 	//this is the fancy one
-	defense = prefs->GetString("defense", "Flowey the Flower");
-	backto = prefs->GetBoolean("back to", false);
 	//TODO write better auto codes here
 	if (defense == "low bar" or "bar"){
 		if (backto == false){
@@ -100,6 +98,7 @@ void Autonomous_Sequences::auto4()
 		if (backto == false){
 			AddSequential(new Auto_Move_Tim(0.75, 2.5));
 			AddSequential(new Auto_Move_Tim(1, 3));
+			AddSequential(new Auto_Move_Tim(0.75, 1));
 		}
 		else {
 			AddSequential(new Turn(180));
