@@ -51,8 +51,8 @@ const int RIGHT_MOTOR_FOLLOWER_2 = 14;
 //const int RIGHT_MOTOR_FOLLOWER_2 = 15;
 
 ////////////////////////////////////////////////////////////
-const int SOL_SHIFTER_1 = 1;
-const int SOL_SHIFTER_2 = 0;
+const int SOL_SHIFTER_1 = 3;
+const int SOL_SHIFTER_2 = 2;
 const int COMPRESSOR = 0;
 ////////////////////////////////////////////////////////////
 const float RAMP = 30;
@@ -78,7 +78,7 @@ const int WINCH_SPEED = 255;
 
 ////////////////////////////////////////////////////////////
 
-const int SOL_CLIMBER_1 = 3;
-const int SOL_CLIMBER_2 = 2;
+const int SOL_CLIMBER_1 = 1;
+const int SOL_CLIMBER_2 = 0;
 
 #endif
