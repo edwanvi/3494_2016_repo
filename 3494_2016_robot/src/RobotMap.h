@@ -72,8 +72,8 @@ const float CAM_2 = 7;
 
 ////////////////////////////////////////////////////////////
 
-const int TALON_WINCH_1 = 4;
-const int TALON_WINCH_2 = 5;
+const int TALON_WINCH_1 = 0;
+const int TALON_WINCH_2 = 9;
 const int WINCH_SPEED = 255;
 
 ////////////////////////////////////////////////////////////
