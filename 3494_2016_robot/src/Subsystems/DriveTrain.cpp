@@ -18,6 +18,7 @@ DriveTrain::DriveTrain() :
 
 	LeftTalonMaster->EnableControl();
 	LeftTalonMaster->SetSafetyEnabled(false);
+	LeftTalonMaster->SetVoltageRampRate(RAMP);
 	LeftTalonMaster->SetPosition(0);
 	LeftTalonFollower->EnableControl();
 	LeftTalonFollower->SetControlMode(CANSpeedController::kFollower);
@@ -50,6 +51,7 @@ DriveTrain::DriveTrain() :
 	RightTalonFollower_2 = new CANTalon(RIGHT_MOTOR_FOLLOWER_2);
 	RightTalonMaster->EnableControl();
 	RightTalonMaster->SetSafetyEnabled(false);
+	RightTalonMaster->SetVoltageRampRate(RAMP);
 	RightTalonFollower->EnableControl();
 	RightTalonFollower->SetControlMode(CANSpeedController::kFollower);
 	RightTalonFollower->Set(RIGHT_MOTOR_MASTER);
@@ -76,7 +78,7 @@ DriveTrain::DriveTrain() :
 
 	ahrs = new AHRS(SerialPort::Port::kMXP);
 	angle = 0;
-	ramp = 0;
+	//ramp = 23;
 	//ahrs->Reset();
 }
 

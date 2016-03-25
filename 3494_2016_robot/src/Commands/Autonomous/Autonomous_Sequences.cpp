@@ -58,16 +58,19 @@ void Autonomous_Sequences::auto2()
 {
 	//turn and drive
 //	AddSequential(new NewTurn(true, 2, 0.75));
-	AddSequential(new Auto_Roller_Lift(.5));
-	AddSequential(new Auto_Move_Tim(-.75,2));
+//	AddSequential(new Auto_Roller_Lift(1.5));
+	AddSequential(new Auto_Move_Tim(.75,1));
+	AddSequential(new Auto_Move_Tim(1,1.5));
+	AddSequential(new Auto_Move_Tim(.70,1));
+
 	SmartDashboard::PutBoolean("Auto2 State", two);
 }
 
 void Autonomous_Sequences::auto3()
 {
 	SmartDashboard::PutBoolean("Auto3 State", three);
-	AddParallel(new Auto_Roller_Lift(.5));
-	AddSequential(new Auto_Move_Tim(-.75,1));
+	AddSequential(new Auto_Roller_Lift(1.5));
+	AddSequential(new Auto_Move_Tim(-.75,1)); // perfect time
 }
 
 void Autonomous_Sequences::auto4()
