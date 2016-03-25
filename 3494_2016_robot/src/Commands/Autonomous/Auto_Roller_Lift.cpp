@@ -1,43 +1,43 @@
-#include "Auto_Move_Tim.h"
+#include "Auto_Roller_Lift.h"
 
-Auto_Move_Tim::Auto_Move_Tim(float speed_, float time_)
+Auto_Roller_Lift::Auto_Roller_Lift(float time_)
 {
 	// Use Requires() here to declare subsystem dependencies
-	Requires(driveTrain);
-	speed = speed_;
-	time = time_;
+	 Requires(roller);
+	// speed = speed_;
+	 time = time_;
 }
 
 // Called just before this Command runs the first time
-void Auto_Move_Tim::Initialize()
+void Auto_Roller_Lift::Initialize()
 {
 	SmartDashboard::init();
+
 }
 
 // Called repeatedly when this Command is scheduled to run
-void Auto_Move_Tim::Execute()
+void Auto_Roller_Lift::Execute()
 {
-	CommandBase::driveTrain->TankDrive(-speed, speed);
+	CommandBase::roller->Roller_Lift(.50);
 	Wait(time);
-	driveTrain->TankDrive(0, 0);
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool Auto_Move_Tim::IsFinished()
+bool Auto_Roller_Lift::IsFinished()
 {
-	CommandBase::driveTrain->TankDrive(0,0);
-	return true;
+	CommandBase::roller->Roller_Lift(0);
+	return true;;
 }
 
 // Called once after isFinished returns true
-void Auto_Move_Tim::End()
+void Auto_Roller_Lift::End()
 {
 
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void Auto_Move_Tim::Interrupted()
+void Auto_Roller_Lift::Interrupted()
 {
 
 }

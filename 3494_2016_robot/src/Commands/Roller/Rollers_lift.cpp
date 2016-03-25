@@ -19,10 +19,14 @@ void Rollers_lift::Execute()
 int dpad = oi->GetDPad();
 
 if (dpad == 180){
-	CommandBase::roller->Roller_Lift(1);
+	CommandBase::roller->Roller_Lift(.50);
 
 }
 else if (dpad == 0){
+	CommandBase::roller->Roller_Lift(-.75);
+}
+else if (dpad == 90){
+
 	CommandBase::roller->Roller_Lift(-1);
 }
 else {
