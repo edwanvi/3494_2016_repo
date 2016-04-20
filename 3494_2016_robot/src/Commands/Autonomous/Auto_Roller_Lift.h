@@ -9,8 +9,9 @@ class Auto_Roller_Lift: public CommandBase
 private:
 	float speed;
 	float time;
+	float roller_speed;
 public:
-	Auto_Roller_Lift(float time_);
+	Auto_Roller_Lift(float time_, float speed_);
 	void Initialize();
 	void Execute();
 	bool IsFinished();

@@ -62,8 +62,8 @@ public:
 	float GetRightBumper();
 	double GetRightJoystickStrafe();
 	float Get11();
-	//float GetX();
-	//float GetB();
+	float GetA();
+	float GetY();
 };
 
 #endif

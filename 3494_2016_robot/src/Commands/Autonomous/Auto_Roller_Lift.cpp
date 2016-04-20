@@ -1,11 +1,12 @@
 #include "Auto_Roller_Lift.h"
 
-Auto_Roller_Lift::Auto_Roller_Lift(float time_)
+Auto_Roller_Lift::Auto_Roller_Lift(float time_, float speed_)
 {
 	// Use Requires() here to declare subsystem dependencies
 	 Requires(roller);
 	// speed = speed_;
 	 time = time_;
+	roller_speed = speed_;
 }
 
 // Called just before this Command runs the first time
@@ -18,7 +19,7 @@ void Auto_Roller_Lift::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void Auto_Roller_Lift::Execute()
 {
-	CommandBase::roller->Roller_Lift(.50);
+	CommandBase::roller->Roller_Lift(roller_speed);
 	Wait(time);
 }
 

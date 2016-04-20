@@ -1,10 +1,11 @@
 #include "Auto_Move_Tim.h"
 
-Auto_Move_Tim::Auto_Move_Tim(float speed_, float time_)
+Auto_Move_Tim::Auto_Move_Tim(float Left_speed_, float Right_speed_, float time_)
 {
 	// Use Requires() here to declare subsystem dependencies
 	Requires(driveTrain);
-	speed = speed_;
+	left = Left_speed_;
+	right = Right_speed_;
 	time = time_;
 }
 
@@ -17,7 +18,7 @@ void Auto_Move_Tim::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void Auto_Move_Tim::Execute()
 {
-	CommandBase::driveTrain->TankDrive(-speed, speed);
+	CommandBase::driveTrain->TankDrive(-left, right);
 	Wait(time);
 	driveTrain->TankDrive(0, 0);
 }

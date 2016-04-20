@@ -18,7 +18,8 @@ void Drive::Execute()
 {
 	int dpad_2 = oi->GetDPad_2();
 	float leftThrottle =oi->GetJoystickY();
-	float rightThrottle =oi->GetJoystick_2Y();
+	float rightThrottle =oi->GetJoystick_2Y(); // this 1 is multiplied by -1 to make them go forward
+	//This will give a value of 1 for right and -1 for left
 	CommandBase::driveTrain->TankDrive(leftThrottle, rightThrottle);
 
 	//DPAD_DRIVE steering.

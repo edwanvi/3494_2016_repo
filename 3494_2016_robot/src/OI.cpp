@@ -140,16 +140,16 @@ float OI::GetLeftBumper() {
 }
 
 float OI::GetRightBumper() {
-	return controller->GetRawButton(6);
+	return controller_3->GetRawButton(6);
 }
 float OI::Get11() {
 	return controller->GetRawButton(11);
 }
 
-/* float OI::GetX() {
-	return controller->GetRawButton(3);
+ float OI::GetY() {
+	return controller_3->GetRawButton(4);
 }
-float OI::GetB() {
-	return controller->GetRawButton(2);
+float OI::GetA() {
+	return controller_3->GetRawButton(1);
 }
-*/
+

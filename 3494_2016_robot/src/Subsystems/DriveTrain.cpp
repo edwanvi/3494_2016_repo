@@ -93,13 +93,24 @@ void DriveTrain::InitDefaultCommand()
 void DriveTrain::TankDrive(float leftAxis, float rightAxis)
 {
 // Monitors the total current draw of the robot use it when needed
-	SmartDashboard::PutNumber("Current",PowerDistOutput() );
-	SmartDashboard::PutNumber("Encoder", GetPosition());
+	SmartDashboard::PutNumber("left",leftAxis );
+	SmartDashboard::PutNumber("right", rightAxis);
 	SmartDashboard::PutNumber("Current_Chan left",PowerSide(0) );
 	SmartDashboard::PutNumber("Current_Chan Right", PowerSide(1));
 	SmartDashboard::PutNumber("Encoder_Position", Encoder_Position());
 /////////////////////////////////////////////////////////////////////
+	//This will give a value of 1 for right and -1 for left
+	if (leftAxis < -.20 && rightAxis > .20)
+	{
+		RightTalonMaster->SetVoltageRampRate(37);
+		LeftTalonMaster->SetVoltageRampRate(37);
+	}
+	else
+	{
+		RightTalonMaster->SetVoltageRampRate(RAMP);
+		LeftTalonMaster->SetVoltageRampRate(RAMP);
 
+	}
 	angle = ahrs->GetRoll();
 	SmartDashboard::PutNumber("Angle measure", angle);
 	//LeftTalonMaster->SetVoltageRampRate(ramp);
