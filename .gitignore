@@ -1,58 +1,37 @@
-# Compiled Object files
-
-*.slo
-
-*.lo
-
+# Object files
 *.o
-
+*.ko
 *.obj
-
+*.elf
 
 # Precompiled Headers
-
 *.gch
-
 *.pch
 
+# Libraries
+*.lib
+*.a
+*.la
+*.lo
 
-# Compiled Dynamic libraries
-
+# Shared objects (inc. Windows DLLs)
+*.dll
 *.so
-
+*.so.*
 *.dylib
 
-*.dll
-
-
-# Fortran module files
-
-*.mod
-
-
-# Compiled Static libraries
-
-*.lai
-
-*.la
-
-*.a
-
-*.lib
-
-
 # Executables
-
 *.exe
-
 *.out
-
 *.app
+*.i*86
+*.x86_64
+*.hex
 
+# Debug files
+*.dSYM/
 
 # XML from eclipse
-
 *.xml
-
 *.settings.xml
 3494_2016_robot/.settings/language.settings.xml
