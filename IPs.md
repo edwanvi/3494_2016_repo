@@ -1,4 +1,4 @@
-#Questioning thee purpose of this document will result in sudden and painful death.
+#Questioning the purpose of this document will result in sudden and painful death.
 
 **DSWin10**: 
 
