@@ -2,11 +2,11 @@ Alright new programmer from now on your job is very simple: you are going to pun
 
 *In the face.*
 
-Jokes aside, this is the software you need to start programming as of September 9th, 2016.
+Jokes aside, this is the software you need to start programming as of September 10th, 2016.
 
 * [Eclipse __MARS__](https://eclipse.org/downloads/packages/release/Mars/2)
  * Remember if you get the 64-bit version or the 32 bit version.
-* [The FRC update suite](http://www.ni.com/download/first-robotics-software-2016/5773/en) - this is the 2016 version, and you need the serial number off of the package.
+* [The FRC update suite](http://www.ni.com/download/first-robotics-software-2016/5773/en) - this is the 2016 version, and you need the serial number off of the package that we got in the kit of parts.
 * [The Oracle JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
  * Make sure you have the 32 bit version if you got 32 bit Eclipse or 64 or 64 bit.
 * The FRC Eclipse plugins
