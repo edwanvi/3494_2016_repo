@@ -8,6 +8,7 @@
  * to a variable name. This provides flexibility changing wiring, makes checking
  * the wiring easier and significantly reduces the number of magic numbers
  * floating around.
+ * Please use it.
  */
 
 // For example to map the left and right motors, you could define the

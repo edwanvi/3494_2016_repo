@@ -15,8 +15,7 @@ Kompressor_2::Kompressor_2() :
 }
 
 void Kompressor_2::InitDefaultCommand() {
-	// Set the default command for a subsystem here.
-	//SetDefaultCommand(new MySpecialCommand());
+	// compressor does not have any commands
 }
 
 // Put methods for controlling this subsystem

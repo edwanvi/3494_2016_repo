@@ -87,7 +87,7 @@ void DriveTrain::InitDefaultCommand() {
 
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
-
+// Drive the TankDrive
 void DriveTrain::TankDrive(float leftAxis, float rightAxis) {
 	// Monitors the total current draw of the robot use it when needed
 	SmartDashboard::PutNumber("left",leftAxis );
@@ -135,7 +135,7 @@ int DriveTrain::PowerDistOutput() {
 }
 
 /*int DriveTrain::IndPowerOutput(int PDP_Channel) {
-//Gathers the individual channel
+	//Gathers the individual channel
 	return pdp->GetCurrent(PDP_Channel);
 }
 */

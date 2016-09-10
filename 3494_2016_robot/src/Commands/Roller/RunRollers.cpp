@@ -32,12 +32,11 @@ void RunRollers::Execute() {
 bool RunRollers::IsFinished() {
 	if (!oi->GetRightTrigger() && mode == 1) {
 		return true;
-	}
-
-	if (!oi->GetRightTrigger_2() && mode == 2) {
+	} else if (!oi->GetRightTrigger_2() && mode == 2) {
 		return true;
+	} else {
+		return false;
 	}
-	return false;
 }
 
 // Called once after isFinished returns true
