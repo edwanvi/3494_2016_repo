@@ -16,5 +16,8 @@ Jokes aside, this is the software you need to start programming as of September 
  * If you need help with setting up MinGW, ***ASK***.
 * [NavX C++ libraries](http://www.pdocs.kauailabs.com/navx-mxp/software/roborio-libraries/c/), because who knows maybe we *will* use the gyroscope this year.
 * Last but not least, your best friend, [Github.](https://www.github.com)
+ * Get an account, and, if you can, [the github client.](https://desktop.github.com/)
+ * If you can't get the desktop client for some reason, [the command line version is fine.](https://git-scm.com/)
+ * And if you have no idea how to use git, [this site should help you get started.](https://try.github.io/levels/1/challenges/1)
 
 This list is largely copied from [the FRC docs.](https://wpilib.screenstepslive.com/s/4485/m/13810/l/145002-installing-eclipse-c-java)
