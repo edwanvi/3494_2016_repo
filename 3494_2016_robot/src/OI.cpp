@@ -76,6 +76,7 @@ OI::OI()
 	//move camera arm
 	buttonY_3->WhenPressed(new cam(true));
 	buttonA_3->WhenPressed(new cam(false));
+	// Fail the NavX. If the NavX is failed, our voltage ramp stops
 	buttonStart_3->WhenPressed(new Fail_NavX(true));
 	buttonSelect_3->WhenPressed(new Fail_NavX(false));
 

@@ -146,8 +146,7 @@ int DriveTrain::PowerDistOutput()
 
 /*int DriveTrain::IndPowerOutput(int PDP_Channel)
 {
-
-//Gathers the individual channel
+	//Gathers the individual channel
 	return pdp->GetCurrent(PDP_Channel);
 }
 */
@@ -184,6 +183,7 @@ int DriveTrain::Encoder_Position()
 {
 	return (LeftTalonMaster->GetEncPosition() * Rpulse);
 }
+
 void DriveTrain::ResetEncoders(){
 	LeftTalonMaster->SetPosition(0);	// RESET ENCODERS
 	RightTalonFollower_2->SetPosition(0);
