@@ -9,8 +9,7 @@
 #include "Commands/Roller/Rollers_lift.h"
 #include "Commands/Drive/Fail_NavX.h"
 
-OI::OI()
-{
+OI::OI() {
 	// Process operator interface input here.
 	//Define controllers as Joystick objects
 	controller = new Joystick(0);
@@ -31,7 +30,7 @@ OI::OI()
 	button11 = new JoystickButton(controller, 11);
 	button12 = new JoystickButton(controller, 12);
 
-	button1_2 = new JoystickButton(controller_2, 1);//2  //  xbox
+	button1_2 = new JoystickButton(controller_2, 1);
 	button2_2 = new JoystickButton(controller_2, 2);
 	button3_2 = new JoystickButton(controller_2, 3);
 	button4_2 = new JoystickButton(controller_2, 4);
@@ -43,7 +42,7 @@ OI::OI()
 	button10_2 = new JoystickButton(controller_2, 10);
 	button11_2 = new JoystickButton(controller_2, 11);
 	button12_2 = new JoystickButton(controller_2, 12);
-
+	//controller 3, xbox controller as opposed to a flight stick
 	buttonA_3 = new JoystickButton(controller_3, 1);
 	buttonB_3 = new JoystickButton(controller_3, 2);
 	buttonX_3 = new JoystickButton(controller_3, 3);
@@ -100,7 +99,6 @@ double OI::GetRightJoystick_2(){
 	return -1 * controller_2->GetRawAxis(5);
 }
 */
-
 double OI::GetRightTrigger() {
 	return controller->GetRawButton(1);
 }
@@ -133,9 +131,9 @@ double OI::GetLeftTrigger_2() {
 	return controller_2->GetRawAxis(2);
 }
 /*
-//double OI::GetRightTrigger_2() {
-	//return controller_2->GetRawAxis(3);
-//}
+double OI::GetRightTrigger_2() {
+	return controller_2->GetRawAxis(3);
+}
 */
 float OI::GetLeftBumper() {
 	return controller->GetRawButton(5);

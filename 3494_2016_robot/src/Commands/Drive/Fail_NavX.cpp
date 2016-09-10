@@ -1,7 +1,6 @@
 #include "Fail_NavX.h"
 
-Fail_NavX::Fail_NavX(bool fail_)
-{
+Fail_NavX::Fail_NavX(bool fail_) {
 	fail = fail_;
 	// Use Requires() here to declare subsystem dependencies
 	Requires(driveTrain);
