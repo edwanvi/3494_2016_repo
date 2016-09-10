@@ -1,7 +1,6 @@
 #include "RunRollers.h"
 
-RunRollers::RunRollers()
-{
+RunRollers::RunRollers() {
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(chassis);
 	Requires(CommandBase::roller);
@@ -9,15 +8,11 @@ RunRollers::RunRollers()
 }
 
 // Called just before this Command runs the first time
-void RunRollers::Initialize()
-{
-
+void RunRollers::Initialize() {
 }
 
 // Called repeatedly when this Command is scheduled to run
-void RunRollers::Execute()
-{
-
+void RunRollers::Execute() {
 	if (oi->GetRightTrigger()){
 			CommandBase::roller->Roll(true, .95);
 			mode = 1;

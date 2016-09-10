@@ -8,8 +8,7 @@
 #include "Subsystems/DriveTrain.h"
 
 
-class Robot: public IterativeRobot
-{
+class Robot: public IterativeRobot {
 private:
 	std::unique_ptr<Command> autonomousCommand;
 	SendableChooser *chooser;
@@ -18,16 +17,18 @@ private:
 
 	AHRS *ahrs; /* Alternatives:  SPI::kMXP, I2C::kMXP or SerialPort::kUSB */
 	bool bDrivetrain;
-	void RobotInit()
-	{
+	void RobotInit() {
 		SmartDashboard::init();
 		CommandBase::init();
+		// creat the auto sequence chooser
 		chooser = new SendableChooser();
-		chooser->AddDefault("Auto 1", new Autonomous_Sequences(1)); // adds the radio buttons for choosing in the smart dashboard
+		// Auto 1 is the default
+		chooser->AddDefault("Auto 1", new Autonomous_Sequences(1));
 		chooser->AddObject("Auto 2", new Autonomous_Sequences(2));
 		chooser->AddObject("Auto 3", new Autonomous_Sequences(3));
 		chooser->AddObject("Auto 4", new Autonomous_Sequences(4));
 		chooser->AddObject("Auto 5", new Autonomous_Sequences(5));
+		//add the auto selector to the dashboard
 		SmartDashboard::PutData("AutoMode", chooser);
 
 		//chooser->AddObject("My Auto", new MyAutoCommand());
@@ -42,12 +43,10 @@ private:
      * You can use it to reset any subsystem information you want to clear when
 	 * the robot is disabled.
      */
-	void DisabledInit()
-	{
+	void DisabledInit() {
 	}
 
-	void DisabledPeriodic()
-	{
+	void DisabledPeriodic() {
 		Scheduler::GetInstance()->Run();
 	}
 
@@ -60,20 +59,18 @@ private:
 	 * You can add additional auto modes by adding additional commands to the chooser code above (like the commented example)
 	 * or additional comparisons to the if-else structure below with additional strings & commands.
 	 */
-	void AutonomousInit()
-	{
+	void AutonomousInit() {
 		autonomousSequences = (Command*)chooser->GetSelected();
-		if (autonomousSequences != NULL)
+		if (autonomousSequences != NULL){
 			autonomousSequences->Start();
+		}
 	}
 
-	void AutonomousPeriodic()
-	{
+	void AutonomousPeriodic() {
 		Scheduler::GetInstance()->Run();
 	}
 
-	void TeleopInit()
-	{
+	void TeleopInit() {
 		// This makes sure that the autonomous stops running when
 		// teleop starts running. If you want the autonomous to
 		// continue until interrupted by another command, remove
@@ -82,13 +79,11 @@ private:
 			autonomousSequences->Cancel();
 	}
 
-	void TeleopPeriodic()
-	{
+	void TeleopPeriodic() {
 		Scheduler::GetInstance()->Run();
 	}
 
-	void TestPeriodic()
-	{
+	void TestPeriodic() {
 		//LiveWindow::GetInstance()->Run();
 		//bDrivetrain = drivetrain->TestDriveTrain(2.0f);
 		//SmartDashboard::PutBoolean("DriveTrain_GO",bDrivetrain);
