@@ -54,15 +54,15 @@ OI::OI()
 	buttonStart_3 = new JoystickButton(controller_3, 8);
 
 
-
+	//define button 12 controller 2 to reset encoders
 	button12_2->WhenPressed(new reset_encoders());
 
+	//shift into high
 	button3->WhenPressed(new Shift_Gear(true));
-
+	//shift into low
 	button4->WhenPressed(new Shift_Gear(false));
 
-	//Run the system checks. Best done when driving
-
+	//run rollers when button 1 is pressed on either stick
 	button1->WhenPressed(new RunRollers());
 	button1_2->WhenPressed(new RunRollers());
 
@@ -70,8 +70,10 @@ OI::OI()
 
 /////////////////////////////////////////////////////////////////////
 
+	//xbox controls, currently unused
 	buttonB_3->WhenPressed(new Lift_Set(true));
 	buttonX_3->WhenPressed(new Lift_Set(false));
+	//move camera arm
 	buttonY_3->WhenPressed(new cam(true));
 	buttonA_3->WhenPressed(new cam(false));
 	buttonStart_3->WhenPressed(new Fail_NavX(true));
@@ -79,7 +81,6 @@ OI::OI()
 
 	//button7_2->WhenPressed(new SystemsCheck(true));
 	//button7->WhenPressed(new SystemsCheck(false));
-
 }
 //these methods all basically do what they say they do in their name so yeah
 float OI::GetJoystickY() {
@@ -106,16 +107,16 @@ double OI::GetRightTrigger() {
 
 double OI::GetRightTrigger_2() {
 	return controller_2->GetRawButton(1);
-
 }
 
 double OI::GetLeftTrigger() {
 	return controller->GetRawAxis(2);
 }
-
-//double OI::GetRightTrigger() {
-	//return controller->GetRawAxis(3);
-//}
+/*
+double OI::GetRightTrigger() {
+	return controller->GetRawAxis(3);
+}
+*/
 double OI::GetDPad_2() {
 	return controller_2->GetPOV();
 }
@@ -127,14 +128,15 @@ double OI::GetDPad_3() {
 double OI::GetDPad() {
 	return controller->GetPOV();
 }
+
 double OI::GetLeftTrigger_2() {
 	return controller_2->GetRawAxis(2);
 }
-
+/*
 //double OI::GetRightTrigger_2() {
 	//return controller_2->GetRawAxis(3);
 //}
-
+*/
 float OI::GetLeftBumper() {
 	return controller->GetRawButton(5);
 }
@@ -142,6 +144,7 @@ float OI::GetLeftBumper() {
 float OI::GetRightBumper() {
 	return controller_3->GetRawButton(6);
 }
+
 float OI::Get11() {
 	return controller->GetRawButton(11);
 }
@@ -149,7 +152,7 @@ float OI::Get11() {
  float OI::GetY() {
 	return controller_3->GetRawButton(4);
 }
+
 float OI::GetA() {
 	return controller_3->GetRawButton(1);
 }
-
