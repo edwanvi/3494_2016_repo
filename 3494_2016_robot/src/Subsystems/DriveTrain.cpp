@@ -4,6 +4,7 @@
 #include "../Commands/Drive/Drive.h"
 #include "ctime"
 #include "math.h"
+
 DriveTrain::DriveTrain() :
 		Subsystem("DriveTrain")
 {
@@ -146,6 +147,7 @@ int DriveTrain::PowerDistOutput()
 
 /*int DriveTrain::IndPowerOutput(int PDP_Channel)
 {
+
 	//Gathers the individual channel
 	return pdp->GetCurrent(PDP_Channel);
 }
@@ -174,7 +176,8 @@ float DriveTrain::PowerSide(int value)
 }
 
 
-double DriveTrain::GetPosition(){
+double DriveTrain::GetPosition()
+{
 	return ((-1 * LeftTalonMaster->GetEncPosition() * Rpulse) + (RightTalonMaster->GetEncPosition() * Rpulse));
 	//  this will be uncommented when the measurements are correct
 }
