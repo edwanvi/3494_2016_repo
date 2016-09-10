@@ -76,14 +76,14 @@ OI::OI()
 	//move camera arm
 	buttonY_3->WhenPressed(new cam(true));
 	buttonA_3->WhenPressed(new cam(false));
-	// Fail the NavX. If the NavX is failed, our voltage ramp stops
+	// Fail the NavX. If the NavX is failed, our voltage ramp stops working.
 	buttonStart_3->WhenPressed(new Fail_NavX(true));
 	buttonSelect_3->WhenPressed(new Fail_NavX(false));
 
 	//button7_2->WhenPressed(new SystemsCheck(true));
 	//button7->WhenPressed(new SystemsCheck(false));
 }
-//these methods all basically do what they say they do in their name so yeah
+//these methods all documented by name
 float OI::GetJoystickY() {
 	return 1 * controller->GetRawAxis(1);
 }
