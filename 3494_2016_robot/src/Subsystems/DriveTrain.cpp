@@ -8,7 +8,7 @@
 DriveTrain::DriveTrain() :
 		Subsystem("DriveTrain") {
 	NavXFail = true;
-	//ramp = 0;
+	ramp = 0;
 	timeElapsed = 0.0;
 	duration = 0.0;
 ////////////////////////////////////////////////////////////
