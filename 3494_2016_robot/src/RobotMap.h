@@ -9,7 +9,7 @@
  * the wiring easier and significantly reduces the number of magic numbers
  * floating around.
  */
- 
+
 // For example to map the left and right motors, you could define the
 // following variables to use with your drivetrain subsystem.
 //const int LEFTMOTOR = 1;
@@ -49,7 +49,6 @@ const int RIGHT_MOTOR_FOLLOWER_2 = 14;
 //const int RIGHT_MOTOR_MASTER = 13; // temp values for practice robot
 //const int RIGHT_MOTOR_FOLLOWER = 14;
 //const int RIGHT_MOTOR_FOLLOWER_2 = 15;
-
 ////////////////////////////////////////////////////////////
 const int SOL_SHIFTER_1 = 3;
 const int SOL_SHIFTER_2 = 2;
@@ -57,28 +56,24 @@ const int COMPRESSOR = 0;
 ////////////////////////////////////////////////////////////
 const float RAMP = 23;
 ////////////////////////////////////////////////////////////
-
 const int Talon_Lift_Setter = 70;
 
 const int TALON_LIFT = 80;
 const int TALON_LIFT_2 = 90;
-
 ////////////////////////////////////////////////////////////
-
 const float DPAD_LIFT = .85;
 const float DPAD_DRIVE = .50;
 const float CAM_1 = 6;
 const float CAM_2 = 7;
-
 ////////////////////////////////////////////////////////////
-
 const int TALON_WINCH_1 = 0;
 const int TALON_WINCH_2 = 9;
 const int WINCH_SPEED = 255;
-
 ////////////////////////////////////////////////////////////
-
 const int SOL_CLIMBER_1 = 1;
 const int SOL_CLIMBER_2 = 0;
+////////////////////////////////////////////////////////////
+const bool DO_WE_HAVE_A_COMPRESSOR = true;
+////////////////////////////////////////////////////////////
 
 #endif
