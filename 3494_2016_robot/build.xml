@@ -4,7 +4,7 @@
 
   <!--
   The following properties can be defined to override system level
-  settings. These should not be touched unless you know what you're
+  settings. These SHOULD NOT be touched unless you know what you're
   doing. The primary use is to override the wpilib version when
   working with older robots that can't compile with the latest
   libraries.
@@ -15,14 +15,14 @@
 
   <!-- By default the system team number is used -->
   <property name="team-number" value="3494"/>
-	
+
   <!-- By default the target is set to 10.TE.AM.2 -->
   <!-- <property name="target" value=""/> -->
-  
+
   <property file="${user.home}/wpilib/wpilib.properties"/>
   <property file="build.properties"/>
   <property file="${user.home}/wpilib/cpp/${version}/ant/build.properties"/>
-  
+
   <import file="${wpilib.ant.dir}/build.xml"/>
 
-</project> 
+</project>
