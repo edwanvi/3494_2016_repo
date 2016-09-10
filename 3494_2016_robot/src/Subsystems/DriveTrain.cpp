@@ -4,9 +4,9 @@
 #include "../Commands/Drive/Drive.h"
 #include "ctime"
 #include "math.h"
+
 DriveTrain::DriveTrain() :
-		Subsystem("DriveTrain")
-{
+		Subsystem("DriveTrain") {
 	NavXFail = true;
 	//ramp = 0;
 	timeElapsed = 0.0;
@@ -82,16 +82,14 @@ DriveTrain::DriveTrain() :
 	//ahrs->Reset();
 }
 
-void DriveTrain::InitDefaultCommand()
-{
+void DriveTrain::InitDefaultCommand() {
 	SetDefaultCommand(new Drive());
 }
 
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
 
-void DriveTrain::TankDrive(float leftAxis, float rightAxis)
-{
+void DriveTrain::TankDrive(float leftAxis, float rightAxis) {
 // Monitors the total current draw of the robot use it when needed
 	SmartDashboard::PutNumber("left",leftAxis );
 	SmartDashboard::PutNumber("right", rightAxis);
@@ -120,18 +118,15 @@ void DriveTrain::TankDrive(float leftAxis, float rightAxis)
 	// added a prototype that will limit the amount of
 	// acceleration depending on the dipping angle of the robot
 	// This will defiantly will need tweaked values
-	if (!NavXFail)
-	{
-		if (angle < -7) // 12 = penalty
-		{
+	if (!NavXFail) {
+		if (angle < -7) {
+			// 12 = penalty
 			ramp = (16 + (angle)); // the ramp rate will slow down even more if the robot dips more
 		}
-		else if (angle > 7)
-		{
+		else if (angle > 7) {
 			ramp = (16 - angle); // if the robot dips backwards then this will compensate
 		}
-		else
-		{
+		else {
 			ramp = 0; // if the robot is just fine then there is no ramp rate
 		}
 	}
@@ -139,62 +134,53 @@ void DriveTrain::TankDrive(float leftAxis, float rightAxis)
 	RightTalonMaster->Set(rightAxis);
 }
 
-int DriveTrain::PowerDistOutput()
-{
+int DriveTrain::PowerDistOutput() {
 	return pdp->GetCurrent(LEFT_MOTOR_FOLLOWER); // displays total pdp current for documenting total draw and brownouts
 }
 
-/*int DriveTrain::IndPowerOutput(int PDP_Channel)
-{
-
-//Gathers the individual channel
+/*int DriveTrain::IndPowerOutput(int PDP_Channel) {
+	//Gathers the individual channel
 	return pdp->GetCurrent(PDP_Channel);
 }
 */
 
 //checks
-float DriveTrain::PowerSide(int value)
-{
+float DriveTrain::PowerSide(int value) {
 	int value_ = value;
 	float left_side = pdp->GetCurrent(LEFT_MOTOR_MASTER) + pdp->GetCurrent(LEFT_MOTOR_FOLLOWER) + pdp->GetCurrent(LEFT_MOTOR_FOLLOWER_2);
 
 	float right_side = pdp->GetCurrent(RIGHT_MOTOR_MASTER) + pdp->GetCurrent(RIGHT_MOTOR_FOLLOWER) + pdp->GetCurrent(RIGHT_MOTOR_FOLLOWER_2);
 		// 13 14 15// 0 1 2
-	if (value_ == 0)
-	{
+	if (value_ == 0) {
 		return (left_side);
 	}
-	if (value_ == 1)
-	{
+	if (value_ == 1) {
 		return (right_side);
 	}
-	else
-	{
+	else {
 		return (0);
 	}
 }
 
 
-double DriveTrain::GetPosition(){
+double DriveTrain::GetPosition() {
 	return ((-1 * LeftTalonMaster->GetEncPosition() * Rpulse) + (RightTalonMaster->GetEncPosition() * Rpulse));
 	//  this will be uncommented when the measurements are correct
 }
 
-int DriveTrain::Encoder_Position()
-{
+int DriveTrain::Encoder_Position() {
 	return (LeftTalonMaster->GetEncPosition() * Rpulse);
 }
+
 void DriveTrain::ResetEncoders(){
 	LeftTalonMaster->SetPosition(0);	// RESET ENCODERS
 	RightTalonFollower_2->SetPosition(0);
 }
 
-bool DriveTrain::TestDriveTrain(float _duration)
-{
+bool DriveTrain::TestDriveTrain(float _duration) {
 	//float duration = _duration;
 	//start = std::clock();
-	for(int a = 0; a < 99;a++)
-	{
+	for(int a = 0; a < 99;a++) {
 		TankDrive(-0.75,0.75);
 		rightCurrent = PowerSide(1);
 		leftCurrent = PowerSide(0);
@@ -214,8 +200,7 @@ bool DriveTrain::TestDriveTrain(float _duration)
 		//timeElapsed = (std::clock() + start)/(double)CLOCKS_PER_SEC;
 	}
 
-	if (abs(leftCurrent - rightCurrent) <= 5.0f)
-	{
+	if (abs(leftCurrent - rightCurrent) <= 5.0f) {
 		bCheck = true;
 	}
 	return bCheck;
@@ -241,7 +226,6 @@ bool DriveTrain::TestDriveTrain(float _duration)
 	*/
 	//drive the master talons. the others /will/ follow.
 
-void DriveTrain::Fail_NavX(bool fail)
-{
+void DriveTrain::Fail_NavX(bool fail) {
 	NavXFail = fail;
 }
