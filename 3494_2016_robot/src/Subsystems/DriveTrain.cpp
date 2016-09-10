@@ -63,13 +63,12 @@ DriveTrain::DriveTrain() :
 	RightTalonFollower_2->Set(RIGHT_MOTOR_MASTER);
 ////////////////////////////////////////////////////////////
 	pdp = new PowerDistributionPanel();
-
 	//gyro = new AnalogGyro(2);
 	//gyro->Reset();
 ////////////////////////////////////////////////////////////
 	SmartDashboard::init();
 ////////////////////////////////////////////////////////////
-//for the system check
+	//for the system check
 	bCheck = false;
 	rightCurrent = 75.0f;
 	leftCurrent = 0.0f;
@@ -82,17 +81,15 @@ DriveTrain::DriveTrain() :
 	//ahrs->Reset();
 }
 
-void DriveTrain::InitDefaultCommand()
-{
+void DriveTrain::InitDefaultCommand() {
 	SetDefaultCommand(new Drive());
 }
 
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
 
-void DriveTrain::TankDrive(float leftAxis, float rightAxis)
-{
-// Monitors the total current draw of the robot use it when needed
+void DriveTrain::TankDrive(float leftAxis, float rightAxis) {
+	// Monitors the total current draw of the robot use it when needed
 	SmartDashboard::PutNumber("left",leftAxis );
 	SmartDashboard::PutNumber("right", rightAxis);
 	SmartDashboard::PutNumber("Current_Chan left",PowerSide(0) );
@@ -100,16 +97,13 @@ void DriveTrain::TankDrive(float leftAxis, float rightAxis)
 	SmartDashboard::PutNumber("Encoder_Position", Encoder_Position());
 /////////////////////////////////////////////////////////////////////
 	//This will give a value of 1 for right and -1 for left
-	if (leftAxis < -.20 && rightAxis > .20)
-	{
+	if (leftAxis < -.20 && rightAxis > .20) {
 		RightTalonMaster->SetVoltageRampRate(37);
 		LeftTalonMaster->SetVoltageRampRate(37);
 	}
-	else
-	{
+	else {
 		RightTalonMaster->SetVoltageRampRate(RAMP);
 		LeftTalonMaster->SetVoltageRampRate(RAMP);
-
 	}
 	angle = ahrs->GetRoll();
 	SmartDashboard::PutNumber("Angle measure", angle);
@@ -120,18 +114,15 @@ void DriveTrain::TankDrive(float leftAxis, float rightAxis)
 	// added a prototype that will limit the amount of
 	// acceleration depending on the dipping angle of the robot
 	// This will defiantly will need tweaked values
-	if (!NavXFail)
-	{
-		if (angle < -7) // 12 = penalty
-		{
+	if (!NavXFail) {
+		// 12 = penalty (we dipped to low)
+		if (angle < -7) {
 			ramp = (16 + (angle)); // the ramp rate will slow down even more if the robot dips more
 		}
-		else if (angle > 7)
-		{
+		else if (angle > 7) {
 			ramp = (16 - angle); // if the robot dips backwards then this will compensate
 		}
-		else
-		{
+		else {
 			ramp = 0; // if the robot is just fine then there is no ramp rate
 		}
 	}
@@ -139,66 +130,56 @@ void DriveTrain::TankDrive(float leftAxis, float rightAxis)
 	RightTalonMaster->Set(rightAxis);
 }
 
-int DriveTrain::PowerDistOutput()
-{
+int DriveTrain::PowerDistOutput() {
 	return pdp->GetCurrent(LEFT_MOTOR_FOLLOWER); // displays total pdp current for documenting total draw and brownouts
 }
 
-/*int DriveTrain::IndPowerOutput(int PDP_Channel)
-{
-
+/*int DriveTrain::IndPowerOutput(int PDP_Channel) {
 //Gathers the individual channel
 	return pdp->GetCurrent(PDP_Channel);
 }
 */
 
 //checks
-float DriveTrain::PowerSide(int value)
-{
+float DriveTrain::PowerSide(int value) {
 	int value_ = value;
 	float left_side = pdp->GetCurrent(LEFT_MOTOR_MASTER) + pdp->GetCurrent(LEFT_MOTOR_FOLLOWER) + pdp->GetCurrent(LEFT_MOTOR_FOLLOWER_2);
 
 	float right_side = pdp->GetCurrent(RIGHT_MOTOR_MASTER) + pdp->GetCurrent(RIGHT_MOTOR_FOLLOWER) + pdp->GetCurrent(RIGHT_MOTOR_FOLLOWER_2);
 		// 13 14 15// 0 1 2
-	if (value_ == 0)
-	{
+	if (value_ == 0) {
 		return (left_side);
 	}
-	if (value_ == 1)
-	{
+	if (value_ == 1) {
 		return (right_side);
 	}
-	else
-	{
+	else {
 		return (0);
 	}
 }
 
-
-double DriveTrain::GetPosition(){
+double DriveTrain::GetPosition() {
 	return ((-1 * LeftTalonMaster->GetEncPosition() * Rpulse) + (RightTalonMaster->GetEncPosition() * Rpulse));
 	//  this will be uncommented when the measurements are correct
 }
 
-int DriveTrain::Encoder_Position()
-{
+int DriveTrain::Encoder_Position() {
 	return (LeftTalonMaster->GetEncPosition() * Rpulse);
 }
-void DriveTrain::ResetEncoders(){
+
+void DriveTrain::ResetEncoders() {
 	LeftTalonMaster->SetPosition(0);	// RESET ENCODERS
 	RightTalonFollower_2->SetPosition(0);
 }
 
-bool DriveTrain::TestDriveTrain(float _duration)
-{
+bool DriveTrain::TestDriveTrain(float _duration) {
 	//float duration = _duration;
 	//start = std::clock();
-	for(int a = 0; a < 99;a++)
-	{
+	//runs 99 times. this is why "button 7" is a bad word.
+	for(int a = 0; a < 99;a++) {
 		TankDrive(-0.75,0.75);
 		rightCurrent = PowerSide(1);
 		leftCurrent = PowerSide(0);
-
 		//total motors
 		SmartDashboard::PutNumber("Left Current", leftCurrent);
 		SmartDashboard::PutNumber("Right Current", rightCurrent);
@@ -210,12 +191,10 @@ bool DriveTrain::TestDriveTrain(float _duration)
 		SmartDashboard::PutNumber("Right Current 1", pdp->GetCurrent(RIGHT_MOTOR_MASTER));
 		SmartDashboard::PutNumber("Right Current 2", pdp->GetCurrent(RIGHT_MOTOR_FOLLOWER));
 		SmartDashboard::PutNumber("Right Current 3", pdp->GetCurrent(RIGHT_MOTOR_FOLLOWER_2));
-
 		//timeElapsed = (std::clock() + start)/(double)CLOCKS_PER_SEC;
 	}
 
-	if (abs(leftCurrent - rightCurrent) <= 5.0f)
-	{
+	if (abs(leftCurrent - rightCurrent) <= 5.0f) {
 		bCheck = true;
 	}
 	return bCheck;
@@ -241,7 +220,6 @@ bool DriveTrain::TestDriveTrain(float _duration)
 	*/
 	//drive the master talons. the others /will/ follow.
 
-void DriveTrain::Fail_NavX(bool fail)
-{
+void DriveTrain::Fail_NavX(bool fail) {
 	NavXFail = fail;
 }

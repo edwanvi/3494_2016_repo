@@ -4,6 +4,7 @@
 Kompressor_2::Kompressor_2() :
 		Subsystem("Kompressor")
 {
+	// TODO: Make this something we can toggle at will
 	// if there happens to be a compressor in the robot it will be ready
 	kompressor = new Compressor(COMPRESSOR);
 	//starts off false because it will be switched to true the first time called
@@ -12,8 +13,7 @@ Kompressor_2::Kompressor_2() :
 	kompressor->SetClosedLoopControl(true);
 }
 
-void Kompressor_2::InitDefaultCommand()
-{
+void Kompressor_2::InitDefaultCommand() {
 	// Set the default command for a subsystem here.
 	//SetDefaultCommand(new MySpecialCommand());
 }
