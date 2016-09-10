@@ -134,9 +134,9 @@ double OI::GetLeftTrigger_2() {
 	return controller_2->GetRawAxis(2);
 }
 /*
-//double OI::GetRightTrigger_2() {
-	//return controller_2->GetRawAxis(3);
-//}
+double OI::GetRightTrigger_2() {
+	return controller_2->GetRawAxis(3);
+}
 */
 float OI::GetLeftBumper() {
 	return controller->GetRawButton(5);

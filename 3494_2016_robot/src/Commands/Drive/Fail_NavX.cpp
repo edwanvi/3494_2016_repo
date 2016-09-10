@@ -3,14 +3,12 @@
 Fail_NavX::Fail_NavX(bool fail_)
 {
 	fail = fail_;
-	// Use Requires() here to declare subsystem dependencies
-	 Requires(driveTrain);
+	Requires(driveTrain);
 }
 
 // Called just before this Command runs the first time
 void Fail_NavX::Initialize()
 {
-
 }
 
 // Called repeatedly when this Command is scheduled to run
