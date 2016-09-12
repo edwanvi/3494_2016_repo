@@ -17,6 +17,7 @@ OI::OI() {
 	controller_3 = new Joystick(2);
 
 	//Define all the buttons, all of them
+	//controller 1 = left stick
 	button1 = new JoystickButton(controller, 1);
 	button2 = new JoystickButton(controller, 2);
 	button3 = new JoystickButton(controller, 3);
@@ -72,9 +73,13 @@ OI::OI() {
 	//xbox controls, currently unused
 	buttonB_3->WhenPressed(new Lift_Set(true));
 	buttonX_3->WhenPressed(new Lift_Set(false));
-	//move camera arm
+	//move camera arm, true = up
 	buttonY_3->WhenPressed(new cam(true));
 	buttonA_3->WhenPressed(new cam(false));
+
+	button2->WhenPressed(new cam(true));
+	button2_2->WhenPressed(new cam(false));
+
 	buttonStart_3->WhenPressed(new Fail_NavX(true));
 	buttonSelect_3->WhenPressed(new Fail_NavX(false));
 
