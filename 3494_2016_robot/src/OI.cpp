@@ -74,9 +74,8 @@ OI::OI() {
 	buttonB_3->WhenPressed(new Lift_Set(true));
 	buttonX_3->WhenPressed(new Lift_Set(false));
 	//move camera arm, true = up
-	buttonY_3->WhenPressed(new cam(true));
-	buttonA_3->WhenPressed(new cam(false));
-
+	//buttonY_3->WhenPressed(new cam(true));
+	//buttonA_3->WhenPressed(new cam(false));
 	button2->WhenPressed(new cam(true));
 	button2_2->WhenPressed(new cam(false));
 
