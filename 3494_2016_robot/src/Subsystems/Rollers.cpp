@@ -17,15 +17,14 @@ Rollers::Rollers() :
 	talon_rollers_lift_right -> SetSafetyEnabled(false);
 
 	roller_left = new CANTalon(ROLLERS_MOTOR_LEFT);	// create talon rollers these are pwm
-
 	roller_right = new CANTalon(ROLLERS_MOTOR_RIGHT);
 
 	pdp = new PowerDistributionPanel(); // for current measuring
 
-
 	down = 0;
 
-	//ignore the line after this one, it's to get eclipse to shut its mouth
+	//make eclipse shut up about variables and constructors. code compiles fine w/out
+	//this line
 	duration = 0.0;
 
 	leftCurrent = 0.0;
@@ -35,18 +34,18 @@ Rollers::Rollers() :
 	SmartDashboard::init();
 }
 
-void Rollers::InitDefaultCommand()
-{
+void Rollers::InitDefaultCommand() {
 	// Set the default command for a subsystem here.
 	SetDefaultCommand(new Rollers_lift());
 }
 
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
-void Rollers::Roll(bool forward, double _speed){
+// run the rollers forward or back at the specified speed
+void Rollers::Roll(bool forward, double _speed) {
 	speed = _speed;
 
-	if (forward == true){
+	if (forward == true) {
 		roller_left->Set(speed);
 		roller_right->Set(-speed);
 	}
@@ -54,11 +53,8 @@ void Rollers::Roll(bool forward, double _speed){
 		roller_left->Set(-speed);
 		roller_right->Set(speed);
 	}
-
-
 }
-void Rollers::Roller_Lift(float magnitude)
-{
+void Rollers::Roller_Lift(float magnitude) {
 	// limit = limitSwitchUp
 	talon_rollers_lift_left->Set(magnitude);
 	talon_rollers_lift_right->Set(-magnitude);
@@ -67,12 +63,11 @@ void Rollers::Roller_Lift(float magnitude)
 	SmartDashboard::PutNumber("Roller down", down);
 }
 
-bool Rollers::CheckRoll(double _duration)
-{
+bool Rollers::CheckRoll(double _duration) {
 	//duration = _duration;
-	//sstart = std::clock();
-	for(int a = 0; a < 99; a++)
-	{
+	//start = std::clock();
+	//runs 99 times. hence "button 7" being a swear word.
+	for(int a = 0; a < 99; a++) {
 		Roll(true, 0.1);
 		//again no idea which roller is which
 		leftCurrent = pdp->GetCurrent(ROLLERS_MOTOR_LEFT_PDP); // all pwm motors dont have a matching pdp
@@ -82,12 +77,9 @@ bool Rollers::CheckRoll(double _duration)
 
 		//timeElapsed = (std::clock() + start)/(double)CLOCKS_PER_SEC;
 	}
-//dont know proper current check
 
-if (abs(leftCurrent- rightCurrent) <= 2.0f)
-	{
+	if (abs(leftCurrent- rightCurrent) <= 2.0f) {
 		bCheck = true;
 	}
 	return bCheck;
 }
-
