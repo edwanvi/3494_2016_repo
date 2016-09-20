@@ -90,9 +90,9 @@ void DriveTrain::InitDefaultCommand() {
 // Drive the TankDrive
 void DriveTrain::TankDrive(float leftAxis, float rightAxis) {
 	// Monitors the total current draw of the robot use it when needed
-	SmartDashboard::PutNumber("left",leftAxis );
+	SmartDashboard::PutNumber("left", leftAxis );
 	SmartDashboard::PutNumber("right", rightAxis);
-	SmartDashboard::PutNumber("Current_Chan left",PowerSide(0) );
+	SmartDashboard::PutNumber("Current_Chan left", PowerSide(0) );
 	SmartDashboard::PutNumber("Current_Chan Right", PowerSide(1));
 	SmartDashboard::PutNumber("Encoder_Position", Encoder_Position());
 /////////////////////////////////////////////////////////////////////
