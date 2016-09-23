@@ -9,8 +9,7 @@
 #include "Commands/Roller/Rollers_lift.h"
 #include "Commands/Drive/Fail_NavX.h"
 
-OI::OI()
-{
+OI::OI() {
 	// Process operator interface input here.
 	//Define controllers as Joystick objects
 	controller = new Joystick(0);
@@ -18,6 +17,7 @@ OI::OI()
 	controller_3 = new Joystick(2);
 
 	//Define all the buttons, all of them
+	//controller 1 = left stick
 	button1 = new JoystickButton(controller, 1);
 	button2 = new JoystickButton(controller, 2);
 	button3 = new JoystickButton(controller, 3);
@@ -31,7 +31,7 @@ OI::OI()
 	button11 = new JoystickButton(controller, 11);
 	button12 = new JoystickButton(controller, 12);
 
-	button1_2 = new JoystickButton(controller_2, 1);//2  //  xbox
+	button1_2 = new JoystickButton(controller_2, 1);
 	button2_2 = new JoystickButton(controller_2, 2);
 	button3_2 = new JoystickButton(controller_2, 3);
 	button4_2 = new JoystickButton(controller_2, 4);
@@ -43,7 +43,7 @@ OI::OI()
 	button10_2 = new JoystickButton(controller_2, 10);
 	button11_2 = new JoystickButton(controller_2, 11);
 	button12_2 = new JoystickButton(controller_2, 12);
-
+	//controller 3, xbox controller as opposed to a flight stick
 	buttonA_3 = new JoystickButton(controller_3, 1);
 	buttonB_3 = new JoystickButton(controller_3, 2);
 	buttonX_3 = new JoystickButton(controller_3, 3);
@@ -73,9 +73,12 @@ OI::OI()
 	//xbox controls, currently unused
 	buttonB_3->WhenPressed(new Lift_Set(true));
 	buttonX_3->WhenPressed(new Lift_Set(false));
-	//move camera arm
-	buttonY_3->WhenPressed(new cam(true));
-	buttonA_3->WhenPressed(new cam(false));
+	//move camera arm, true = up
+	//buttonY_3->WhenPressed(new cam(true));
+	//buttonA_3->WhenPressed(new cam(false));
+	button2->WhenPressed(new cam(true));
+	button2_2->WhenPressed(new cam(false));
+
 	buttonStart_3->WhenPressed(new Fail_NavX(true));
 	buttonSelect_3->WhenPressed(new Fail_NavX(false));
 
@@ -100,7 +103,6 @@ double OI::GetRightJoystick_2(){
 	return -1 * controller_2->GetRawAxis(5);
 }
 */
-
 double OI::GetRightTrigger() {
 	return controller->GetRawButton(1);
 }
@@ -133,9 +135,9 @@ double OI::GetLeftTrigger_2() {
 	return controller_2->GetRawAxis(2);
 }
 /*
-//double OI::GetRightTrigger_2() {
-	//return controller_2->GetRawAxis(3);
-//}
+double OI::GetRightTrigger_2() {
+	return controller_2->GetRawAxis(3);
+}
 */
 float OI::GetLeftBumper() {
 	return controller->GetRawButton(5);
