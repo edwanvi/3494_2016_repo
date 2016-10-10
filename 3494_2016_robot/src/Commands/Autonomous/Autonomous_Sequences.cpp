@@ -4,10 +4,11 @@
 #include "NewTurn.h"
 #include "Auto_Roller_Lift.h"
 #include "Turn.h"
+#include <iostream>
+#include <string>
 
 Autonomous_Sequences::Autonomous_Sequences(int autoMode)
 {
-
 	SmartDashboard::init();
 	one = false; // these are the autonomous states
 	two = false; // this is an arbitrary number
@@ -70,7 +71,6 @@ void Autonomous_Sequences::auto3() // This is for approaching defence
 	SmartDashboard::PutBoolean("Auto3 State", three);
 	AddSequential(new Auto_Roller_Lift(1.5, .5)); // goes down with 50% power
 	AddSequential(new Auto_Move_Tim(-.75, -.75,2)); // perfect time = 1 second and .75 power
-
 }
 
 void Autonomous_Sequences::auto4()
@@ -95,13 +95,11 @@ void Autonomous_Sequences::auto4()
 		AddSequential(new Auto_Move_Tim(.70, .70, 1));
 	}
 	else {
-		std::cout << "I'm amazed. " << defense << " is on the field and not a defense.";
+		std::cout << defense << " is on the field and not a registered defense." << std::endl;
 	}
-
-	AddSequential(new Auto_Move_Tim(.46, .50, 1.5)); // worked when 3% was shaved off of left side
-	AddSequential(new Auto_Move_Tim(.94, 1, 1.5)); //
-	AddSequential(new Auto_Move_Tim(.64, .70, 1)); //
-
+	//AddSequential(new Auto_Move_Tim(.46, .50, 1.5)); // worked when 3% was shaved off of left side
+	//AddSequential(new Auto_Move_Tim(.94, 1, 1.5));
+	//AddSequential(new Auto_Move_Tim(.64, .70, 1));
 }
 
 void Autonomous_Sequences::auto5()
